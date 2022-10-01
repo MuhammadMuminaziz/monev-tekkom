@@ -28,8 +28,8 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="charts.html">
+        <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>School</span></a>
         </li>
@@ -43,8 +43,8 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="charts.html">
+        <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>School</span></a>
         </li>

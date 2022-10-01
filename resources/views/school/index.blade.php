@@ -5,28 +5,24 @@
             <h1 class="h3 mb-2 text-gray-800">Tables</h1>
             <div class="card shadow">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Guru</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Data Sekolah</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">
-                            <a href="{{ route('teachers.create') }}" class="btn btn-sm px-4 pt-2 rounded-pill btn-primary">Add Data</a>
+                            <a href="{{ route('schools.create') }}" class="btn btn-sm px-4 pt-2 rounded-pill btn-primary">Add Data</a>
                         </div>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <th width="5%">ID</th>
-                                <th>Nama Guru</th>
-                                <th>NIP</th>
-                                <th>NUPTK</th>
-                                <th>Asal Sekolah</th>
+                                <th>Nama Sekolah</th>
+                                <th>NPSN</th>
+                                <th>Jumlah Siswa</th>
                                 <th>Desa / Kecamatan</th>
-                                <th>No Telp</th>
                                 <th width="15%">Action</th>
                             </thead>
                             <tbody>
                            
-                                <td>#</td>
-                                <td>#</td>
                                 <td>#</td>
                                 <td>#</td>
                                 <td>#</td>

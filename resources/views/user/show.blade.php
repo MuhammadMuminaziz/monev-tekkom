@@ -1,22 +1,53 @@
 <x-app-layout>
-    <div class="row">
-        <div class="col">
-            <div class="card p-3 border-left border-primary border-top-0 border-bottom-0 border-right-0">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <h3 class="mb-0 text-dark">{{ $user->name }}</h3>
-                        <p class="text-secondary mb-0">{{ $user->email }}</p>
-                        <p class="text-secondary my-0">{{ $user->role->name }}</p>
-                        <p class="text-secondary">{{ $user->city }}</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h6>Simple Summernote</h6>
                     </div>
-                    <div>
-                        <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary rounded-pill px-4">edit</a>
-                        <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline">
-                            @method('delete')
+                    <div class="card-body">
+                        <form class="user" method="post" action="#">
+                            @method('put')
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-danger rounded-pill px-4">delete</button>
-                        </form>
+                            <input type="hidden" name="id" value="{{ $user->id }}">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                    id="name" placeholder="Name" value="{{ old('name', $user->name) }}" required>
+                                @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email"
+                                    class="form-control  @error('email') is-invalid @enderror" id="email"
+                                    placeholder="Email Address" value="{{ old('email', $user->email) }}" required
+                                    readonly>
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Role Name</label>
+                                <select name="role_id" class="form-control" id="role_id" required>
+
+                                </select>
+                            </div>
+
+
+                            <div class="form-group row ">
+                                <div class="col-sm-12 col-md-7">
+                                    <button type="text" class="btn btn-primary">Kembali</button>
+                                </div>
+                            </div>
                     </div>
+
                 </div>
             </div>
         </div>

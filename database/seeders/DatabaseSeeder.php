@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\City;
 use App\Models\Role;
+use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Database\Seeder;
 
@@ -31,5 +32,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         City::factory(10)->create();
+
+        $this->call(UsersTableSeeder::class);
     }
 }

@@ -27,13 +27,23 @@
                         @enderror
                 </div>
                 <div class="form-group">
-                    <select name="role_id" class="form-control rounded-pill" id="role_id" required>
+                    <select name="role_id" class="form-control rounded-pill form-edit-user" id="role_id" onchange="getCity()" required>
                         @foreach($roles as $role)
                             @if($user->role->name == $role->name)
                             <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
                             @else
                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                             @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group d-none form-city">
+                    <select name="city_id[]" class="select2 form-control rounded-pill" style="width: 100%;" id="city_id" required multiple>
+                        @foreach($verifikator->cities as $city)
+                        <option selected value="{{ $city->id }}">{{ $city->name }}</option>
+                        @endforeach
+                        @foreach($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
                         @endforeach
                     </select>
                 </div>

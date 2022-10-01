@@ -17,6 +17,8 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
     <!-- Custom styles for this template-->
     <link href="{{ asset('sb-admin-2/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
@@ -112,6 +114,23 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('sb-admin-2/js/sb-admin-2.min.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.select2').select2({
+                placeholder: "choise city.."
+            });
+
+            if($('.form-edit-user').val() == 2){
+                $('.form-city').addClass('d-block');
+            }else{
+                $('.form-city').removeClass('d-block');
+            }
+
+        })
+    </script>
 
     <script>
         function getCity(){

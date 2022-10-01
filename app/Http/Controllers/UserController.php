@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Verifikator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -28,7 +30,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create', ['roles' => Role::get()]);
+        return view('user.create', [
+            'roles' => Role::get(),
+            'cities' => City::get()
+        ]);
     }
 
     /**
@@ -61,9 +66,17 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $verifikator = Verifikator::firstWhere('username', $user->username);
+        if ($verifikator) {
+            $verify = $verifikator;
+        } else {
+            $verify = '';
+        }
         return view('user.edit', [
             'user' => $user,
-            'roles' => Role::get()
+            'roles' => Role::get(),
+            'cities' => City::get(),
+            'verifikator' => $verify
         ]);
     }
 
@@ -94,6 +107,17 @@ class UserController extends Controller
         $data['password'] = $password;
 
         $user->update($data);
+
+        if ($request->role_id == 2) {
+            $verifikator = Verifikator::firstWhere('username', $user->username);
+            $verifikator->update([
+                'user_id' => $request->role_id,
+                'name' => $request->name,
+                'username' => $this->uniqueSlug($request->name)
+            ]);
+
+            $verifikator->cities()->sync($request->city_id);
+        }
 
         return redirect()->route('users.index')->with('success', 'Account has been updated..');
     }

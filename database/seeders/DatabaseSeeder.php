@@ -42,6 +42,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         City::factory(10)->create();
+
+        $this->call(UsersTableSeeder::class);
         District::factory(20)->create();
     }
 }

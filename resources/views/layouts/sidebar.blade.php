@@ -6,7 +6,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">Monev Tekkom</div>
         </a>
 
         <!-- Divider -->
@@ -28,16 +28,16 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="charts.html">
+        <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Scools</span></a>
+                <span>School</span></a>
         </li>
 
-        <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('users.index') }}">
+        <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('teachers.index') }}">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Teachers</span></a>
+                <span>Teachers </span></a>
         </li>
         
         <!-- Divider -->
@@ -55,10 +55,10 @@
                 <span>District</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="charts.html">
+        <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Scools</span></a>
+                <span>School</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">

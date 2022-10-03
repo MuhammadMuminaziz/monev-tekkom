@@ -46,9 +46,15 @@ class User extends Authenticatable
     ];
 
     protected $with = ['role'];
+
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function verifikators()
+    {
+        return $this->hasMany(Verifikator::class);
     }
 
     public function getRouteKeyName()

@@ -9,4 +9,14 @@ class City extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'slug'];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function verifikators()
+    {
+        return $this->belongsToMany(Verifikator::class);
+    }
 }

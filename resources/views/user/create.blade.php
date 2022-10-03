@@ -32,13 +32,11 @@
                     </select>
                 </div>
                 <div class="form-group d-none form-city">
-                    <input type="text" name="city" class="form-control rounded-pill @error('city') is-invalid @enderror" id="city"
-                        placeholder="Name" value="{{ old('city') }}" required>
-                        @error('city')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
+                    <select name="city_id[]" class="select2 form-control rounded-pill" style="width: 100%;" id="city_id" required multiple>
+                        @foreach($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">

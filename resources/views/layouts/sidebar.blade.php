@@ -42,17 +42,23 @@
         
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
+        
+        <li class="nav-item {{ request()->is('cities*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('cities.index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Cities</span></a>
+        </li>
+        
+        <li class="nav-item {{ request()->is('district*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('district.index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>District</span></a>
+        </li>
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('schools.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>School</span></a>
-        </li>
-        
-        <li class="nav-item {{ request()->is('cities*') ? 'active' : '' }}">
-            <a class="nav-link pb-0" href="{{ route('cities.index') }}">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>City / District</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">

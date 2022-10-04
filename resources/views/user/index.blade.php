@@ -1,6 +1,17 @@
 <x-app-layout>
 <div class="container-fluid">
     <div class="row">
+
+        {{-- Message --}}
+        @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">
+            {{ session('message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+
         <div class="col">
             <h1 class="h3 mb-2 text-gray-800">Tables</h1>
             <div class="card shadow">

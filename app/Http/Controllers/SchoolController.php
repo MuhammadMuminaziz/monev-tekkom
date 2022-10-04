@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\District;
+use App\Models\Periode;
 use App\Models\School;
 use Illuminate\Http\Request;
 
@@ -14,7 +17,27 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        return view('school.index', ['schools' => School::get()]);
+        $periode = Periode::first();
+        $school = School::where('periode', 2020)->exists();
+
+        if ($school) {
+            $school = School::where('periode', $periode)->where('isActive', 1)->exists();
+            if ($school) {
+                $data = School::where('periode', $periode)->where('isActive', 1)->first();
+                $success = 'data';
+            } else {
+                $data = School::firstWhere('periode', $periode);
+                $success = 'no verify';
+            }
+            return view('school.index', [
+                'schools' => $data,
+                'success' => $success
+            ]);
+        } else {
+            return view('school.index', [
+                'success' => 'no data'
+            ]);
+        }
     }
 
     /**
@@ -24,7 +47,10 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        return view('school.create');
+        return view('school.create', [
+            'districts' => District::orderBy('name', 'asc')->get(),
+            'cities' => City::orderBy('name', 'asc')->get(),
+        ]);
     }
 
     /**
@@ -41,10 +67,10 @@ class SchoolController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(School $school)
     {
         //
     }
@@ -52,10 +78,10 @@ class SchoolController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(School $school)
     {
         //
     }
@@ -64,10 +90,10 @@ class SchoolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, School $school)
     {
         //
     }
@@ -75,10 +101,10 @@ class SchoolController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(School $school)
     {
         //
     }

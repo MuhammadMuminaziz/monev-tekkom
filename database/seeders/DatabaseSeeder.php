@@ -4,9 +4,12 @@ namespace Database\Seeders;
 
 use App\Models\City;
 use App\Models\District;
+use App\Models\Periode;
 use App\Models\Role;
+use App\Models\School;
 use App\Models\User;
 use App\Models\UserProfile;
+use App\Models\Year;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -45,5 +48,16 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersTableSeeder::class);
         District::factory(20)->create();
+
+        Periode::create([
+            'year' => 2022
+        ]);
+
+        Year::create([
+            'name' => 2021
+        ]);
+        Year::create([
+            'name' => 2022
+        ]);
     }
 }

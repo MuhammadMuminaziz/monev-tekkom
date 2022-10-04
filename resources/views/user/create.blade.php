@@ -32,9 +32,9 @@
                     </select>
                 </div>
                 <div class="form-group d-none form-city">
-                    <select name="city_id[]" class="select2 form-control rounded-pill" style="width: 100%;" id="city_id" required multiple>
-                        @foreach($cities as $city)
-                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                        @foreach($districts as $district)
+                        <option value="{{ $district->id }}">{{ $district->name }}</option>
                         @endforeach
                     </select>
                 </div>

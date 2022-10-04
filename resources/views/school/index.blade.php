@@ -1,4 +1,5 @@
 <x-app-layout>
+<<<<<<< HEAD
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -47,4 +48,14 @@
         </div>
     </div>
 </div>
+
+    {{-- <div class="row justify-content-center">
+        <div class="col-md-7">
+            @if($success == 'no data')
+            <x-school-no-data/>
+            @else
+            <x-school-no-verify/>
+            @endif
+        </div>
+    </div> --}}
 </x-app-layout>

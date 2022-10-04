@@ -26,30 +26,34 @@
                         </div>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
-                                <th width="5%">ID</th>
-                                <th>Name</th>
-                                <th>Role</th>
-                                <th>Email</th>
-                                <th>District</th>
-                                <th width="20%">Action</th>
+                                <tr>
+                                    <th width="5%">ID</th>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Email</th>
+                                    <th>District</th>
+                                    <th width="20%">Action</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 @foreach($users as $index => $user)
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{  $user->role->name}}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->district }}</td>
-                                <td>
-                                    <a href="{{ route('users.show', $user) }}"  class="btn btn-sm btn-info rounded-pill"><i class="fas fa-info-circle"> Detail</i></a>
-                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary rounded-pill"><i class="fas fa-pencil">Edit</i></a>
-                                    <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit"
-                                            class="btn btn-sm btn-danger rounded-pill"> <i class="fas fa-trash"> Delete</i></button>
-                                    </form>
-                                </td>
+                                <tr>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{  $user->role->name}}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->district }}</td>
+                                    <td>
+                                        <a href="{{ route('users.show', $user) }}"  class="btn btn-sm btn-info rounded-pill"><i class="fas fa-info-circle"> Detail</i></a>
+                                        <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary rounded-pill"><i class="fas fa-pencil">Edit</i></a>
+                                        <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit"
+                                                class="btn btn-sm btn-danger rounded-pill"> <i class="fas fa-trash"> Delete</i></button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

@@ -1,228 +1,309 @@
 <x-app-layout>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card shadow">
-                <div class="card-header">
-                    <h6 class="card-title">Edit Data Guru</h6>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <div class="row">
-                        <!-- Data Umum -->
-                        <div class="col-md-6">
-                            A. Data Umum
-                            <div class="form-group">
-                                <label>Nama Guru / Tenaga Administrasi</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Status Ketenagaan</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>NIP</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>NUPTK</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Tempat, Tanggal Lahir</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Agama</label>
-                                <div class="col-sm-12">
-                                    <select class="custom-select" id="validationTooltip04" required>
-                                        <option selected disabled value="">Pilih</option>
-                                        <option>Islam</option>
-                                        <option>Katolik</option>
-                                        <option>Kristen</option>
-                                        <option>Hindu</option>
-                                        <option>Budha</option>
-                                        <option>Lainnya</option>
-                                    </select> </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <div class="col-sm-12">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Laki-laki</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">Perempuan</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Pendidikan Terakhir</label>
-                                <div class="col-sm-12">
-                                    <select class="custom-select" id="validationTooltip04" required>
-                                        <option selected disabled value="">Pilih</option>
-                                        <option>SMA</option>
-                                        <option>D1</option>
-                                        <option>D2</option>
-                                        <option>D3</option>
-                                        <option>D4</option>
-                                        <option>S1</option>
-                                        <option>S2</option>
-                                        <option>S3</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>TMT PNS</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Pangkat / Golongan</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>TMT Golongan</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Asal Sekolah</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Desa / Kecamatan</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Kabupaten / Kota</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Propinsi</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>No Telpon/HP</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-
-
-
-
-
-                        </div>
-                        <!--  Data Kompetensi -->
-                        <div class="col-md-6">
-                            Data Kompetensi
-                            <div class="form-group">
-                                <label?>Mata pelajaran yang diampu</label>                                            diampu</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Program atau kegiatan yang
-                                            dilaksanakan</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Status Sertifikasi</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Tahun Sertifikasi</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label?>Alasan Belum Sertifikasi</label>                                            diampu</label>
-                                <div class="col-sm-12">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Kompetensi yang dimiliki</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Kegiatan Sosialisasi UNBK</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Keterlibatan dalam UNBK</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label?>Riwayat Keterlibatan dalam
-                                            UNBK</label>                                            diampu</label>
-                                <div class="col-sm-12">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                                </div>
-                            </div>
-                            Data Diklat
-                            <div class="form-group">
-                                <label>Nama Diklat/Workshop/Seminar</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="#" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label?>Tingkatan/Jenis Diklat</label>                                            diampu</label>
-                                <div class="col-sm-12">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Update Data</button>
-                        </div>
-                        <!-- /.col -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow mb-4 py-3 border-left-primary">
+                    <div class="card-header">
+                    <h6 class="card-title font-weight-bold text-primary">Edit Data Sekolah</h6>
                     </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.card-body -->
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Data Umum -->
+                            <div class="col-md-6">
+                                <div class="form-group col-sm-12 mb-4">
+                                    <h6><strong> A. Data Umum</strong></h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Nama Sekolah</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Nomor Pokok Sekolah Nasional
+                                            (NPSN)</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Jumlah Siswa </label></div>
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-5">
+                                                <label for="inputCity">Laki-Laki</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="form-group col-sm-5">
+                                                <label for="inputState">Perempuan</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="form-group col-sm-2">
+                                                <label for="inputZip">Total</label>
+                                                <input type="text" class="form-control" id="inputZip">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>UNBK</label></div>
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <select class="col-sm-9 custom-select" id="validationTooltip04" required>
+                                                <option selected disabled value="">Pilih</option>
+                                                <option>Pernah</option>
+                                                <option>Tidak Pernah</option>
+                                            </select>
+                                            <div class="form-group col-sm-3">
+                                                <input type="text" class="form-control" id="inputCity"
+                                                    placeholder="Tahun">
+                                            </div>
 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"> <label>Desa / Kecamatan</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
+                                                <label for="inputCity">Kabupaten / Kota</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="inputState">Provinsi</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Akses Transportasi</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Kondisi Geografis</label></div>
+                                    <div class="col-sm-12">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Kondisi sosekbud </label></div>
+                                    <div class="col-sm-12">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Fasilitas Komunikasi Internet
+                                            Saat Ini</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Pernah Mendapatkan Bantuan Terkait Teknologi Informasi
+                                            dan Komunikasi </label></div>
+                                    <div class="col-sm-12">
+                                        <select class="custom-select" id="validationTooltip04" required>
+                                            <option selected disabled value="">Pilih</option>
+                                            <option>Pernah</option>
+                                            <option>Tidak Pernah</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Lembaga Pemberi Bantuan</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                        <small><a href="#">tambah data</a></small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-4">
+                                                <label for="inputCity">Listrik</label>
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Ada</option>
+                                                    <option>Tidak Ada</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <label for="inputState">Listrik</label>
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>PLN</option>
+                                                    <option>Genset</option>
+                                                    <option>Solar Cell</option>
+                                                    <option>Lainnya <a href="#">#</a></option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <label for="inputZip">Durasi Listrik</label>
+                                                <input type="text" class="form-control" id="#" placeholder="Jam">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  Data Sekolah yang memiliki akses Internet -->
+                            <div class="col-md-6">
+                                <div class="form-group  col-sm-12 mb-4">
+                                    <h6><strong> B. Data Sekolah Yang Memiliki Akses Internet</strong></h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Laboratorium</label>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-5">
+                                                <label for="inputCity">1. Komputer</label>
+                                                <input type="text" class="form-control" id="inputCity"
+                                                    placeholder="(........Unit)">
+                                            </div>
+                                            <div class="form-group col-sm-5">
+                                                <label for="inputState">2. Multimedia</label>
+                                                <input type="text" class="form-control" id="inputCity"
+                                                    placeholder="(........Unit)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Jenis Program / Kegiatan yang
+                                            diterima</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"><label>Tahun Menerima
+                                            Bantuan</label></div>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="#" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="#" class="col-sm-12 col-form-label"><strong> Perangkat Internet yang
+                                            Ada</strong></label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <label class="col-sm-5">A. LAN/Wireless LAN</label>
+                                            <select class="col-sm-4 custom-select" id="validationTooltip04" required>
+                                                <option selected disabled value="">Pilih</option>
+                                                <option>Pernah</option>
+                                                <option>Tidak Pernah</option>
+                                            </select>
+                                            <div class="form-group col-sm-3">
+                                                <input type="text" class="form-control" id="inputCity"
+                                                    placeholder="Jumlah Unit">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <label class="col-sm-5">B. Router</label>
+                                            <select class="col-sm-4 custom-select" id="validationTooltip04" required>
+                                                <option selected disabled value="">Pilih</option>
+                                                <option>Pernah</option>
+                                                <option>Tidak Pernah</option>
+                                            </select>
+                                            <div class="form-group col-sm-3">
+                                                <input type="text" class="form-control" id="inputCity"
+                                                    placeholder="Jumlah Unit">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <label class="col-sm-5">C. Komputer</label>
+                                            <select class="col-sm-4 custom-select" id="validationTooltip04" required>
+                                                <option selected disabled value="">Pilih</option>
+                                                <option>Pernah</option>
+                                                <option>Tidak Pernah</option>
+                                            </select>
+                                            <div class="form-group col-sm-3">
+                                                <input type="text" class="form-control" id="inputCity"
+                                                    placeholder="Jumlah Unit">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <label class="col-sm-5">D. Kuota Banwidth Saat Ini</label>
+                                            <div class="form-group col-sm-7">
+                                                <input type="text" class="form-control" id="inputCity"
+                                                    placeholder="Jumlah Unit">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-row">
+                                            <label class="col-sm-5">E. Kesesuaian Kuota Dengan Kebutuhan</label>
+                                            <select class="col-sm-7 custom-select" id="validationTooltip04" required>
+                                                <option selected disabled value="">Pilih</option>
+                                                <option>Sesuai</option>
+                                                <option>Tidak Sesuai</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12"> <label>F. Alasan Penambahan Kuota</label></div>
+                                    <div class="col-sm-12">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <div class="form-group col-sm-12 mb-4">
+                                    <h6><strong> C. Saran</strong></h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="10"></textarea>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-outline-success">Update Data</button>
+                                    <button type="submit" class="btn btn-outline-dark">Kembali</button>
+                                </div>
+
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 </x-app-layout>

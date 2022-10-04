@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card shadow">
+                <div class="card shadow py-3 border-left-primary">
                     <div class="card-header">
-                        <h6 class="card-title">Data Sekolah</h6>
+                        <h6 class="card-title font-weight-bold text-primary">Tambah Data Sekolah</h6>
                     </div>
                     <div class="card-body">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -27,6 +27,9 @@
                                 aria-labelledby="general_data-tab">
                                 <form action="">
                                     <div class="container mt-5">
+                                        <div class="form-group row">
+                                            <h6><strong> A. Data Umum</strong></h6>
+                                        </div>
                                         <div class="form-group row">
                                             <label for="#" class="col-sm-3 col-form-label">Nama Sekolah</label>
                                             <div class="col-sm-9">
@@ -95,7 +98,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Propinsi</label>
+                                            <label for="#" class="col-sm-3 col-form-label">Provinsi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
@@ -107,9 +110,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-12 col-form-label">Deskripsi Lokasi
-                                                Pendataan</label>
-
+                                            <h6><strong> Deskripsi Lokasi
+                                                    Pendataan</strong></h6>
                                         </div>
                                         <div class="form-group row">
                                             <label for="#" class="col-sm-3 col-form-label">Kondisi Geografis <br>
@@ -124,7 +126,7 @@
                                                 <small>(Uraikan Singkat)</small></label>
                                             <div class="col-sm-9">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                    rows="6"></textarea>
+                                                    rows="4"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -155,8 +157,8 @@
                                             <label for="#" class="col-sm-3 col-form-label">Lembaga Pemberi
                                                 Bantuan</label>
                                             <div class="col-sm-9">
-                                                <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                    rows="4"></textarea>
+                                                <input type="text" class="form-control" id="#" placeholder="">
+                                                <small><a href="#">tambah data</a></small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -177,7 +179,13 @@
                                         <div class="form-group row">
                                             <label for="#" class="col-sm-3 col-form-label">Sumber Daya Listrik</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="#" placeholder="">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>PLN</option>
+                                                    <option>Genset</option>
+                                                    <option>Solar Cell</option>
+                                                    <option>Lainnya <a href="#">#</a></option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -198,6 +206,9 @@
                                 aria-labelledby="competency_data-tab">
                                 <form action="">
                                     <div class="container mt-5">
+                                        <div class="form-group row">
+                                            <h6><strong> B. Data Sekolah Yang Memiliki Akses Internet</strong></h6>
+                                        </div>
                                         <div class="form-group row">
                                             <label for="#" class="col-sm-3 col-form-label">Laboratorium <br></label>
                                             <div class="col-sm-9">
@@ -309,7 +320,8 @@
                                             <label>Kbps/ Mbps</label>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">E. Kesesuaian Kuota Dengan Kebutuhan</label>
+                                            <label for="#" class="col-sm-3 col-form-label">E. Kesesuaian Kuota Dengan
+                                                Kebutuhan</label>
                                             <div class="col-sm-9">
                                                 <div class="form-row">
                                                     <div class="form-check form-check-inline">
@@ -323,12 +335,13 @@
                                                         <label class="form-check-label" for="inlineRadio2">Tidak
                                                             Ada</label>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Alasan Penambahan Kuota</label>
+                                            <label for="#" class="col-sm-3 col-form-label">Alasan Penambahan
+                                                Kuota</label>
                                             <div class="col-sm-9">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1"
                                                     rows="6"></textarea>

@@ -2,77 +2,44 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card shadow">
+                <div class="card shadow mb-4 py-3 border-left-primary">
                     <div class="card-header">
-                        <h6 class="card-title">Data Guru</h6>
+                        <h6 class="card-title font-weight-bold text-primary">Detail Data Sekolah</h6>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h5><strong>A. Data Umum</strong></h5>
-                               
+                                <h6><strong>A. Data Umum</strong></h6>
+
                                 <table class="table table-borderless">
                                     <tbody>
                                         <tr>
-                                            <th scope="row" class="col-sm-4">Nama Guru / Tenaga
-                                                Administrasi</th>
+                                            <th scope="row" class="col-sm-4">Nama Sekolah</th>
                                             <td width="5%">:</td>
                                             <td>#</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="col-sm-4">Status Ketenagaan</th>
+                                            <th scope="row" class="col-sm-4">Nomor Pokok Sekolah Nasional
+                                                (NPSN)</th>
                                             <td width="5%">:</td>
                                             <td>#</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="col-sm-4">NIP</th>
+                                            <th scope="row" class="col-sm-4">Jumlah Siswa</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                            <th>Laki-laki</th>
+                                            <td>#</td>
+                                            <th>Perempuan</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">UNBK</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                            <th>Tahun</th>
                                             <td width="5%">:</td>
                                             <td>#</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">NUPTK</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Tempat, Tanggal Lahir</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Agama</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Jenis Kelamin</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Pendidikan Terakhir</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">TMT PNS</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Pangkat / Golongan</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">TMT Golongan</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Asal Sekolah</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
                                         </tr>
                                         <tr>
                                             <th scope="row" class="col-sm-4">Desa / Kecamatan</th>
@@ -85,12 +52,55 @@
                                             <td>#</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="col-sm-4">Propinsi</th>
+                                            <th scope="row" class="col-sm-4">Provinsi</th>
                                             <td width="5%">:</td>
                                             <td>#</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="col-sm-4">No Telpon/HP</th>
+                                            <th scope="row" class="col-sm-4">Akses Transportasi</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Kondisi Geografis</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Kondisi sosekbud</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Fasilitas Komunikasi Internet
+                                                Saat Ini</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Pernah Mendapatkan Bantuan Terkait
+                                                Teknologi Informasi
+                                                dan Komunikasi</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Lembaga Pemberi Bantuan</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Listrik</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Listrik</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Durasi Listrik</th>
                                             <td width="5%">:</td>
                                             <td>#</td>
                                         </tr>
@@ -99,95 +109,88 @@
                                 </table>
                             </div>
                             <div class="col-sm-6">
-                                <h5><strong>B. Data Kompetensi</strong></h5>
-                             
-                                <table class="table table-borderless">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Mata pelajaran yang
-                                                diampu</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Program atau kegiatan yang
-                                                dilaksanakan</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Status Sertifikasi</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Tahun Sertifikasi</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Alasan Belum Sertifikasi</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Kompetensi yang dimiliki</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Kegiatan Sosialisasi UNBK</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Keterlibatan dalam UNBK</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="col-sm-4">Riwayat Keterlibatan dalam
-                                                UNBK</th>
-                                            <td width="5%">:</td>
-                                            <td>#</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-sm-12">
-                                <h6><strong>Pelatihan yang pernah diikuti</strong></h6>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Nama Diklat/Workshop/Seminar</th>
-                                            <th scope="col">Tingkatan/Jenis Diklat</th>
-                                            <th scope="col">Jampel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>#</td>
-                                            <td>#</td>
-                                            <td>#</td>
-                                        </tr>
+                                <h6><strong>B. Data Sekolah Yang Memiliki Akses Internet</strong></h6>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-sm-12">
                                 <table class="table table-borderless">
                                     <tbody>
                                         <tr>
-                                            <th scope="row" class="col-sm-2">Kebutuhan diklat saat ini</th>
+                                            <th scope="row" class="col-sm-4">Laboratorium</th>
+                                            <td width="5%">:</td>
+                                            <th>1.Komputer</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                            <th>2.Multimedia</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Jenis Program / Kegiatan yang
+                                                diterima</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Tahun Menerima
+                                                Bantuan</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="7">
+                                                <h6><strong> Perangkat Internet Yang Ada Ada </strong> </h6>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">A. LAN/Wireless LAN</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">B. Router</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">C. Komputer</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">D. Kuota Banwidth Saat Ini</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">E. Kesesuaian Kuota Dengan Kebutuhan</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">F. Alasan Penambahan Kuota</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Saran</th>
+                                            <td width="5%">:</td>
+                                            <td>#</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6><strong>C. Saran</strong></h6>
+
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="col-sm-4">Saran</th>
                                             <td width="5%">:</td>
                                             <td>#</td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary">Kembali</button>
+                                    <button type="submit" class="btn btn-outline-dark">Kembali</button>
                                 </div>
                             </div>
                         </div>

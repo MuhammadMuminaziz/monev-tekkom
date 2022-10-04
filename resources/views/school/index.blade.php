@@ -2,11 +2,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-            <div class="card shadow">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Sekolah</h6>
-                </div>
+            <h1 class="h3 mb-4 text-gray-800">Data Sekolah</h1>
+            <div class="card shadow py-3 border-bottom-primary">
+                
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">

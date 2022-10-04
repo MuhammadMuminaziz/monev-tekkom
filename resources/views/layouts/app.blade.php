@@ -129,7 +129,7 @@
     <script>
         $(document).ready(function(){
             $('.select2').select2({
-                placeholder: "choise city.."
+                placeholder: "- pilih kecamatan -"
             });
 
             if($('.form-edit-user').val() == 2){

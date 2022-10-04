@@ -15,8 +15,8 @@ class City extends Model
         return $this->hasMany(User::class);
     }
 
-    public function verifikators()
+    public function schools()
     {
-        return $this->belongsToMany(Verifikator::class);
+        return $this->hasMany(School::class);
     }
 }

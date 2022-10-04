@@ -5,11 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Verifikator;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
@@ -43,8 +39,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $slug = $this->uniqueSlug($request->name);
-
-        User::create([
+        $data = User::create([
             'role_id' => $request->role_id,
             'name' => $request->name,
             'username' => $slug,
@@ -53,18 +48,12 @@ class RegisteredUserController extends Controller
         ]);
 
         if ($request->role_id == 2) {
-            $data = Verifikator::create([
-                'user_id' => $request->role_id,
-                'name' => $request->name,
-                'username' => $slug
-            ]);
-
-            $data->cities()->attach($request->city_id);
+            $data->districts()->attach($request->districts);
         }
 
         // event(new Registered($user));
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('message', 'User has been added..');
     }
 
     protected function uniqueSlug($name)

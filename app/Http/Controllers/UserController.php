@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\District;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Verifikator;
@@ -32,7 +33,7 @@ class UserController extends Controller
     {
         return view('user.create', [
             'roles' => Role::get(),
-            'cities' => City::get()
+            'districts' => District::orderBy('name', 'asc')->get()
         ]);
     }
 
@@ -72,11 +73,12 @@ class UserController extends Controller
         } else {
             $verify = '';
         }
+
         return view('user.edit', [
             'user' => $user,
             'roles' => Role::get(),
-            'cities' => City::get(),
-            'verifikator' => $verify
+            'verifikator' => $verify,
+            'districts' => District::orderBy('name', 'asc')->get()
         ]);
     }
 
@@ -89,7 +91,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user = User::find($request->id);
         $data = $request->validate([
             'name' => 'required|min:3',
             'email' => 'required|email|max:255|unique:users,email,' . $request->id,
@@ -106,20 +107,14 @@ class UserController extends Controller
         $data['username'] = $this->uniqueSlug($request->name);
         $data['password'] = $password;
 
-        $user->update($data);
-
         if ($request->role_id == 2) {
-            $verifikator = Verifikator::firstWhere('username', $user->username);
-            $verifikator->update([
-                'user_id' => $request->role_id,
-                'name' => $request->name,
-                'username' => $this->uniqueSlug($request->name)
-            ]);
-
-            $verifikator->cities()->sync($request->city_id);
+            $user->districts()->sync($request->districts);
         }
 
-        return redirect()->route('users.index')->with('success', 'Account has been updated..');
+        // User::find($user->id)->update($data);
+        $user->update($data);
+
+        return redirect()->route('users.index')->with('message', 'Account has been updated..');
     }
 
     /**
@@ -130,8 +125,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $user->districts()->detach();
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'The account has been deleted..');
+        return redirect()->route('users.index')->with('message', 'The account has been deleted..');
     }
 
     protected function uniqueSlug($name)

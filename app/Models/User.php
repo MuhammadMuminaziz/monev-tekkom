@@ -52,9 +52,14 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function verifikators()
+    public function districts()
     {
-        return $this->hasMany(Verifikator::class);
+        return $this->belongsToMany(District::class);
+    }
+
+    public function school()
+    {
+        return $this->hasOne(School::class);
     }
 
     public function getRouteKeyName()

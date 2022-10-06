@@ -53,6 +53,8 @@ class SchoolController extends Controller
             'cities' => City::orderBy('name', 'asc')->get(),
         ]);
 
+
+
     }
 
     /**
@@ -74,7 +76,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        //
+        
     }
 
     /**

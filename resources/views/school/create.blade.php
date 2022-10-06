@@ -31,21 +31,21 @@
                                             <h6><strong> A. Data Umum</strong></h6>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Nama Sekolah</label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Nama Sekolah</label>
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Nomor Pokok Sekolah Nasional
+                                            <label for="#" class="col-sm-4 col-form-label">Nomor Pokok Sekolah Nasional
                                                 (NPSN)</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Jumlah Siswa <br></label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Jumlah Siswa <br></label>
+                                            <div class="col-sm-8">
                                                 <div class="form-row">
                                                     <div class="form-group col-sm-5">
                                                         <label for="inputCity">Laki-Laki</label>
@@ -64,8 +64,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">UNBK</label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">UNBK</label>
+                                            <div class="col-sm-8">
                                                 <div class="form-row">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio"
@@ -86,26 +86,26 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Desa / Kecamatan</label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Kabupaten / Kota</label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Provinsi</label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Provinsi</label>
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Akses Transportasi</label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Akses Transportasi</label>
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
@@ -114,71 +114,60 @@
                                                     Pendataan</strong></h6>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Kondisi Geografis <br>
+                                            <label for="#" class="col-sm-4 col-form-label">Kondisi Geografis <br>
                                                 <small>(Uraikan Singkat)</small></label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1"
                                                     rows="4"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Kondisi sosekbud <br>
+                                            <label for="#" class="col-sm-4 col-form-label">Kondisi sosekbud <br>
                                                 <small>(Uraikan Singkat)</small></label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1"
                                                     rows="4"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Fasilitas Komunikasi Internet
+                                            <label for="#" class="col-sm-4 col-form-label">Fasilitas Komunikasi Internet
                                                 Saat Ini</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Pernah Mendapatkan Bantuan
+                                            <label for="#" class="col-sm-4 col-form-label">Pernah Mendapatkan Bantuan
                                                 Terkait Teknologi Informasi dan Komunikasi </label>
-                                            <div class="col-sm-9">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1">Pernah</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2">Tidak
-                                                        Pernah</label>
-                                                </div>
+                                            <div class="col-sm-8">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Pernah</option>
+                                                    <option>Tidak Pernah</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Lembaga Pemberi
+                                            <label for="#" class="col-sm-4 col-form-label">Lembaga Pemberi
                                                 Bantuan</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                                 <small><a href="#">tambah data</a></small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Listrik</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1">Ada</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2">Tidak Ada</label>
-                                                </div>
+                                            <label for="#" class="col-sm-4 col-form-label">Listrik</label>
+                                            <div class="col-sm-8">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Ada</option>
+                                                    <option>Tidak Ada</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Sumber Daya Listrik</label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Sumber Daya Listrik</label>
+                                            <div class="col-sm-8">
                                                 <select class="custom-select" id="validationTooltip04" required>
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>PLN</option>
@@ -189,7 +178,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Durasi Listrik</label>
+                                            <label for="#" class="col-sm-4 col-form-label">Durasi Listrik</label>
                                             <div class="col-sm-5">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
@@ -210,151 +199,131 @@
                                             <h6><strong> B. Data Sekolah Yang Memiliki Akses Internet</strong></h6>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Laboratorium <br></label>
-                                            <div class="col-sm-9">
+                                            <label for="#" class="col-sm-4 col-form-label">Laboratorium <br></label>
+                                            <div class="col-sm-8">
                                                 <div class="form-row">
-                                                    <div class="form-group col-sm-5">
+                                                    <div class="form-group col-sm-6">
                                                         <label for="inputCity">1. Komputer</label>
                                                         <input type="text" class="form-control" id="inputCity"
-                                                            placeholder="(........Unit)">
+                                                            placeholder="(...Unit)">
                                                     </div>
-                                                    <div class="form-group col-sm-5">
+                                                    <div class="form-group col-sm-6">
                                                         <label for="inputState">2. Multimedia</label>
                                                         <input type="text" class="form-control" id="inputCity"
-                                                            placeholder="(........Unit)">
+                                                            placeholder="(...Unit)">
                                                     </div>
                                                 </div>
 
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Jenis Program / Kegiatan yang
+                                            <label for="#" class="col-sm-4 col-form-label">Jenis Program / Kegiatan yang
                                                 diterima</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Tahun Menerima
+                                            <label for="#" class="col-sm-4 col-form-label">Tahun Menerima
                                                 Bantuan</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-12 col-form-label">Perangkat Internet yang
-                                                Ada</label>
+                                            <label for="#" class="col-sm-12 col-form-label"><strong> Perangkat Internet
+                                                    yang
+                                                    Ada</strong></label>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">A. LAN/Wireless LAN</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-row">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                        <label class="form-check-label" for="inlineRadio1">Ada</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                        <label class="form-check-label" for="inlineRadio2">Tidak
-                                                            Ada</label>
-                                                    </div>
-                                                    <div class="form-group col-sm-5">
-                                                        <input type="text" class="form-control" id="inputCity"
-                                                            placeholder="Jumlah (........Unit)">
-                                                    </div>
-                                                </div>
+                                            <label for="#" class="col-sm-4 col-form-label">A. LAN/Wireless LAN</label>
+                                            <div class="col-sm-5">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Ada</option>
+                                                    <option>Tidak Ada</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="#"
+                                                    placeholder="Jumlah Unit">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">B. Router</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-row">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                        <label class="form-check-label" for="inlineRadio1">Ada</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                        <label class="form-check-label" for="inlineRadio2">Tidak
-                                                            Ada</label>
-                                                    </div>
-                                                    <div class="form-group col-sm-5">
-                                                        <input type="text" class="form-control" id="inputCity"
-                                                            placeholder="Jumlah (........Unit)">
-                                                    </div>
-                                                </div>
+                                            <label for="#" class="col-sm-4 col-form-label">B. Router</label>
+                                            <div class="col-sm-5">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Ada</option>
+                                                    <option>Tidak Ada</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="#"
+                                                    placeholder="Jumlah Unit">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">A. Komputer</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-row">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                        <label class="form-check-label" for="inlineRadio1">Ada</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                        <label class="form-check-label" for="inlineRadio2">Tidak
-                                                            Ada</label>
-                                                    </div>
-                                                    <div class="form-group col-sm-5">
-                                                        <input type="text" class="form-control" id="inputCity"
-                                                            placeholder="Jumlah (........Unit)">
-                                                    </div>
-                                                </div>
+                                            <label for="#" class="col-sm-4 col-form-label">A. Komputer</label>
+                                            <div class="col-sm-5">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Ada</option>
+                                                    <option>Tidak Ada</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="#"
+                                                    placeholder="Jumlah Unit">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">D. Kuota Banwidth Saat
+                                            <label for="#" class="col-sm-4 col-form-label">D. Kuota Banwidth Saat
                                                 Ini</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control" id="#" placeholder="">
                                             </div>
-                                            <label>Kbps/ Mbps</label>
+                                            <div class="col-sm-2">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Kbps</option>
+                                                    <option>Mbps</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">E. Kesesuaian Kuota Dengan
+                                            <label for="#" class="col-sm-4 col-form-label">E. Kesesuaian Kuota Dengan
                                                 Kebutuhan</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-row">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                        <label class="form-check-label" for="inlineRadio1">Ada</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                        <label class="form-check-label" for="inlineRadio2">Tidak
-                                                            Ada</label>
-                                                    </div>
-
-                                                </div>
+                                            <div class="col-sm-8">
+                                                <select class="custom-select" id="validationTooltip04" required>
+                                                    <option selected disabled value="">Pilih</option>
+                                                    <option>Ada</option>
+                                                    <option>Tidak Ada</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Alasan Penambahan
+                                            <label for="#" class="col-sm-4 col-form-label">F. Alasan Penambahan
                                                 Kuota</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-8">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                    rows="6"></textarea>
+                                                    rows="4"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="#" class="col-sm-3 col-form-label">Saran</label>
-                                            <div class="col-sm-9">
+                                            <h6><strong> C. Saran</strong></h6>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="#" class="col-sm-4 col-form-label">Saran</label>
+                                            <div class="col-sm-8">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1"
                                                     rows="6"></textarea>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Simpan Data</button>
+                                        <div class="col-sm-12 my-5">
+                                            <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> Simpan Data</button>
+                                            <button type="button" class="btn btn-secondary float-right mr-2">Batal</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

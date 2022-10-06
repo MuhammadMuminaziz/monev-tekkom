@@ -28,6 +28,8 @@ Route::middleware(['auth', 'super_admin'])->group(function () {
 
     Route::resource('cities', CityController::class);
 
+    Route::resource('/school', SchoolController::class);
+
     Route::get('/district', [DistrictController::class, 'index'])->name('district.index');
 
     Route::get('/periode', [PeriodeController::class, 'index'])->name('periode.index');

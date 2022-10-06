@@ -60,7 +60,7 @@
                 <span>District</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link pb-0" href="charts.html">
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Scools</span></a>
         </li>

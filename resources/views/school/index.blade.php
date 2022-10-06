@@ -1,5 +1,4 @@
 <x-app-layout>
-<<<<<<< HEAD
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -11,7 +10,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">
-                            <a href="{{ route('schools.create') }}" class="btn btn-sm px-4 pt-2 rounded-pill btn-primary">Add Data</a>
+                            <a href="{{ route('school.index') }}" class="btn btn-sm px-4 pt-2 rounded-pill btn-primary">Add Data</a>
                         </div>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>

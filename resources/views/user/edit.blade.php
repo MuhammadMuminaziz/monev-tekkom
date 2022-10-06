@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label>Role Name</label>
-                            <select name="role_id" class="form-control" id="role_id" required>
+                            <select name="role_id" class="form-control" id="role_id" required onchange="getCity()">
                                 @foreach($roles as $role)
                                 @if($user->role->name == $role->name)
                                 <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
@@ -44,14 +44,44 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        {{-- form district --}}
+                        @if($user->role->name == 'Verifikator')
+                        <div class="form-group verifykator">
+                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                                @foreach($user->districts as $district)
+                                <option selected value="{{ $district->id }}">{{ $district->name }}</option>
+                                @endforeach
+                                @foreach($districts as $district)
+                                <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @endif
+                        <div class="form-group d-none form-city">
+                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                                @foreach($user->districts as $district)
+                                <option selected value="{{ $district->id }}">{{ $district->name }}</option>
+                                @endforeach
+                                @foreach($districts as $district)
+                                <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="form-group row">
                             <div class="col-12">
                                 <label>Password</label>
                             </div>
 
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input name="password" type="password" class="form-control " id="password"
+                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="password"
                                     placeholder="Password">
+                                    @error('password')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                             </div>
                             <div class="col-sm-6">
                                 <input name="password_confirmation" type="password" class="form-control "

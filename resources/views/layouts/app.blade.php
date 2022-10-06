@@ -147,9 +147,11 @@
             let opt = $('#role_id').val();
             if(opt == 2){
                 $('.form-city').addClass('d-block');
+                $('.verifykator').remove();
             }
             if(opt != 2){
                 $('.form-city').removeClass('d-block');
+                $('.verifykator').remove();
             }
         }
     </script>

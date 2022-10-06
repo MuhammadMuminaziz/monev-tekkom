@@ -59,8 +59,13 @@
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>District</span></a>
         </li>
+<<<<<<< HEAD
         <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('school.index') }}">
+=======
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
+>>>>>>> d06f8aa08d12be5d6151a13fa824316f61f2e34c
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Scools</span></a>
         </li>

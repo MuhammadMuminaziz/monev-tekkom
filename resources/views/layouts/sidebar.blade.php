@@ -22,7 +22,7 @@
         
         <li class="nav-item">
             <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-file-alt"></i>
                 <span>Reporting</span></a>
         </li>
         @endcan
@@ -33,13 +33,13 @@
 
         <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('schools.index') }}">
-                <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-school"></i>
                 <span>Scools</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('teachers.index') }}">
-                <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-chalkboard-teacher"></i>
                 <span>Teachers</span></a>
         </li>
         @endcan
@@ -50,29 +50,24 @@
         
         <li class="nav-item {{ request()->is('cities*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('cities.index') }}">
-                <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-city"></i>
                 <span>Cities</span></a>
         </li>
         
         <li class="nav-item {{ request()->is('district*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('district.index') }}">
-                <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-cube"></i>
                 <span>District</span></a>
         </li>
-<<<<<<< HEAD
         <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
-            <a class="nav-link pb-0" href="{{ route('school.index') }}">
-=======
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
->>>>>>> d06f8aa08d12be5d6151a13fa824316f61f2e34c
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Scools</span></a>
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}"> 
+            <i class="fas fa-school"></i>
+            <span>Scools</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('users.index') }}">
-                <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-users"></i>
                 <span>Users</span></a>
         </li>
         

@@ -374,7 +374,7 @@
                                         </div>
                                         <div class="col-sm-12 my-5">
                                             <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> Update Data</button>
-                                            <button type="button" class="btn btn-secondary float-right mr-2">Batal</button>
+                                            <button type="button" class="btn btn-secondary float-right mr-2">Back</button>
                                         </div>
                                     </div>
                                 </form>

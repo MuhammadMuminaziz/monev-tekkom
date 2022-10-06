@@ -412,7 +412,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 mt-3">
-                                <button type="button" class="btn btn-secondary mr-2">Kembali</button>
+                                <button type="button" class="btn btn-secondary mr-2">Back</button>
                             </div>
                         </form>
                     </div>

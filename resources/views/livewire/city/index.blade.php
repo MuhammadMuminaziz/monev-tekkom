@@ -42,8 +42,8 @@
                             <td class="text-center">{{ $index + 1 }}</td>
                             <td>{{ $city->name }}</td>
                             <td class="text-right">
-                              <button wire:click="getCity({{ $city }})" type="button" class="btn btn-sm rounded-pill px-4 btn-warning">edit</button>
-                              <button wire:click="destroy({{ $city }})" type="button" class="btn btn-sm rounded-pill px-4 btn-danger">delete</button>
+                              <button wire:click="getCity({{ $city }})" type="button" class="btn btn-sm rounded  btn-warning"><i class="fas fa-edit"></i></button>
+                              <button wire:click="destroy({{ $city }})" type="button" class="btn btn-sm rounded btn-danger"><i class="fas fa-trash"></i></button>
                             </td>
                           </tr>
                           @endforeach

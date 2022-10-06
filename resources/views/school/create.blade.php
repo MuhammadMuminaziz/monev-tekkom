@@ -321,8 +321,8 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-12 my-5">
-                                            <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> Simpan Data</button>
-                                            <button type="button" class="btn btn-secondary float-right mr-2">Batal</button>
+                                            <button type="submit" class="btn btn-primary float-right"> Save Data</button>
+                                            <button type="button" class="btn btn-secondary float-right mr-2">Cancel</button>
                                         </div>
                                     </div>
                                 </form>

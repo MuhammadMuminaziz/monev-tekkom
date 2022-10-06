@@ -8,10 +8,10 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="d-flex justify-content-between mb-4 ">
-                                <a href="{{ route('school.create') }}"
-                                    class="btn btn-sm px-4 pt-2 rounded-pill btn-primary">Add Data</a>
+                                <a href="{{ route('schools.create') }}"
+                                    class="btn btn-sm px-3 pt-2 rounded-pill btn-primary"><i class="fas fa-plus-square"></i>  Add Data</a>
                             </div>
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table " id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th width="5%">ID</th>
@@ -30,14 +30,12 @@
                                         <td>#</td>
                                         <td>#</td>
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-info btn-circle btn-sm"><i
-                                                    class="fas fa-info-circle"></i></a>
-                                            <a href="#" class="btn btn-sm btn-secondary btn-circle btn-sm"><i
-                                                    class="fas fa-info-circle"></i></a>
+                                            <a href="#" class="btn btn-sm btn-info btn-rounded"><i class="fas fa-eye"></i></a>
+                                            <a href="#" class="btn btn-sm btn-warning btn-rounded"><i class="fas fa-edit"></i></a>
                                             <form action="#" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm btn-danger btn-circle btn-sm">
+                                                <button type="submit" class="btn btn-sm btn-danger btn-rounded">
                                                     <i class="fas fa-trash"></i></button>
                                             </form>
                                         </td>

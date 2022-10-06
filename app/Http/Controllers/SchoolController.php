@@ -48,12 +48,12 @@ class SchoolController extends Controller
     public function create()
     {
 
-        return view('school.create', [
-            'districts' => District::orderBy('name', 'asc')->get(),
-            'cities' => City::orderBy('name', 'asc')->get(),
-        ]);
+        // return view('school.create', [
+        //     'districts' => District::orderBy('name', 'asc')->get(),
+        //     'cities' => City::orderBy('name', 'asc')->get(),
+        // ]);
 
-
+        return view('school.edit');
 
     }
 

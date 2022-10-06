@@ -1,36 +1,59 @@
-<div class="row">
-    <div class="col">
-        <div class="card p-5">
-            <h1>This is Dist</h1>
-            
-            {{-- Message --}}
-            @if(session()->has('message'))
-            <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">
-                {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            @endif
-
-            @if($isUpdate)
-            <livewire:district.update/>
-            @else
-            <livewire:district.create/>
-            @endif
-
-            <ul>
-                @foreach($districts as $district)
-                <li class="d-flex justify-content-between mb-1">{{ $district->name }} 
-                    <div>
-                        <a href="#page-top">
-                            <button wire:click="getDistrict({{ $district }})" type="button" class="btn btn-sm btn-secondary">edit</button>
-                        </a>
-                        <button wire:click="destroy({{ $district }})" type="button" class="btn btn-sm btn-danger">delete</button>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow p-3 text-dark">
+                <div class="card-header bg-primary mb-2 text-white">
+                    <div class="d-flex mb-2">
+                        <h3>Nama Kecamatan</h3>
                     </div>
-                </li>
-                @endforeach
-            </ul>
+
+                    {{-- Message --}}
+                    @if(session()->has('message'))
+                    <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert"
+                        style="z-index: 99; top: 80px; right: 10px;">
+                        {{ session('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @endif
+
+                    <div class="p-3 mb-3">
+                        @if($isUpdate)
+                        <livewire:district.update />
+                        @else
+                        <livewire:district.create />
+                        @endif
+                    </div>
+                </div>
+
+                <div class="container-fluid mt-4">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-sm" id="dataTable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" width="50px">No</th>
+                                    <th scope="col">Nama Kecamatan</th>
+                                    <th scope="col" width="20%">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($districts as $district)
+                                <tr>
+                                    <td class="text-center"></td>
+                                    <td>{{ $district->name }}</td>
+                                    <td class="text-right">
+                                        <button wire:click="getDistrict({{ $district }})" type="button"
+                                            class="btn btn-sm rounded-pill px-4 btn-warning">edit</button>
+                                        <button wire:click="destroy({{ $district }})" type="button"
+                                            class="btn btn-sm rounded-pill px-4 btn-danger">delete</button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

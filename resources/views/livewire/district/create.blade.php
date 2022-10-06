@@ -9,7 +9,7 @@
             </select>
         </div>
         <div class="form-group mb-2">
-            <input wire:model="name" type="text" name="name" class="form-control rounded-pill @error('name') is-invalid @enderror" id="name"
+            <input wire:model="name" type="text" name="name" class="form-control  @error('name') is-invalid @enderror" id="name"
                 placeholder="masukan nama kecamatan" required>
                 @error('name')
                 <div class="invalid-feedback">
@@ -18,7 +18,7 @@
                 @enderror
         </div>
         <div class="d-flex justify-content-end mb-4">
-            <button type="submit" class="btn btn-sm px-4 btn-secondary rounded-pill">Add district</button>
+            <button type="submit" class="btn btn-sm px-4 btn-light rounded-pill">Add Data</button>
         </div>
     </form>
 </div>

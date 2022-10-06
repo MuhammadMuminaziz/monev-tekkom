@@ -25,6 +25,7 @@
     <!-- Custom styles for this page -->
     <link href="{{ asset('sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
+
     @livewireStyles
 
 </head>

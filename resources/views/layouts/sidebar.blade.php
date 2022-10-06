@@ -1,4 +1,4 @@
-<div>
+<div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         
         <!-- Sidebar - Brand -->
@@ -38,7 +38,7 @@
         </li>
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('users.index') }}">
+            <a class="nav-link" href="{{ route('teachers.index') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Teachers</span></a>
         </li>

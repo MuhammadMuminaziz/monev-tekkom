@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function user()
     {
@@ -20,8 +20,23 @@ class School extends Model
         return $this->belongsTo(City::class);
     }
 
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function lembaga_bantuan()
+    {
+        return $this->hasMany(LembagaBantuan::class);
+    }
+
     public function lembagaBantuan()
     {
         return $this->hasOne(LembagaBantuan::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

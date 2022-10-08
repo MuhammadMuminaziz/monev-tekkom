@@ -37,6 +37,8 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('schools.index');
         } elseif ($user->role->name === 'SuperAdmin') {
             return redirect()->route('cities.index');
+        } elseif ($user->role->name === 'Verifikator') {
+            return redirect()->route('verifikator.schools');
         } elseif ($user->role->name === 'Owner') {
             return redirect()->intended(RouteServiceProvider::HOME);
         }

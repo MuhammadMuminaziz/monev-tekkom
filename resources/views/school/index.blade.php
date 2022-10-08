@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="container-fluid">
+{{-- <div class="container-fluid">
     <div class="row">
         <div class="col">
             <h1 class="h3 mb-2 text-gray-800">Tables</h1>
@@ -46,15 +46,19 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
-    {{-- <div class="row justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-md-7">
             @if($success == 'no data')
             <x-school-no-data/>
-            @else
+            @endif
+            @if($success == 'no verify')
             <x-school-no-verify/>
             @endif
+            @if($success == 'data')
+            <x-school-data :school="$school"/>
+            @endif
         </div>
-    </div> --}}
+    </div>
 </x-app-layout>

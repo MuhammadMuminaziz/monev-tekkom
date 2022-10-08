@@ -23,7 +23,8 @@ class CreateSchoolsTable extends Migration
             $table->string('npsn')->nullable();
             $table->integer('siswa_per')->nullable();
             $table->integer('siswa_lak')->nullable();
-            $table->string('unbk')->nullable();
+            $table->integer('jumlah_siswa')->nullable();
+            $table->string('unbk')->default('Belum');
             $table->string('provinsi')->default('Maluku');
             $table->string('transportasi')->nullable();
             $table->string('geografis')->nullable();
@@ -33,7 +34,8 @@ class CreateSchoolsTable extends Migration
             $table->string('listrik')->nullable();
             $table->string('power_suplay')->nullable();
             $table->string('durasi_listrik')->nullable();
-            $table->string('laboratorium')->nullable();
+            $table->string('laboratorium_komputer')->nullable();
+            $table->string('laboratorium_multimedia')->nullable();
             $table->string('jenis_program')->nullable();
             $table->string('tahun_bantuan')->nullable();
             $table->string('lan')->nullable();
@@ -43,12 +45,11 @@ class CreateSchoolsTable extends Migration
             $table->string('kesesuaian_kuota')->nullable();
             $table->string('alasan_tambah_kuota')->nullable();
             $table->string('saran')->nullable();
-            $table->string('tingkat_sekolah')->nullable();
             $table->string('nip')->nullable();
             $table->string('waktu_pendataan')->nullable();
             $table->string('analisis')->nullable();
             $table->boolean('isActive')->default(false);
-            $table->string('periode');
+            $table->string('periode')->unique();
             $table->timestamps();
         });
     }

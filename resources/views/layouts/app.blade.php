@@ -153,6 +153,47 @@
                 $('.verifykator').remove();
             }
         }
+
+        // Add input School
+        $('.add-input').on('click', function(){
+            let input = `<input type="text" name="nama_lembaga[]" id="name" class="form-control mb-2 form-input" multiple>`;
+            $('.page-input').append(input);
+        })
+        $('.remove-input').on('click', function(){
+            $('.page-input input.form-input:last').remove();
+        })
+        
+        // Add input Teacher
+        $('.add-input-training').on('click', function(){
+            let input = `<div class="form-row form-input">
+                            <div class="form-group col-md-5">
+                                <input type="text" class="form-control" name="name_of_training[]">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <select name="level[]" class="form-control">
+                                    <option selected>-- Pilih --</option>
+                                    <option>Pemula</option>
+                                    <option>Lanjutan</option>
+                                    <option>Mahir</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" name="jampel[]">
+                            </div>
+                        </div>`;
+            $('.page-input-training').append(input);
+        })
+        $('.remove-input-training').on('click', function(){
+            $('.page-input-training div.form-input:last').remove();
+        })
+
+        $('.add-input-training-needs').on('click', function(){
+            let input = `<input type="text" name="training_needs_now[]" class="form-control mb-2 form-input">`;
+            $('.page-input-training-needs').append(input);
+        })
+        $('.remove-input-training-needs').on('click', function(){
+            $('.page-input-training-needs input.form-input:last').remove();
+        })
     </script>
 
     @livewireScripts

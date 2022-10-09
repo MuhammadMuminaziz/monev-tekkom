@@ -23,5 +23,7 @@ class Edit extends Component
         $school->update([
             'isActive' => 1
         ]);
+
+        session()->flash('message', 'School has been actived..');
     }
 }

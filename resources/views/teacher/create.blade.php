@@ -261,6 +261,17 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label for="periode" class="col-sm-2 col-form-label">Periode</label>
+                                        <div class="col-sm-10">
+                                            <select name="periode" id="periode" class="form-control">
+                                                <option selected disabled value="">- pilih -</option>
+                                                @foreach($periodes as $periode)
+                                                <option value="{{ $periode->name }}">{{ $periode->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
                                 </div>
                         </div>
@@ -390,12 +401,12 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-5">
                                                 <label for="name_of_training">Nama Diklat/Workshop/Seminar</label>
-                                                <input type="text" class="form-control" id="name_of_training" name="name_of_training[]" multiple>
+                                                <input type="text" class="form-control mb-2" id="name_of_training" name="name_of_training[]">
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="level">Tingkatan/Jenis Diklat</label>
-                                                <select id="level" name="level[]" class="form-control">
-                                                    <option selected>-- Pilih --</option>
+                                                <select id="level" name="level[]" class="form-control mb-2">
+                                                    <option selected>- Pilih -</option>
                                                     <option>Pemula</option>
                                                     <option>Lanjutan</option>
                                                     <option>Mahir</option>
@@ -403,7 +414,7 @@
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="jampel">Jampel</label>
-                                                <input type="text" class="form-control" id="jampel" name="jampel[]">
+                                                <input type="text" class="form-control mb-2" id="jampel" name="jampel[]">
                                             </div>
                                         </div>
                                     </div>

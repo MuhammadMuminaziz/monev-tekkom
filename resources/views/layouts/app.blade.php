@@ -66,7 +66,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2020</span>
+                            <span>Copyright &copy; {{ config('app.name') }} {{ date('Y') }}</span>
                         </div>
                     </div>
                 </footer>
@@ -165,7 +165,7 @@
         
         // Add input Teacher
         $('.add-input-training').on('click', function(){
-            let input = `<div class="form-row form-input">
+            let input1 = `<div class="form-row form-input">
                             <div class="form-group col-md-5">
                                 <input type="text" class="form-control" name="name_of_training[]">
                             </div>
@@ -181,7 +181,7 @@
                                 <input type="text" class="form-control" name="jampel[]">
                             </div>
                         </div>`;
-            $('.page-input-training').append(input);
+            $('.page-input-training').append(input1);
         })
         $('.remove-input-training').on('click', function(){
             $('.page-input-training div.form-input:last').remove();

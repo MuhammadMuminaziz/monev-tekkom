@@ -10,7 +10,7 @@
                 @enderror
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-sm px-4 btn-light rounded-pill">Add city</button>
+            <button type="submit" class="btn btn-sm px-4 btn-secondary rounded-pill">Add city</button>
         </div>
     </form>
 </div>

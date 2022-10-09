@@ -31,9 +31,4 @@ class Teacher extends Model
     {
         return $this->hasMany(Training::class);
     }
-
-    public function getRouteKeyName()
-    {
-        return 'username';
-    }
 }

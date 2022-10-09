@@ -4,6 +4,7 @@ namespace App\Http\Livewire\District;
 
 use App\Models\City;
 use App\Models\District;
+use App\Models\Periode;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -19,11 +20,12 @@ class Create extends Component
         ]);
 
         $slug = $this->uniqueSlug($this->name);
-
+        $periode = Periode::first();
         $district = District::create([
             'city_id' => $this->city_id,
             'name' => $this->name,
-            'slug' => $slug
+            'slug' => $slug,
+            'periode' => $periode->year
         ]);
 
         $this->resetInput();
@@ -32,8 +34,9 @@ class Create extends Component
 
     public function render()
     {
+        $periode = Periode::first();
         return view('livewire.district.create', [
-            'cities' => City::orderBy('name', 'asc')->get()
+            'cities' => City::where('periode', $periode->year)->orderBy('name', 'asc')->get()
         ]);
     }
 

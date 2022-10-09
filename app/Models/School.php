@@ -34,9 +34,4 @@ class School extends Model
     {
         return $this->hasOne(LembagaBantuan::class);
     }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 }

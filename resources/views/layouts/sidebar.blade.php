@@ -20,8 +20,8 @@
                 <span>Dashboard</span></a>
         </li>
         
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item {{ request()->is('reporting') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('reporting.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Reporting</span></a>
         </li>
@@ -59,7 +59,7 @@
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>District</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ request()->is('school*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('school.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Scools</span></a>
@@ -83,13 +83,13 @@
         <hr class="sidebar-divider my-0">
 
         <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
-            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
+            <a class="nav-link pb-0" href="{{ route('verifikator.schools') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Scools</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('teacher.index') }}">
+            <a class="nav-link" href="{{ route('verifikator.teachers') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Teachers</span></a>
         </li>

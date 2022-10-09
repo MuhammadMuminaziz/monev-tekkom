@@ -16,7 +16,7 @@ class CreateTrainingNeedNowsTable extends Migration
         Schema::create('training_need_nows', function (Blueprint $table) {
             $table->id();
             $table->foreignId('teacher_id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }

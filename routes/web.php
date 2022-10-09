@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\ReportingController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\SchoolUserController;
 use App\Http\Controllers\UserController;
@@ -45,13 +47,12 @@ Route::middleware(['auth', 'operator'])->group(function () {
 
 Route::middleware(['auth', 'verifikator'])->group(function () {
     Route::get('/schools-verify', [VerifikatorController::class, 'school'])->name('verifikator.schools');
-    Route::resource('/teachers/verify', TeacherController::class);
+    Route::get('/teachers-verify', [VerifikatorController::class, 'teacher'])->name('verifikator.teachers');
 });
 
 Route::middleware(['auth', 'owner'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/reporting', ReportingController::class)->name('reporting.index');
 });
 
 

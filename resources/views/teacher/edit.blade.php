@@ -209,7 +209,7 @@
                                 <div class="form-group">
                                     <label for="reason_not_certified">Alasan Belum Sertifikasi</label>
                                     <div class="col-sm-12">
-                                    <textarea name="reason_not_certified" class="form-control" id="reason_not_certified" name="reason_not_certified" rows="6"></textarea>
+                                    <input type="text" class="form-control" id="reason_not_certified" name="reason_not_certified" value="{{ old('reason_not_certified', $teacher->reason_not_certified) }}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -233,20 +233,44 @@
                                 <div class="form-group">
                                     <label for="history_involvement_unbk">Riwayat Keterlibatan dalam UNBK</label>
                                     <div class="col-sm-12">
-                                    <textarea class="form-control" id="history_involvement_unbk" name="history_involvement_unbk" rows="6"></textarea>
+                                    <input type="text" class="form-control" id="history_involvement_unbk" name="history_involvement_unbk" value="{{ old('history_involvement_unbk', $teacher->history_involvement_unbk) }}">
                                     </div>
                                 </div>
                                 Data Diklat
                                 <div class="form-group">
-                                    <label>Nama Diklat/Workshop/Seminar</label>
+                                    <label for="name_of_training">Nama Diklat/Workshop/Seminar</label>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="#" placeholder="">
+                                        @foreach($trainings as $training)
+                                        <input type="text" class="form-control" id="name_of_training" name="name_of_training[]" value="{{ $training->name }}">
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label?>Tingkatan/Jenis Diklat</label>                                            diampu</label>
+                                    <label for="level">Tingkatan/Jenis Diklat</label>
                                     <div class="col-sm-12">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                    @foreach($trainings as $training)
+                                    <select name="level[]" id="level" class="form-control">
+                                        <option selected value="{{ $training->level }}">{{ $training->level }}</option>
+                                        <option value="Pemula">Pemula</option>
+                                        <option value="Lanjutan">Lanjutan</option>
+                                        <option value="Mahir">Pemula</option>
+                                    </select>
+                                    @endforeach
+                                </div>
+                                <div class="form-group">
+                                    <label for="jampel">Jampel</label>
+                                    <div class="col-sm-12">
+                                        @foreach($trainings as $training)
+                                        <input type="text" class="form-control" id="jampel" name="jampel[]" value="{{ $training->lesson_hours }}">
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="training_needs_now">Kebutuhan Diklat saat ini</label>
+                                    <div class="col-sm-12">
+                                        @foreach($training_needs as $training_need)
+                                        <input type="text" class="form-control" id="training_needs_now" name="training_needs_now[]" value="{{ $training_need->name }}">
+                                        @endforeach
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update Data</button>

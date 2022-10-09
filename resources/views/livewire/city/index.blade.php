@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <div class="card p-3 text-dark">
-            <div class="card-header bg-secondary mb-2 text-white">
+            <div class="card-header mb-2">
               <div class="d-flex mb-2">
                 <h3>Cities</h3>
               </div>

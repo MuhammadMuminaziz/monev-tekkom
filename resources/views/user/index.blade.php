@@ -31,8 +31,7 @@
                                     <th>Name</th>
                                     <th>Role</th>
                                     <th>Email</th>
-                                    <th>District</th>
-                                    <th width="20%">Action</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,7 +41,6 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{  $user->role->name}}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->district }}</td>
                                     <td>
                                         <a href="{{ route('users.show', $user) }}"  class="btn btn-sm btn-info rounded-pill"><i class="fas fa-info-circle"> Detail</i></a>
                                         <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary rounded-pill"><i class="fas fa-pencil">Edit</i></a>

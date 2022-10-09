@@ -11,20 +11,19 @@
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                    <th width="5%">ID</th>
+                                    <th width="5%">No</th>
                                     <th>Nama Sekolah</th>
                                     <th>NPSN</th>
                                     <th>Jumlah Siswa</th>
                                     <th>Desa / Kecamatan</th>
                                 </thead>
                                 <tbody>
-                               
-                                    <td>#</td>
-                                    <td>#</td>
-                                    <td>#</td>
-                                    <td>#</td>
-                                    <td>#</td>
-    
+                                    @foreach($schools as $school)
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $school->name }}</td>
+                                    <td>{{ $school->npsn }}</td>
+                                    <td>{{ $school->jumlah_siswa }}</td>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -16,12 +16,12 @@ class UsersTableSeeder extends Seeder
     {
         User::create(
             [
-            'role_id'=> 3,
-            'name'=> 'Ither',
-            'username' => 'ither',
-            'email' => 'ither@mail.com',
-            'password'=> bcrypt('12345678'),
-            ] 
+                'role_id' => 3,
+                'name' => 'Ither',
+                'username' => 'ither',
+                'email' => 'ither@mail.com',
+                'password' => bcrypt('12345678'),
+            ]
         );
     }
 }

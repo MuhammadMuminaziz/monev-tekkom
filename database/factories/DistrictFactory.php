@@ -16,7 +16,8 @@ class DistrictFactory extends Factory
         return [
             'city_id' => rand(1, 10),
             'name' => $this->faker->city(),
-            'slug' => $this->faker->slug()
+            'slug' => $this->faker->slug(),
+            'periode' => 2022
         ];
     }
 }

@@ -44,6 +44,8 @@ class CreateTeachersTable extends Migration
             $table->text('competencies_taught')->nullable();
             $table->string('unbk_socialization_activities')->default('sudah');
             $table->string('involvement_unbk')->default('sudah');
+            $table->boolean('isActive')->default(false);
+            $table->string('periode');
             $table->text('history_involvement_unbk')->nullable();
 
             $table->timestamps();

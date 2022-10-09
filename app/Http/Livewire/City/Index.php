@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\City;
 
 use App\Models\City;
+use App\Models\Periode;
 use Livewire\Component;
 
 class Index extends Component
@@ -17,7 +18,8 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.city.index', ['cities' => City::latest()->get()]);
+        $periode = Periode::first();
+        return view('livewire.city.index', ['cities' => City::where('periode', $periode->year)->latest()->get()]);
     }
 
     public function createCity($city)

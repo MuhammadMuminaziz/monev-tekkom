@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\District;
+use App\Models\Periode;
+use App\Models\Tahun;
 use App\Models\Teacher;
 use App\Models\Training;
 use App\Models\TrainingNeedNow;
@@ -19,8 +21,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
+        $periode = Periode::first();
         return view('teacher.index', [
-            'teachers' => Teacher::get(),
+            'teachers' => Teacher::where('periode', $periode->year)->orderBy('teacher_name', 'asc')->get(),
         ]);
     }
 
@@ -34,6 +37,7 @@ class TeacherController extends Controller
         return view('teacher.create', [
             'cities' => City::orderBy('name', 'asc')->get(),
             'districts' => District::orderBy('name', 'asc')->get(),
+            'periodes' => Tahun::get()
         ]);
     }
 
@@ -168,6 +172,28 @@ class TeacherController extends Controller
         $data['history_involvement_unbk'] = $history_involvement_unbk;
 
         $teacher->update($data);
+
+        // Update Training
+        Training::where('teacher_id', $teacher->id)->delete();
+        foreach ($request->name_of_training as $item => $name) {
+            $data = [
+                'teacher_id' => $teacher->id,
+                'name' => $request['name_of_training'][$item],
+                'level' => $request['level'][$item],
+                'lesson_hours' => $request['jampel'][$item],
+            ];
+            Training::create($data);
+        }
+
+        // Update Training Needed
+        TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
+        foreach ($request->training_needs_now as $item => $name) {
+            $data = [
+                'teacher_id' => $teacher->id,
+                'name' => $request['training_needs_now'][$item]
+            ];
+            TrainingNeedNow::create($data);
+        }
 
         return redirect()->route('teachers.index')->with('message', 'Data has been updated..');
     }

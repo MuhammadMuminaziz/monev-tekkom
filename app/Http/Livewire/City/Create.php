@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\City;
 
 use App\Models\City;
+use App\Models\Periode;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
 class Create extends Component
 {
     public $name;
+    public $periode;
 
     public function store()
     {
@@ -17,11 +19,14 @@ class Create extends Component
         ]);
 
         $slug = $this->uniqueSlug($this->name);
-
-        $city = City::create([
+        $this->periode = Periode::first();
+        $data = [
             'name' => $this->name,
-            'slug' => $slug
-        ]);
+            'slug' => $slug,
+            'periode' => $this->periode->year
+        ];
+        // dd($data);
+        $city = City::create($data);
 
         $this->resetInput();
         $this->emit('insertNewCity', $city);

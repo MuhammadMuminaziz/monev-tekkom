@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\District;
 
 use App\Models\District;
+use App\Models\Periode;
 use Livewire\Component;
 
 class Index extends Component
@@ -17,8 +18,9 @@ class Index extends Component
 
     public function render()
     {
+        $periode = Periode::first();
         return view('livewire.district.index', [
-            'districts' => District::with('city')->latest()->get()
+            'districts' => District::with('city')->where('periode', $periode->year)->latest()->get()
         ]);
     }
 

@@ -56,6 +56,8 @@ class SchoolController extends Controller
             'cities' => City::orderBy('name', 'asc')->get(),
             'years' => Tahun::get()
         ]);
+
+        
     }
 
     /**

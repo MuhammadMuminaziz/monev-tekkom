@@ -35,6 +35,8 @@ class TeacherController extends Controller
             'cities' => City::orderBy('name', 'asc')->get(),
             'districts' => District::orderBy('name', 'asc')->get(),
         ]);
+
+        
     }
 
     /**

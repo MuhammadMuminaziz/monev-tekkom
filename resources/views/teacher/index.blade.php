@@ -21,9 +21,9 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">
-                            <a href="{{ route('teachers.create') }}" class="btn btn-sm px-4 pt-2 rounded-pill btn-primary">Add Data</a>
+                            <a href="{{ route('teachers.create') }}" class="btn btn-sm px-3 pt-2 rounded-pill btn-primary"><i class="fas fa-plus-square"></i> Add Data</a>
                         </div>
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table " id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th width="5%">No</th>

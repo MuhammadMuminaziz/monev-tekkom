@@ -14,7 +14,7 @@
 
         <div class="col">
             <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-            <div class="card shadow">
+            <div class="card shadow border-bottom-primary">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
                 </div>
@@ -22,16 +22,15 @@
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">
                             <a href="{{ route('users.create') }}"
-                                class="btn btn-sm px-4 pt-2 rounded-pill btn-primary">Add User</a>
+                                class="btn btn-sm px-4 pt-2 rounded-pill btn-primary"> <i class="fas fa-plus-square"></i> Add User</a>
                         </div>
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table " id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th width="5%">ID</th>
                                     <th>Name</th>
                                     <th>Role</th>
                                     <th>Email</th>
-                                    <th>District</th>
                                     <th width="20%">Action</th>
                                 </tr>
                             </thead>
@@ -42,15 +41,14 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{  $user->role->name}}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->district }}</td>
                                     <td>
-                                        <a href="{{ route('users.show', $user) }}"  class="btn btn-sm btn-info rounded-pill"><i class="fas fa-info-circle"> Detail</i></a>
-                                        <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary rounded-pill"><i class="fas fa-pencil">Edit</i></a>
+                                        <a href="{{ route('users.show', $user) }}"  class="btn btn-sm btn-info rounded"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline">
                                             @method('delete')
                                             @csrf
                                             <button type="submit"
-                                                class="btn btn-sm btn-danger rounded-pill"> <i class="fas fa-trash"> Delete</i></button>
+                                                class="btn btn-sm btn-danger rounded "><i class="fas fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

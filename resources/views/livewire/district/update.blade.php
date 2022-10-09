@@ -20,8 +20,8 @@
                 @enderror
         </div>
         <div class="d-flex justify-content-end mb-4">
-            <button type="submit" class="btn btn-sm px-4 btn-secondary rounded-pill mr-1">update district</button>
-            <button wire:click="censelUpdate()" type="button" class="btn btn-sm px-4 btn-danger rounded-pill">censel</button>
+            <button type="submit" class="btn btn-sm px-4 btn-warning rounded-pill mr-1">Update Data</button>
+            <button wire:click="censelUpdate()" type="button" class="btn btn-sm px-4 btn-danger rounded-pill">Cencel</button>
         </div>
     </form>
 </div>

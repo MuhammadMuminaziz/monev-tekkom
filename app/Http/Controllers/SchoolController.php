@@ -51,22 +51,13 @@ class SchoolController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-
-        // return view('school.create', [
-        //     'districts' => District::orderBy('name', 'asc')->get(),
-        //     'cities' => City::orderBy('name', 'asc')->get(),
-        // ]);
-
-        return view('school.edit');
-
-=======
         return view('school.create', [
             'districts' => District::orderBy('name', 'asc')->get(),
             'cities' => City::orderBy('name', 'asc')->get(),
             'years' => Tahun::get()
         ]);
->>>>>>> 7371a39b4ef29bd770c18bb7cf2d247e3d3130c7
+
+        
     }
 
     /**
@@ -146,11 +137,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-<<<<<<< HEAD
-        
-=======
         return view('school.show', compact('school'));
->>>>>>> 7371a39b4ef29bd770c18bb7cf2d247e3d3130c7
     }
 
     /**

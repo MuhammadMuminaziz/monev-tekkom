@@ -37,27 +37,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-<<<<<<< HEAD
-                           
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>
-                                    <a href="#"  class="btn btn-sm btn-info btn-rounded"><i class="fas fa-eye"></i></a>
-                                    <a href="#" class="btn btn-sm btn-warning btn-rounded"><i class="fas fa-edit"></i></a>
-                                    <form action="#" method="post" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit"
-                                            class="btn btn-sm btn-danger btn-rounded "> <i class="fas fa-trash"></i></button>
-                                    </form>
-                                </td>
-
-=======
                            @foreach($teachers as $index => $teacher)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
@@ -79,7 +58,6 @@
                                     </td>
                                 </tr>
                             @endforeach
->>>>>>> 7371a39b4ef29bd770c18bb7cf2d247e3d3130c7
                             </tbody>
                         </table>
                     </div>

@@ -28,13 +28,13 @@
                                         <label for="#" class="col-sm-4 col-form-label">Nama Guru / Tenaga
                                             Administrasi</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->teacher_name }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Status Ketenagaan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->employment_status }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -42,19 +42,19 @@
                                                 PNS)</span></label>
 
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->nip }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">NUPTK</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->nuptk }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Tempat, Tanggal Lahir</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->place_of_birth . ', ' . $teacher->date_of_birth }}" placeholder="">
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="input-group date" id="reservationdate"
@@ -72,25 +72,26 @@
                                     <div class="form-group row">
                                         <label for="validationTooltip04" class="col-sm-4 col-form-label">Agama</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->religion }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Jenis Kelamin</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->gender }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Pendidikan Terakhir</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->last_education }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">TMT PNS</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->tmt_pns_tahun . $teacher->tmt_pns_bulan }}"
+ placeholder="">
                                         </div>
                                         <div class="col-sm-2">
                                             Tahun
@@ -105,13 +106,13 @@
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Pangkat / Golongan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->class }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">TMT Golongan</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->tmt_class_tahun . $teacher->tmt_class_bulan }}" placeholder="">
                                         </div>
                                         <div class="col-sm-2">
                                             Tahun
@@ -126,31 +127,31 @@
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Asal Sekolah</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->School_Origin }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->district->name }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->city->name }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Provinsi</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->provinsi }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">No Telpon/HP</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->phone}}" placeholder="">
                                         </div>
                                     </div>
 
@@ -158,27 +159,27 @@
                                         <label for="#" class="col-sm-4 col-form-label">Mata pelajaran yang
                                             diampu</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->subjects_taught }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Program atau kegiatan yang
                                             dilaksanakan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->program}}" placeholder="">
                                             <small><a href="#">tambah data</a></small>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Status Sertifikasi</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->certification_status}}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Tahun Sertifikasi</label><br>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->certification_year}}" placeholder="">
                                         </div>
                                         <div class="col-sm-3">
                                             <small>*(diisi jika sudah sertifikasi)</small>
@@ -191,7 +192,7 @@
                                             <small>*(diisi jika sudah sertifikasi tidak perlu diisi)</small>
                                         </div>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            <textarea class="form-control" id="" value="{{ $teacher->reason_not_certified}}"
                                                 rows="6"></textarea>
                                         </div>
                                     </div>
@@ -250,7 +251,7 @@
                                         <label for="#" class="col-sm-4 col-form-label">Kegiatan Sosialisasi
                                             UNBK</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" value="{{ $teacher->unbk_socialization_activities}}" placeholder="">
                                         </div>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control" id="#" placeholder="Tahun">
@@ -273,7 +274,7 @@
                                             <small>*(jika telah melaksanakan UNBK)</small>
                                         </div>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            <textarea class="form-control" id="" value="{{ $teacher->involvement_unbk}}"
                                                 rows="4"></textarea>
                                         </div>
                                     </div>

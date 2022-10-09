@@ -49,13 +49,17 @@
         </div>
         </div>
 
-        {{-- <div class="row justify-content-center">
+       <div class="row justify-content-center">
         <div class="col-md-7">
             @if($success == 'no data')
             <x-school-no-data/>
-            @else
+            @endif
+            @if($success == 'no verify')
             <x-school-no-verify/>
             @endif
+            @if($success == 'data')
+            <x-school-data :school="$school"/>
+            @endif
         </div>
-    </div> --}}
+    </div>
 </x-app-layout>

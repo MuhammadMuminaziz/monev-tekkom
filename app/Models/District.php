@@ -19,4 +19,14 @@ class District extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function schools()
+    {
+        return $this->hasMany(School::class);
+    }
+
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
+    }
 }

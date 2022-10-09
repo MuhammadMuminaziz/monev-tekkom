@@ -39,7 +39,11 @@
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('teachers.index') }}">
+<<<<<<< HEAD
             <i class="fas fa-chalkboard-teacher"></i>
+=======
+                <i class="fas fa-fw fa-table"></i>
+>>>>>>> 7371a39b4ef29bd770c18bb7cf2d247e3d3130c7
                 <span>Teachers</span></a>
         </li>
         @endcan
@@ -59,10 +63,17 @@
             <i class="fas fa-cube"></i>
                 <span>District</span></a>
         </li>
+<<<<<<< HEAD
         <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('schools.index') }}"> 
             <i class="fas fa-school"></i>
             <span>Scools</span></a>
+=======
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="{{ route('school.index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Scools</span></a>
+>>>>>>> 7371a39b4ef29bd770c18bb7cf2d247e3d3130c7
         </li>
 
         <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
@@ -75,6 +86,23 @@
             <a class="nav-link" href="{{ route('periode.index') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Periode active</span></a>
+        </li>
+        @endcan
+
+        @can('verifikator')
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('schools.index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Scools</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('teacher.index') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Teachers</span></a>
         </li>
         @endcan
 

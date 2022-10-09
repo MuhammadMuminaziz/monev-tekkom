@@ -19,4 +19,9 @@ class City extends Model
     {
         return $this->hasMany(School::class);
     }
+
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
+    }
 }

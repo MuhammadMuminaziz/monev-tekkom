@@ -7,6 +7,7 @@ use App\Models\District;
 use App\Models\Periode;
 use App\Models\Role;
 use App\Models\School;
+use App\Models\Tahun;
 use App\Models\User;
 use App\Models\UserProfile;
 use App\Models\Year;
@@ -53,10 +54,10 @@ class DatabaseSeeder extends Seeder
             'year' => 2022
         ]);
 
-        Year::create([
+        Tahun::create([
             'name' => 2021
         ]);
-        Year::create([
+        Tahun::create([
             'name' => 2022
         ]);
     }

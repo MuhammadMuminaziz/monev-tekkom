@@ -32,6 +32,8 @@ Route::middleware(['auth', 'super_admin'])->group(function () {
 
     Route::resource('cities', CityController::class);
 
+    Route::resource('/school', SchoolController::class);
+
     Route::get('/district', [DistrictController::class, 'index'])->name('district.index');
 
     Route::get('/school', SchoolUserController::class)->name('school.index');
@@ -47,6 +49,7 @@ Route::middleware(['auth', 'operator'])->group(function () {
 
 Route::middleware(['auth', 'verifikator'])->group(function () {
     Route::get('/schools-verify', [VerifikatorController::class, 'school'])->name('verifikator.schools');
+    Route::get('/schools-verify/{school}', [VerifikatorController::class, 'show'])->name('verifikator.show');
     Route::get('/teachers-verify', [VerifikatorController::class, 'teacher'])->name('verifikator.teachers');
 });
 

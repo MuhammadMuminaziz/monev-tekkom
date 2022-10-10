@@ -45,10 +45,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Owner',
         ]);
 
-        City::factory(10)->create();
+        // City::factory(10)->create();
 
         $this->call(UsersTableSeeder::class);
-        District::factory(20)->create();
+        // District::factory(20)->create();
 
         Periode::create([
             'year' => 2022

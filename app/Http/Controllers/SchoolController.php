@@ -74,13 +74,6 @@ class SchoolController extends Controller
         }
 
         // Input Field Bantuan Teknologi
-        if ($request->bantuan_teknologi) {
-            $bantuan_teknologi = $request->bantuan_teknologi;
-        } else {
-            $bantuan_teknologi = 'Tidak Pernah';
-        }
-
-        // Input Field Bantuan Teknologi
         if ($request->lan) {
             $lan = $request->lan;
         } else {
@@ -103,11 +96,9 @@ class SchoolController extends Controller
 
         $school = $request->all();
         $school['unbk'] = $unbk;
-        $school['bantuan_teknologi'] = $bantuan_teknologi;
         $school['lan'] = $lan;
         $school['router'] = $router;
         $school['komputer'] = $komputer;
-        $school['periode'] = date('Y');
         $school['slug'] = $this->uniqueSlug($request->name);
         $school['user_id'] = auth()->user()->id;
 

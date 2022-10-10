@@ -39,6 +39,8 @@ class TeacherController extends Controller
             'districts' => District::orderBy('name', 'asc')->get(),
             'periodes' => Tahun::get()
         ]);
+
+        
     }
 
     /**

@@ -24,6 +24,15 @@ class Edit extends Component
             'isActive' => 1
         ]);
 
-        session()->flash('message', 'School has been actived..');
+        session()->flash('message', 'Data berhasil di verifikasi..');
+    }
+
+    public function reject(School $school)
+    {
+        $school->update([
+            'isActive' => 2
+        ]);
+
+        session()->flash('message', 'Data berhasil di tolak..');
     }
 }

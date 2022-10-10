@@ -19,6 +19,8 @@ class CreateSchoolsTable extends Migration
             $table->foreignId('city_id')->nullable();
             $table->foreignId('district_id')->nullable();
             $table->string('name')->nullable();
+            $table->string('nama_petugas')->nullable();
+            $table->string('nip')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->string('npsn')->nullable();
             $table->integer('siswa_per')->nullable();
@@ -42,14 +44,17 @@ class CreateSchoolsTable extends Migration
             $table->string('router')->nullable();
             $table->string('komputer')->nullable();
             $table->string('kuota_bandwidth')->nullable();
+            $table->string('internet_speed')->nullable();
             $table->string('kesesuaian_kuota')->nullable();
             $table->string('alasan_tambah_kuota')->nullable();
             $table->string('saran')->nullable();
-            $table->string('nip')->nullable();
-            $table->string('waktu_pendataan')->nullable();
+            $table->string('tingkat_sekolah')->nullable();
+            $table->date('ranger_waktu_dari')->nullable();
+            $table->date('ranger_waktu_sampai')->nullable();
             $table->string('analisis')->nullable();
             $table->boolean('isActive')->default(false);
             $table->string('periode')->unique();
+            $table->string('tekkom')->unique();
             $table->timestamps();
         });
     }

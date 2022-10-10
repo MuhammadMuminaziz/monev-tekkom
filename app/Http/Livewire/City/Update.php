@@ -10,6 +10,7 @@ class Update extends Component
 {
     public $cityId;
     public $name;
+    public $code;
 
     public $listeners = [
         'getCity' => 'handleGetCity'
@@ -24,13 +25,15 @@ class Update extends Component
     {
         $this->validate([
             'name' => 'required|min:3|max:255|unique:cities,name,' . $this->cityId,
+            'code' => 'required|unique:cities,code,' . $this->cityId,
         ]);
 
         $slug = $this->uniqueSlug($this->name);
 
         $city = City::find($this->cityId)->update([
             'name' => $this->name,
-            'slug' => $slug
+            'code' => $this->code,
+            'slug' => $slug,
         ]);
 
         $this->resetInput();
@@ -46,6 +49,7 @@ class Update extends Component
     private function resetInput()
     {
         $this->name = null;
+        $this->code = null;
     }
 
     public function censelUpdate()

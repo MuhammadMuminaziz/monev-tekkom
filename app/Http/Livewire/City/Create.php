@@ -10,12 +10,14 @@ use Illuminate\Support\Str;
 class Create extends Component
 {
     public $name;
+    public $code;
     public $periode;
 
     public function store()
     {
         $this->validate([
-            'name' => 'required|min:3|max:255|unique:cities'
+            'name' => 'required|min:3|max:255|unique:cities',
+            'code' => 'required|unique:cities'
         ]);
 
         $slug = $this->uniqueSlug($this->name);
@@ -23,6 +25,7 @@ class Create extends Component
         $data = [
             'name' => $this->name,
             'slug' => $slug,
+            'code' => $this->code,
             'periode' => $this->periode->year
         ];
         // dd($data);
@@ -40,6 +43,7 @@ class Create extends Component
     private function resetInput()
     {
         $this->name = null;
+        $this->code = null;
     }
 
     protected function uniqueSlug($name)

@@ -1,4 +1,4 @@
-<div>
+<div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         
         <!-- Sidebar - Brand -->
@@ -33,13 +33,13 @@
 
         <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('schools.index') }}">
-                <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-school"></i>
                 <span>Scools</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('teachers.index') }}">
-                <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-chalkboard-teacher"></i>
                 <span>Teachers</span></a>
         </li>
         @endcan
@@ -50,15 +50,16 @@
         
         <li class="nav-item {{ request()->is('cities*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('cities.index') }}">
-                <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-city"></i>
                 <span>Cities</span></a>
         </li>
         
         <li class="nav-item {{ request()->is('district*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('district.index') }}">
-                <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-cube"></i>
                 <span>District</span></a>
         </li>
+
         <li class="nav-item {{ request()->is('school*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('school.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
@@ -67,7 +68,7 @@
 
         <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('users.index') }}">
-                <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-users"></i>
                 <span>Users</span></a>
         </li>
         

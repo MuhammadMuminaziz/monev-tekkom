@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card shadow mb-4 py-3 border-left-primary">
+                <div class="card shadow mb-4 py-3">
                     <!-- <div class="card-header">
                         <h6 class="card-title font-weight-bold text-primary">Detail Data Sekolah</h6>
                     </div> -->
@@ -12,408 +12,310 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12 m">
                                     <div class="text-center">
-                                        <h3>BALAI TEKNOLOGI KOMUNIKASI PENDIDIKAN PROVINSI MALUKU</h3>
-                                        <h4>FORMAT PENDATAAN PENDIDIKAN BERBASIS TIK (DATA KETENAGAAN)</h4>
+                                        <h4><strong> BALAI TEKNOLOGI KOMUNIKASI PENDIDIKAN PROVINSI MALUKU </strong>
+                                        </h4>
+                                        <h5>FORMAT PENDATAAN PENDIDIKAN BERBASIS TIK (DATA KETENAGAAN)</h5>
                                         <hr>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-8 border mt-3 ">
-                                    <!-- A. Data Umum -->
-                                    <div class="form-group row">
-                                        <h6><strong> A. Data Umum</strong></h6>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Nama Guru / Tenaga
-                                            Administrasi</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->teacher_name }}" placeholder="">
+                                    <div class="container my-3">
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-borderless">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row" class="my-5 font-weight-bold text-primary">
+                                                            <h6><strong> A. Data Umum</strong></h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5"></th>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Nama Guru / Tenaga Administrasi
+                                                        </th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->teacher_name }}</td>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Status Ketenagaan</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->employment_status }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">NIP</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->nip }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">NUPTK</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->nuptk }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Tempat, Tanggal Lahir</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->place_of_birth . ', ' . $teacher->date_of_birth }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Agama</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->religion }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Jenis Kelamin</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->gender }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Pendidikan Terakhir</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->last_education }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">TMT PNS</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->tmt_pns_tahun . $teacher->tmt_pns_bulan }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Pangkat / Golongan</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->class }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">TMT Golongan</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->tmt_class_tahun . $teacher->tmt_class_bulan }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Asal Sekolah</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->School_Origin }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Desa / Kecamatan</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->district->name }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Kabupaten / Kota</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->city->name }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Provinsi</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->provinsi }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">No Telpon/HP</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->phone}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5"></th>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <!-- Data Kompetensi -->
+                                                    <tr>
+                                                        <th scope="row" class="my-5 font-weight-bold text-primary">
+                                                            <h6><strong> B. Data Kompetensi</strong></h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5"></th>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Mata pelajaran yang diampu</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->subjects_taught }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Program atau kegiatan yang
+                                                            dilaksanakan</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->program}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Status Sertifikasi</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->certification_status}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Tahun Sertifikasi</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->certification_year}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Alasan Belum Sertifikasi</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->reason_not_certified}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Kompetensi yang dimiliki</th>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Kegiatan Sosialisasi UNBK</th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->unbk_socialization_activities}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Keterlibatan dalam UNBK</th>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Riwayat Keterlibatan dalam UNBK
+                                                        </th>
+                                                        <td>:</td>
+                                                        <td>{{ $teacher->involvement_unbk}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">Kebutuhan Diklat saat ini</th>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Pelatihan Yang Pernah Diikuti</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th rowspan="2">No</th>
+                                                                    <th rowspan="2">Nama Diklat/Workshop/Seminar</th>
+                                                                    <th colspan="3">Tingkatan/Jenis Diklat</th>
+                                                                    <th rowspan="2">Jampel</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Pemula</th>
+                                                                    <th>Lanjut</th>
+                                                                    <th>Mahir</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Status Ketenagaan</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->employment_status }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">NIP <br><span>(Diisi jika
-                                                PNS)</span></label>
 
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->nip }}" placeholder="">
-                                        </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">NUPTK</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->nuptk }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Tempat, Tanggal Lahir</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->place_of_birth . ', ' . $teacher->date_of_birth }}" placeholder="">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="input-group date" id="reservationdate"
-                                                data-target-input="nearest">
-                                                <input type="text" class="form-control datetimepicker-input"
-                                                    data-target="#reservationdate" />
-                                                <div class="input-group-append" data-target="#reservationdate"
-                                                    data-toggle="datetimepicker">
-                                                    <div class="input-group-text"><i class="fa fa-calendar"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="validationTooltip04" class="col-sm-4 col-form-label">Agama</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->religion }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Jenis Kelamin</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->gender }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Pendidikan Terakhir</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->last_education }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">TMT PNS</label>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->tmt_pns_tahun . $teacher->tmt_pns_bulan }}"
- placeholder="">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            Tahun
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            Bulan
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Pangkat / Golongan</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->class }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">TMT Golongan</label>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->tmt_class_tahun . $teacher->tmt_class_bulan }}" placeholder="">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            Tahun
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            Bulan
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Asal Sekolah</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->School_Origin }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->district->name }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->city->name }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Provinsi</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->provinsi }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">No Telpon/HP</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->phone}}" placeholder="">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Mata pelajaran yang
-                                            diampu</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->subjects_taught }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Program atau kegiatan yang
-                                            dilaksanakan</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->program}}" placeholder="">
-                                            <small><a href="#">tambah data</a></small>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Status Sertifikasi</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->certification_status}}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Tahun Sertifikasi</label><br>
-                                        <div class="col-sm-5">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->certification_year}}" placeholder="">
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <small>*(diisi jika sudah sertifikasi)</small>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                            <label for="#" class="col-form-label">Alasan Belum
-                                                Sertifikasi</label><br>
-                                            <small>*(diisi jika sudah sertifikasi tidak perlu diisi)</small>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <textarea class="form-control" id="" value="{{ $teacher->reason_not_certified}}"
-                                                rows="6"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Kompetensi yang
-                                            dimiliki</label>
-                                        <div class="col-sm-8">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                                    value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox1">Ms.
-                                                    Word</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                                    value="option2">
-                                                <label class="form-check-label" for="inlineCheckbox2">Ms.
-                                                    Excel</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                                    value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox3">Power
-                                                    Point</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
-                                                    value="option2">
-                                                <label class="form-check-label" for="inlineCheckbox4">Photoshop</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
-                                                    value="option2">
-                                                <label class="form-check-label" for="inlineCheckbox5">Animasi</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
-                                                    value="option1">
-                                                <label class="form-check-label" for="inlineCheckbox6">Programmer</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox7"
-                                                    value="option2">
-                                                <label class="form-check-label" for="inlineCheckbox7">Jaringan</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox8"
-                                                    value="option2">
-                                                <label class="form-check-label" for="inlineCheckbox8">Lainnya</label>
-                                            </div>
-                                            <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                                placeholder="Lainnya">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Kegiatan Sosialisasi
-                                            UNBK</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" value="{{ $teacher->unbk_socialization_activities}}" placeholder="">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" placeholder="Tahun">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Keterlibatan dalam
-                                            UNBK</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" placeholder="Tahun">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                            <label for="#" class="col-form-label">Riwayat Keterlibatan dalam
-                                                UNBK</label><br>
-                                            <small>*(jika telah melaksanakan UNBK)</small>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <textarea class="form-control" id="" value="{{ $teacher->involvement_unbk}}"
-                                                rows="4"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-12 col-form-label"><strong> Pelatihan Yang Pernah
-                                                Diikuti</strong></label>
-                                    </div>
-                                    <div class="table-responsive text-center">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th rowspan="2">No</th>
-                                                    <th rowspan="2">Nama Diklat/Workshop/Seminar</th>
-                                                    <th colspan="3">Tingkatan/Jenis Diklat</th>
-                                                    <th rowspan="2">Jampel</th>
-                                                </tr>
-                                                <tr> 
-                                                    <th >Pemula</th>
-                                                    <th>Lanjut</th>
-                                                    <th>Mahir</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Kebutuhan Diklat saat
-                                            ini</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="">
-                                            <small><a href="#">tambah data</a></small>
-                                        </div>
-                                    </div>
-
-
                                 </div>
                                 <!-- Kuisioner -->
                                 <div class="col-md-4 border mt-3">
-                                    <div class="form-group mt-2 row">
-                                        <small for="#" class="col-sm-5">Kode Kuisioner</small>
-                                        <div class="col-sm-7 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                    <!-- <div class="container my-3"> -->
+                                        <div class="table-responsive my-5">
+                                            <table class="table-sm table-borderless">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="col-md-6">Kode Kuisioner</th>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th class="col-md-6">Tingkatan Sekolah</th>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th class="col-md-6">Nama Petugas Pendataan</th>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th class="col-md-6">NIP</th>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th colspan="3">Range Waktu Pendataan</th>
+                                                    <tr>
+                                                    <tr>
+                                                        <td>xxx</td>
+                                                        <td>s/d</td>
+                                                        <td>xxx</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th colspan="3">Analisa Petugas Pendataan</th>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <textarea class="form-control"
+                                                                id="exampleFormControlTextarea1" rows="40"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <div class="table-responsive">
+                                                            <table class="table  table-bordered">
+                                                                <tr>
+                                                                    <td colspan="2" class="col-sm-6">
+                                                                        <table class="table table-sm table-borderless">
+                                                                            <tr>
+                                                                                <td><small> Responden</small></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>tgl</td>
+                                                                                <td>:</td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>xxx</td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                    <td colspan="2" class="col-sm-6 m-0">
+                                                                        <table class="table table-sm table-borderless">
+                                                                            <tr>
+                                                                                <td><small>Petugas Pengumpul Data</small> 
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>tgl</td>
+                                                                                <td>:</td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>xxx</td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <small for="#" class="col-sm-5">Tingkatan Sekolah</small>
-                                        <div class="col-sm-7 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <small for="#" class="col-sm-12">Nama Petugas Pendataan</small>
-                                        <div class="col-sm-12 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <small for="#" class="col-sm-5">NIP</small>
-                                        <div class="col-sm-7 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <small for="#" class="col-sm-12 mb-2 text-center">Range Waktu
-                                            Pendataan</small>
-                                        <small for="#" class="col-sm-2  ">Tgl</small>
-                                        <div class="col-sm-4 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                        <small for="#" class="col-sm-2">s/d</small>
-                                        <div class="col-sm-4 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <small for="#" class="col-sm-12 mb-2 text-center">Analisa Petugas
-                                            Pendataan</small>
-                                        <div class="col-sm-12">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="60"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row text-center">
-                                        <div class="col-sm-6 border">
-                                            <small for="#" class="col-sm-12 text-center">Responden</small>
-                                            <div class="row">
-                                                <div class="col-sm-3 ">
-                                                    <small>Tgl</small>
-                                                </div>
-                                                <div class="col-sm-9 input-group-sm">
-                                                    <input type="text" class="form-control" id="#" placeholder="">
-                                                </div>
-                                            </div><br><br><br>
-                                            <div class="col-sm-12 input-group-sm">
-                                                <label for=""><input type="text" class="form-control" id="#"
-                                                        placeholder="(.............................)"></label>
-                                                <hr>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 border ">
-                                            <small for="#" class="text-center">Petugas Pengumpul Data</small>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <small>Tgl</small>
-                                                </div>
-                                                <div class="col-sm-9 input-group-sm">
-                                                    <input type="text" class="form-control" id="#" placeholder="">
-                                                </div>
-                                            </div><br><br><br>
-                                            <div class="col-sm-12 input-group-sm">
-                                                <label for=""><input type="text" class="form-control" id="#"
-                                                        placeholder="(.............................)"></label>
-                                                <hr>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <div class="col-sm-12 mt-3">
-                                <button type="button" class="btn btn-secondary mr-2">Back</button>
+                            <div class="col-sm-12 my-3">
+                                <button type="button" class="btn btn-secondary mr-2">Kembali</button>
                             </div>
                         </form>
                     </div>

@@ -34,11 +34,14 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        return view('teacher.create', [
-            'cities' => City::orderBy('name', 'asc')->get(),
-            'districts' => District::orderBy('name', 'asc')->get(),
-            'periodes' => Tahun::get()
-        ]);
+        // return view('teacher.create', [
+        //     'cities' => City::orderBy('name', 'asc')->get(),
+        //     'districts' => District::orderBy('name', 'asc')->get(),
+        //     'periodes' => Tahun::get()
+        // ]);
+
+        return view('teacher.show');
+        
 
         
     }

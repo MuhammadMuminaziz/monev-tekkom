@@ -289,7 +289,7 @@
                                     <div class="form-group row">
                                         <small for="#" class="col-sm-12">Nama Petugas Pendataan</small>
                                         <div class="col-sm-12 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->user->name }}">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -342,7 +342,7 @@
                                                     <small>Tgl</small>
                                                 </div>
                                                 <div class="col-sm-9 input-group-sm">
-                                                    <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->user->name }}">
+                                                    <input type="text" class="form-control" id="#" placeholder="" value="">
                                                 </div>
                                             </div><br><br><br>
                                             <div class="col-sm-12 input-group-sm">

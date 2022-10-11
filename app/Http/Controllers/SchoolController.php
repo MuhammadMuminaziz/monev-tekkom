@@ -25,14 +25,19 @@ class SchoolController extends Controller
         $school = School::where('periode', $periode->year);
 
         if ($school->exists()) {
-            $school = School::where('periode', $periode->year)->where('isActive', 1);
-            if ($school->exists()) {
+            $school = School::where('periode', $periode->year);
+            // dd($school->where('isActive', 2)->exists());
+            if ($school->where('isActive', 1)->exists()) {
                 $data = $school->where('isActive', 1)->first();
                 $success = 'data';
+            } elseif (School::where('periode', $periode->year)->where('isActive', 2)->exists()) {
+                $data = School::where('periode', $periode->year)->where('isActive', 2)->first();
+                $success = 'reject';
             } else {
                 $data = $school->first();
                 $success = 'no verify';
             }
+
             return view('school.index', [
                 'school' => $data,
                 'success' => $success
@@ -137,7 +142,12 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        return view('school.edit', [
+            'school' => $school,
+            'districts' => District::orderBy('name', 'asc')->get(),
+            'cities' => City::orderBy('name', 'asc')->get(),
+            'years' => Tahun::get()
+        ]);
     }
 
     /**
@@ -149,7 +159,85 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        //
+        if ($request->unbk) {
+            $unbk = $request->unbk;
+        } else {
+            $unbk = 'Belum';
+        }
+
+        // Input Field Bantuan Teknologi
+        if ($request->lan) {
+            $lan = $request->lan;
+        } else {
+            $lan = 'Tidak Ada';
+        }
+
+        // Input Field Bantuan Teknologi
+        if ($request->router) {
+            $router = $request->router;
+        } else {
+            $router = 'Tidak Ada';
+        }
+
+        // Input Field Bantuan Teknologi
+        if ($request->komputer) {
+            $komputer = $request->komputer;
+        } else {
+            $komputer = 'Tidak Ada';
+        }
+
+        $data = [
+            'city_id'                   => $request->city_id,
+            'district_id'               => $request->district_id,
+            'name'                      => $request->name,
+            'nama_petugas'              => $request->nama_petugas,
+            'nip'                       => $request->nip,
+            'npsn'                      => $request->npsn,
+            'siswa_per'                 => $request->siswa_per,
+            'siswa_lak'                 => $request->siswa_lak,
+            'jumlah_siswa'              => $request->jumlah_siswa,
+            'unbk'                      => $unbk,
+            'transportasi'              => $request->transportasi,
+            'geografis'                 => $request->geografis,
+            'sosekbud'                  => $request->sosekbud,
+            'internet'                  => $request->internet,
+            'bantuan_teknologi'         => $request->bantuan_teknologi,
+            'listrik'                   => $request->listrik,
+            'power_suplay'              => $request->power_suplay,
+            'durasi_listrik'            => $request->durasi_listrik,
+            'laboratorium_komputer'     => $request->laboratorium_komputer,
+            'laboratorium_multimedia'   => $request->laboratorium_multimedia,
+            'jenis_program'             => $request->jenis_program,
+            'tahun_bantuan'             => $request->tahun_bantuan,
+            'lan'                       => $lan,
+            'router'                    => $router,
+            'komputer'                  => $komputer,
+            'kuota_bandwidth'           => $request->kuota_bandwidth,
+            'internet_speed'            => $request->internet_speed,
+            'kesesuaian_kuota'          => $request->kesesuaian_kuota,
+            'alasan_tambah_kuota'       => $request->alasan_tambah_kuota,
+            'saran'                     => $request->saran,
+            'tingkat_sekolah'           => $request->tingkat_sekolah,
+            'range_waktu_dari'          => $request->range_waktu_dari,
+            'range_waktu_sampai'        => $request->range_waktu_sampai,
+            'analisis'                  => $request->analisis,
+            'periode'                   => $request->periode,
+            'tekkom '                   => $request->tekkom,
+            'isActive'                  => 0
+        ];
+
+        LembagaBantuan::where('school_id', $school->id)->delete();
+        foreach ($request->nama_lembaga as $item => $lembaga) {
+            $data2 = [
+                'school_id'     => $school->id,
+                'name'          => $request['nama_lembaga'][$item]
+            ];
+
+            LembagaBantuan::create($data2);
+        }
+
+        $school->update($data);
+        return redirect()->route('schools.index')->with('message', 'Data berhasil diperbarui..');
     }
 
     /**

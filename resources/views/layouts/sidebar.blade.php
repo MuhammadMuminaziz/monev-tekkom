@@ -20,7 +20,7 @@
                 <span>Dashboard</span></a>
         </li>
         
-        <li class="nav-item {{ request()->is('reporting') ? 'active' : '' }}">
+        <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('reporting.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Reporting</span></a>

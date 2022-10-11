@@ -55,7 +55,9 @@ Route::middleware(['auth', 'verifikator'])->group(function () {
 
 Route::middleware(['auth', 'owner'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    Route::get('/reporting', ReportingController::class)->name('reporting.index');
+    Route::get('/reporting', [ReportingController::class, 'index'])->name('reporting.index');
+    Route::get('/reporting/{city}', [ReportingController::class, 'district'])->name('reporting.district');
+    Route::get('/reporting/{city}/{district}', [ReportingController::class, 'school'])->name('reporting.school');
 });
 
 

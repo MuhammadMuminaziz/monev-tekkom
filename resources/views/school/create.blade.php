@@ -234,7 +234,8 @@
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="nama_petugas" name="nama_petugas" value="{{ auth()->user()->name }}" readonly placeholder="">
                                             </div>
-                                        </div><div class="form-group row">
+                                        </div>
+                                        <div class="form-group row">
                                             <label for="nip" class="col-sm-4 col-form-label">NIP</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="nip" name="nip" placeholder="">

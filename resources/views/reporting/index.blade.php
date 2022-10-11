@@ -1,32 +1,30 @@
 <x-app-layout>
-    <h1>Reporting</h1>
-    
     <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card p-2">
+        <div class="col">
+            <div class="card">
                 <div class="card-header">
                     <h5>Kabupaten/Kota</h5>
                 </div>
-                <div class="card-body">
-                    <ul class="p-0 px-2">
-                        @foreach($cities as $city)
-                        <li>{{ $city->name }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card p-2">
-                <div class="card-header">
-                    <h5>Kecamatan/Desa</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="p-0 px-2">
-                        @foreach($districts as $district)
-                        <li>{{ $district->name }}</li>
-                        @endforeach
-                    </ul>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <ul class="p-0 px-2">
+                                @foreach($cities as $city)
+                                <li><a href="{{ route('reporting.district', $city) }}">{{ $city->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-2 mt-2">
+                            <p>Sekolah</p>
+                            <ul>
+                                @foreach($schools as $school)
+                                <li><a href="">{{ $school->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

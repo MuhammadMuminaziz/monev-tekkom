@@ -27,14 +27,14 @@
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Nama Sekolah</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->name }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Nomor Pokok Sekolah Nasional
                                             (NPSN)</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->npsn }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -43,15 +43,15 @@
                                             <div class="form-row">
                                                 <div class="form-group col-sm-5">
                                                     <label for="inputCity">Laki-Laki</label>
-                                                    <input type="text" class="form-control" id="inputCity">
+                                                    <input type="text" class="form-control" id="inputCity" value="{{ $school->siswa_lak }}">
                                                 </div>
                                                 <div class="form-group col-sm-5">
                                                     <label for="inputState">Perempuan</label>
-                                                    <input type="text" class="form-control" id="inputCity">
+                                                    <input type="text" class="form-control" id="inputCity" value="{{ $school->siswa_per }}">
                                                 </div>
                                                 <div class="form-group col-sm-2">
                                                     <label for="inputZip">Total</label>
-                                                    <input type="text" class="form-control" id="inputZip">
+                                                    <input type="text" class="form-control" id="inputZip" value="{{ $school->jumlah_siswa }}">
                                                 </div>
                                             </div>
 
@@ -63,44 +63,43 @@
                                             <div class="form-row">
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        name="inlineRadioOptions" id="inlineRadio1" value="option1" {{ $school->unbk != 'Belum' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="inlineRadio1">Sudah</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                        name="inlineRadioOptions" id="inlineRadio2" value="option2" {{ $school->unbk == 'Belum' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="inlineRadio2">Belum</label>
                                                 </div>
                                                 <div class="form-group col-sm-2">
                                                     <input type="text" class="form-control" id="inputCity"
-                                                        placeholder="Tahun">
+                                                        placeholder="Tahun" value="{{ $school->unbk != 'Belum' ? $school->unbk : '' }}">
                                                 </div>
-                                                <small>(diisi jika sudah melaksanakan UNBK)</small>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->district->name }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->city->name }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Provinsi</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->provinsi }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Akses Transportasi</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->transportasi }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -112,7 +111,7 @@
                                             <small>(Uraikan Singkat)</small></label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="4"></textarea>
+                                                rows="4">{{ $school->geografis }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -120,47 +119,48 @@
                                             <small>(Uraikan Singkat)</small></label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="4"></textarea>
+                                                rows="4">{{ $school->sosekbud }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Fasilitas Komunikasi Internet
                                             Saat Ini</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->internet }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Pernah Mendapatkan Bantuan
                                             Terkait Teknologi Informasi dan Komunikasi </label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->bantuan_teknologi }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Lembaga Pemberi
                                             Bantuan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
-                                            <small><a href="#">tambah data</a></small>
+                                            @foreach($school->lembaga_bantuan as $data)
+                                            <input type="text" class="form-control mb-2" id="#" placeholder="" value="{{ $data->name }}">
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Listrik</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->listrik }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Sumber Daya Listrik</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->power_suplay }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Durasi Listrik</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->durasi_listrik }}">
                                         </div>
                                         <div class="col-sm-2">
                                             <p>(Jam)</p>
@@ -177,12 +177,12 @@
                                                 <div class="form-group col-sm-6">
                                                     <label for="inputCity">1. Komputer</label>
                                                     <input type="text" class="form-control" id="inputCity"
-                                                        placeholder="(...Unit)">
+                                                        placeholder="(...Unit)" value="{{ $school->laboratorium_komputer }}">
                                                 </div>
                                                 <div class="form-group col-sm-6">
                                                     <label for="inputState">2. Multimedia</label>
                                                     <input type="text" class="form-control" id="inputCity"
-                                                        placeholder="(...Unit)">
+                                                        placeholder="(...Unit)" value="{{ $school->laboratorium_multimedia }}">
                                                 </div>
                                             </div>
 
@@ -192,14 +192,14 @@
                                         <label for="#" class="col-sm-4 col-form-label">Jenis Program / Kegiatan yang
                                             diterima</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->jenis_program }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">Tahun Menerima
                                             Bantuan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->tahun_bantuan }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -210,49 +210,45 @@
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">A. LAN/Wireless LAN</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->lan != 'Tidak Ada' ? 'Ada' : 'Tidak Ada' }}">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="#" placeholder="Jumlah Unit">
+                                            <input type="text" class="form-control" id="#" placeholder="Jumlah Unit" value="{{ $school->lan != 'Tidak Ada' ? $school->lan : '' }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">B. Router</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->router != 'Tidak Ada' ? 'Ada' : 'Tidak Ada' }}">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="#" placeholder="Jumlah Unit">
+                                            <input type="text" class="form-control" id="#" placeholder="Jumlah Unit" value="{{ $school->router != 'Tidak Ada' ? $school->router : '' }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">A. Komputer</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->komputer != 'Tidak Ada' ? 'Ada' : 'Tidak Ada' }}">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="#" placeholder="Jumlah Unit">
+                                            <input type="text" class="form-control" id="#" placeholder="Jumlah Unit" value="{{ $school->komputer != 'Tidak Ada' ? $school->komputer : '' }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">D. Kuota Banwidth Saat
                                             Ini</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->kuota_bandwidth }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <select class="custom-select" id="validationTooltip04" required>
-                                                <option selected disabled value="">Pilih</option>
-                                                <option>Kbps</option>
-                                                <option>Mbps</option>
-                                            </select>
+                                            <input type="text" name="" class="form-control" value="{{ $school->internet_speed }}" id="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="#" class="col-sm-4 col-form-label">E. Kesesuaian Kuota Dengan
                                             Kebutuhan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->kesesuaian_kuota }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -260,7 +256,7 @@
                                             Kuota</label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="4"></textarea>
+                                                rows="4">{{ $school->alasan_tambah_kuota }}</textarea>
                                         </div>
                                     </div>
                                     <!-- C. Saran -->
@@ -271,7 +267,7 @@
                                         <label for="#" class="col-sm-4 col-form-label">Saran</label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="6"></textarea>
+                                                rows="6">{{ $school->saran }}</textarea>
                                         </div>
                                     </div>
 
@@ -281,25 +277,25 @@
                                     <div class="form-group mt-2 row">
                                         <small for="#" class="col-sm-5">Kode Kuisioner</small>
                                         <div class="col-sm-7 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->city->code }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <small for="#" class="col-sm-5">Tingkatan Sekolah</small>
                                         <div class="col-sm-7 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->tingkat_sekolah }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <small for="#" class="col-sm-12">Nama Petugas Pendataan</small>
                                         <div class="col-sm-12 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->user->name }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <small for="#" class="col-sm-5">NIP</small>
                                         <div class="col-sm-7 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->nip }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -307,11 +303,11 @@
                                             Pendataan</small>
                                         <small for="#" class="col-sm-2  ">Tgl</small>
                                         <div class="col-sm-4 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->range_waktu_dari }}">
                                         </div>
                                         <small for="#" class="col-sm-2">s/d</small>
                                         <div class="col-sm-4 input-group-sm">
-                                            <input type="text" class="form-control" id="#" placeholder="">
+                                            <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->range_waktu_sampai }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -319,7 +315,7 @@
                                             Pendataan</small>
                                         <div class="col-sm-12">
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="70"></textarea>
+                                                rows="70">{{ $school->analisis }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row text-center">
@@ -346,7 +342,7 @@
                                                     <small>Tgl</small>
                                                 </div>
                                                 <div class="col-sm-9 input-group-sm">
-                                                    <input type="text" class="form-control" id="#" placeholder="">
+                                                    <input type="text" class="form-control" id="#" placeholder="" value="{{ $school->user->name }}">
                                                 </div>
                                             </div><br><br><br>
                                             <div class="col-sm-12 input-group-sm">

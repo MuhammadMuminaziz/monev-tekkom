@@ -51,12 +51,22 @@
 
        <div class="row justify-content-center">
         <div class="col-md-7">
+
             @if($success == 'no data')
             <x-school-no-data/>
             @endif
+
+            {{-- dont verify --}}
             @if($success == 'no verify')
             <x-school-no-verify/>
             @endif
+
+            {{-- reject --}}
+            @if($success == 'reject')
+            <x-school-reject :school="$school"/>
+            @endif
+
+            {{-- verify --}}
             @if($success == 'data')
             <x-school-data :school="$school"/>
             @endif

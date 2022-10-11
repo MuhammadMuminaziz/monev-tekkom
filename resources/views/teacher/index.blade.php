@@ -2,8 +2,6 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-
             {{-- Message --}}
             @if(session()->has('message'))
             <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">

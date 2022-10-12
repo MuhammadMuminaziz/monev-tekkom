@@ -10,10 +10,9 @@
   @endif
   <div class="row">
       <div class="col">
-          <h1 class="h3 mb-2 text-gray-800">Verifikator</h1>
-          <div class="card shadow">
+          <div class="card shadow border-bottom-primary">
               <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Data Sekolah</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Verifikasi Data Sekolah</h6>
               </div>
               <div class="card-body">
                   <div class="table-responsive">
@@ -24,7 +23,8 @@
                               <th>NPSN</th>
                               <th>Jumlah Siswa</th>
                               <th>Desa / Kecamatan</th>
-                              <th>Aksi</th>
+                              <th>Status Verifikasi</th>
+                              <th>Action</th>
                           </thead>
                           <tbody>
                               @foreach($schools as $school)
@@ -33,6 +33,13 @@
                               <td>{{ $school->npsn }}</td>
                               <td>{{ $school->jumlah_siswa }}</td>
                               <td>{{ $school->district->name }}</td>
+                              <td>
+                                    @if($school->isActive == 0)
+                                    <span class="badge badge-danger">Not Acitived</span>
+                                    @else
+                                    <span class="badge badge-success">Acitived</span>
+                                    @endif
+                              </td>
                               <td>
                                 <button wire:click="verify({{ $school }})" class="btn btn-sm btn-success">Verifikasi</button>
                                 <button wire:click="reject({{ $school }})" class="btn btn-sm btn-danger">Tolak</button>

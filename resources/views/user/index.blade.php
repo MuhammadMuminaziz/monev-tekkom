@@ -13,7 +13,6 @@
         @endif
 
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
             <div class="card shadow border-bottom-primary">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
@@ -31,7 +30,7 @@
                                     <th>Name</th>
                                     <th>Role</th>
                                     <th>Email</th>
-                                    <th width="20%">Action</th>
+                                    <th width="15%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,7 +41,6 @@
                                     <td>{{  $user->role->name}}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        <a href="{{ route('users.show', $user) }}"  class="btn btn-sm btn-info rounded"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline">
                                             @method('delete')

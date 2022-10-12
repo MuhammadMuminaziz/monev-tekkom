@@ -4,7 +4,7 @@
         <div class="col">
             <div class="card shadow">
                 <div class="card-header">
-                    <h6>Edit User</h6>
+                    <h6 class="font-weight-bold text-primary">Edit User</h6>
                 </div>
                 <div class="card-body">
                     <form class="user" method="post" action="{{ route('users.update', $user) }}">

@@ -20,7 +20,11 @@
                                     aria-controls="competency_data" aria-selected="false">B. Data
                                     Sekolah Yang Memiliki Akses Internet</button>
                             </li>
-
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="kuisioner_data-tab" data-toggle="tab"
+                                    data-target="#kuisioner_data" type="button" role="tab"
+                                    aria-controls="kuisioner_data" aria-selected="false">Kuisioner</button>
+                            </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <!-- A. Data Umum -->
@@ -205,59 +209,6 @@
                                             <p>(Jam)</p>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="periode" class="col-sm-4 col-form-label">Periode</label>
-                                        <div class="col-sm-8">
-                                            <select name="periode" id="periode" class="custom-select">
-                                                @foreach($years as $year)
-                                                @if($school->periode == $year->name)
-                                                <option selected value="{{ $year->name }}">{{ $year->name }}</option>
-                                                @else
-                                                <option value="{{ $year->name }}">{{ $year->name }}</option>
-                                                @endif
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="tekkom" class="col-sm-4 col-form-label">B. Tekkom</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="tekkom" name="tekkom" value="{{ old('tekkom', $school->tekkom) }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="tingkat_sekolah" class="col-sm-4 col-form-label">Tingkatan Sekolah</label>
-                                        <div class="col-sm-8">
-                                        <select name="tingkat_sekolah" id="tingkat_sekolah" class="custom-select">
-                                                <option selected value="{{ $school->tingkat_sekolah }}">{{ $school->tingkat_sekolah }}</option>
-                                                <option value="SD">SD</option>
-                                                <option value="SMP">SMP</option>
-                                                <option value="SMA">SMA</option>
-                                                <option value="SMK">SMK</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="nama_petugas" class="col-sm-4 col-form-label">Nama Petugas Pendataan</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="nama_petugas" name="nama_petugas" value="{{ old('nama_petugas', $school->nama_petugas) }}" readonly placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="nip" class="col-sm-4 col-form-label">NIP</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="nip" name="nip" value="{{ old('nip', $school->nip) }}" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="range_waktu_dari" class="col-sm-4 col-form-label">Range Waktu Pendataan</label>
-                                        <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_dari" name="range_waktu_dari" placeholder="" value="{{ old('range_waktu_dari', $school->range_waktu_dari) }}">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="" value="{{ old('range_waktu_dari', $school->range_waktu_sampai) }}">
-                                        </div>
-                                    </div>
 
                                 </div>
                             </div>
@@ -392,9 +343,107 @@
                                                 rows="6">{{ $school->analisis }}</textarea>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <!-- Kuisioner -->
+                            <div class="tab-pane fade" id="kuisioner_data" role="tabpanel"
+                                aria-labelledby="kuisioner_data-tab">
+                                <div class="container mt-5">
+                                    <div class="form-group row">
+                                        <label for="tekkom" class="col-sm-4 col-form-label">Kode Kuisioner</label>
+                                        <div class="col-sm-1">
+                                            <input type="text" class="form-control" id="tekkom" name="tekkom" value="{{ old('tekkom', $school->tekkom) }}" placeholder="">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label for="#" class="col-form-label">/B.Tekkom/</label>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <input type="text" class="form-control" id="#" placeholder="">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label for="#" class="col-form-label">/KR/2016</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tingkat_sekolah" class="col-sm-4 col-form-label">Tingkatan Sekolah</label>
+                                        <div class="col-sm-8">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exampleRadios"
+                                                    id="exampleRadios1" value="option1" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    SD
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exampleRadios"
+                                                    id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    SMP
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exampleRadios"
+                                                    id="exampleRadios3" value="option1" checked>
+                                                <label class="form-check-label" for="exampleRadios3">
+                                                    SMA
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exampleRadios"
+                                                    id="exampleRadios4" value="option2">
+                                                <label class="form-check-label" for="exampleRadios4">
+                                                    SMK
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="nama_petugas" class="col-sm-4 col-form-label">Nama Petugas Pendataan</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="nama_petugas" name="nama_petugas" value="{{ old('nama_petugas', $school->nama_petugas) }}" readonly placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="nip" class="col-sm-4 col-form-label">NIP</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="nip" name="nip" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="range_waktu_dari" class="col-sm-4 col-form-label">Range Waktu Pendataan</label>
+                                        <div class="col-sm-4">
+                                            <input type="date" class="form-control" id="range_waktu_dari" name="range_waktu_dari" value="{{ old('range_waktu_dari', $school->range_waktu_dari) }}" placeholder="">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" value="{{ old('range_waktu_dari', $school->range_waktu_sampai) }}" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="analisis" class="col-sm-4 col-form-label">Analisa Petugas Pendataan</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" id="analisis" name="analisis" rows="8">{{ $school->analisis }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="#" class="col-sm-4 col-form-label">Responden</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="#" placeholder="Nama Responden">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="">
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12 my-5">
                                         <button type="submit" class="btn btn-primary float-right">Update Data</button>
-                                        <a href="{{ route('schools.index') }}" class="btn btn-secondary float-right mr-2">Cancel</a>
+                                        <a href="{{ route('schools.index') }}" class="btn btn-secondary float-right mr-2">Kembali</a>
+                                    </div>
+                                    <br><br><br><hr>
+                                    <div class="form-group row">
+                                        <small><strong><i class="fas fa-file-alt"></i> Catatan</strong></small>
+                                        <small class="col-sm-12 text-muted well well-sm no-shadow ">
+                                        Untuk kode kuisioner diisi dengan nomor urut dan kode kabupaten/kota : <br>
+                                        1.Kota Ambon, 2.Kota Tual, 3.Maluku tengah, 4.SBB, 5.SBT, 6.Butu, 7.Buru Selatan, 8.Maluku Tenggara, 9.Maluku Barat, 10.Maluku Barat Daya, 11.Kep.Aru
+                                        </small>
                                     </div>
                                 </div>
                             </div>

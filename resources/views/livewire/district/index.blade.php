@@ -9,7 +9,7 @@
               <div class="card-body">
                   <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">
-                            <button type="button" class="btn btn-primary my-2 rounded-pill" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
+                            <button type="button" class="btn btn-primary my-2 rounded-pill" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus-square"></i> Tambah Data</button>
                         </div>
                         <!-- Modal Tambah Data -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

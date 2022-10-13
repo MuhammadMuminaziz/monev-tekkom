@@ -18,8 +18,10 @@ class Edit extends Component
         ]);
     }
 
-    public function verify(School $school)
+    public function verify(School $school, $slug)
     {
+        // $school = School::where('slug', $slug)->first();
+        dd($school);
         $school->update([
             'isActive' => 1
         ]);

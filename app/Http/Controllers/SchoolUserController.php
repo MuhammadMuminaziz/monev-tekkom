@@ -14,11 +14,15 @@ class SchoolUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function index()
     {
-        $periode = Periode::first();
         return view('school.user', [
-            'schools' => School::where('periode', $periode->year)->orderBy('name', 'asc')->get()
+            'schools' => School::orderBy('name', 'asc')->get()
         ]);
+    }
+
+    public function show(School $school)
+    {
+        return view('school.user-show', compact('school'));
     }
 }

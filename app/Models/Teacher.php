@@ -31,4 +31,19 @@ class Teacher extends Model
     {
         return $this->hasMany(Training::class);
     }
+
+    public function program_teachers()
+    {
+        return $this->hasMany(ProgramTeacher::class);
+    }
+
+    public function competensi_teachers()
+    {
+        return $this->hasMany(CompetensiTeacher::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
 }

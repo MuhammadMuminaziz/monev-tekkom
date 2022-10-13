@@ -41,8 +41,8 @@
                                     @endif
                               </td>
                               <td>
-                                <button wire:click="verify({{ $school }})" class="btn btn-sm btn-success">Verifikasi</button>
-                                <button wire:click="reject({{ $school }})" class="btn btn-sm btn-danger">Tolak</button>
+                                <a href="{{ route('verifikator.schools.verify', $school) }}" class="btn btn-sm btn-success">Verifikasi</a>
+                                <a href="{{ route('verifikator.schools.reject', $school) }}" class="btn btn-sm btn-danger">Tolak</a>
                                 <a href="{{ route('verifikator.show', $school) }}" class="btn btn-sm btn-primary">Lihat</a>
                               </td>
                               @endforeach

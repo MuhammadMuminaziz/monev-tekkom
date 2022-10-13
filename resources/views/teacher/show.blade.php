@@ -88,7 +88,7 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">TMT Golongan</th>
                                                         <td>:</td>
-                                                        <td>{{ $teacher->tmt_class_tahun . $teacher->tmt_class_bulan }}</td>
+                                                        <td>{{ $teacher->tmt_class_bulan . ', ' . $teacher->tmt_class_tahun }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Asal Sekolah</th>
@@ -140,7 +140,11 @@
                                                         <th scope="row" class="col-md-5">Program atau kegiatan yang
                                                             dilaksanakan</th>
                                                         <td>:</td>
-                                                        <td>{{ $teacher->program}}</td>
+                                                        <td>
+                                                            @foreach($teacher->program_teachers as $program)
+                                                            {{ $program->name . ' ,' }}
+                                                            @endforeach
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Status Sertifikasi</th>
@@ -160,28 +164,48 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kompetensi yang dimiliki</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>
+                                                            @foreach($teacher->competensi_teachers as $competensi)
+                                                            {{ $competensi->name . ' ,' }}
+                                                            @endforeach
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kegiatan Sosialisasi UNBK</th>
                                                         <td>:</td>
-                                                        <td>{{ $teacher->unbk_socialization_activities}}</td>
+                                                        <td>
+                                                            @if($teacher->unbk_socialization_activities == 'Belum')
+                                                            Belum
+                                                            @else
+                                                            {{ 'Sudah, ' . $teacher->unbk_socialization_activities}}
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Keterlibatan dalam UNBK</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>
+                                                            @if($teacher->involvement_unbk == 'Belum')
+                                                            Belum
+                                                            @else
+                                                            {{ 'Sudah, ' . $teacher->involvement_unbk}}
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Riwayat Keterlibatan dalam UNBK
                                                         </th>
                                                         <td>:</td>
-                                                        <td>{{ $teacher->involvement_unbk}}</td>
+                                                        <td>{{ $teacher->history_involvement_unbk}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kebutuhan Diklat saat ini</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>
+                                                            @foreach($teacher->training_need_nows as $diklat)
+                                                            {{ $diklat->name . ', ' }}
+                                                            @endforeach
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Pelatihan Yang Pernah Diikuti</th>
@@ -190,34 +214,21 @@
                                                         <table class="table table-bordered">
                                                             <thead>
                                                                 <tr>
-                                                                    <th rowspan="2">No</th>
-                                                                    <th rowspan="2">Nama Diklat/Workshop/Seminar</th>
-                                                                    <th colspan="3">Tingkatan/Jenis Diklat</th>
-                                                                    <th rowspan="2">Jampel</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Pemula</th>
-                                                                    <th>Lanjut</th>
-                                                                    <th>Mahir</th>
+                                                                    <th>No</th>
+                                                                    <th>Nama Diklat/Workshop/Seminar</th>
+                                                                    <th>Tingkatan/Jenis Diklat</th>
+                                                                    <th>Jampel</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                @foreach($teacher->trainings as $training)
                                                                 <tr>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
+                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td>{{ $training->name }}</td>
+                                                                    <td>{{ $training->level }}</td>
+                                                                    <td>{{ $training->lesson_hours }}</td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                </tr>
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </tr>
@@ -236,37 +247,37 @@
                                                     <tr>
                                                         <th class="col-md-6">Kode Kuisioner</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>{{ $teacher->kode_kuisioner }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th class="col-md-6">Tingkatan Sekolah</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>{{ $teacher->tingkatan_sekolah }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th class="col-md-6">Nama Petugas Pendataan</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>{{ $teacher->nama_petugas }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th class="col-md-6">NIP</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>{{ $teacher->nip }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th colspan="3">Range Waktu Pendataan</th>
                                                     <tr>
                                                     <tr>
-                                                        <td>xxx</td>
+                                                        <td>{{ $teacher->range_waktu_dari }}</td>
                                                         <td>s/d</td>
-                                                        <td>xxx</td>
+                                                        <td>{{ $teacher->range_waktu_sampai }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th colspan="3">Analisa Petugas Pendataan</th>
                                                     <tr>
                                                         <td colspan="3">
                                                             <textarea class="form-control"
-                                                                id="exampleFormControlTextarea1" rows="40"></textarea>
+                                                                id="exampleFormControlTextarea1" rows="40">{{ $teacher->analisis }}</textarea>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -315,7 +326,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 my-3">
-                                <button type="button" class="btn btn-secondary mr-2">Kembali</button>
+                                <a href="{{ route('teachers.index') }}" class="btn btn-secondary mr-2">Kembali</a>
                             </div>
                         </form>
                     </div>

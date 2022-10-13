@@ -18,6 +18,7 @@ class CreateSchoolsTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->foreignId('city_id')->nullable();
             $table->foreignId('district_id')->nullable();
+            $table->integer('kode_kuisioner')->nullable();
             $table->string('name')->nullable();
             $table->string('nama_petugas')->nullable();
             $table->string('nip')->nullable();
@@ -49,12 +50,14 @@ class CreateSchoolsTable extends Migration
             $table->string('alasan_tambah_kuota')->nullable();
             $table->string('saran')->nullable();
             $table->string('tingkat_sekolah')->nullable();
-            $table->date('ranger_waktu_dari')->nullable();
-            $table->date('ranger_waktu_sampai')->nullable();
+            $table->date('range_waktu_dari')->nullable();
+            $table->date('range_waktu_sampai')->nullable();
             $table->string('analisis')->nullable();
             $table->boolean('isActive')->default(false);
             $table->string('periode')->unique();
             $table->string('tekkom')->unique();
+            $table->string('nama_responden')->nullable();
+            $table->string('date_responden')->nullable();
             $table->timestamps();
         });
     }

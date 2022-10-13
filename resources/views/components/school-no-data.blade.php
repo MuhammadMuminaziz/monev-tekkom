@@ -1,6 +1,6 @@
-<div class="container-fluid">
+{{-- <div class="container-fluid"> --}}
   {{-- Message --}}
-  @if(session()->has('message'))
+  {{-- @if(session()->has('message'))
   <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">
       {{ session('message') }}
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -50,4 +50,16 @@
           </div>
       </div>
   </div>
+</div> --}}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-center text-warning">Attention...</h3>
+        </div>
+        <div class="card-body text-center">
+            <p class="mb-5">Maaf Anda Belum mempunyai data sekolah...</p>
+            <a href="{{ route('schools.create') }}" class="btn btn-primary">Input data sekolah</a>
+        </div>
+    </div>
 </div>

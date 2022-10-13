@@ -7,7 +7,8 @@
                         <h5 class="font-weight-bold text-primary">Periode Aktif 
                             <span class="badge badge-pill badge-primary">{{ $periode->year }}</span>
                         </button></h5>
-                        <form class="form-inline mt-4">
+                        <form action="{{ route('periode.update') }}" method="post" class="form-inline mt-4">
+                            @csrf
                             <div class="form-group mx-sm-2 mb-2">
                                 <label for="inputPassword2" class="sr-only">Password</label>
                                 <select name="name" id="name" class="form-control" aria-describedby="button-addon2">

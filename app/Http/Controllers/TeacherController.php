@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\CompetensiTeacher;
 use App\Models\District;
 use App\Models\Periode;
+use App\Models\ProgramTeacher;
+use App\Models\School;
 use App\Models\Tahun;
 use App\Models\Teacher;
 use App\Models\Training;
@@ -21,9 +24,11 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $periode = Periode::first();
+        $periode    = Periode::first();
+        $school     = School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->first();
         return view('teacher.index', [
-            'teachers' => Teacher::where('periode', $periode->year)->orderBy('teacher_name', 'asc')->get(),
+            'school'    => $school,
+            'teachers'  => Teacher::where('periode', $periode->year)->where('School_Origin', $school->name)->orderBy('teacher_name', 'asc')->get(),
         ]);
     }
 
@@ -34,16 +39,13 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        // return view('teacher.create', [
-        //     'cities' => City::orderBy('name', 'asc')->get(),
-        //     'districts' => District::orderBy('name', 'asc')->get(),
-        //     'periodes' => Tahun::get()
-        // ]);
-
-        return view('teacher.show');
-        
-
-        
+        $periode = Periode::first();
+        return view('teacher.create', [
+            'cities'    => City::where('periode', $periode->year)->orderBy('name', 'asc')->get(),
+            'districts' => District::where('periode', $periode->year)->orderBy('name', 'asc')->get(),
+            'periodes'  => Tahun::get(),
+            'school'    => School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 1)->first()
+        ]);
     }
 
     /**
@@ -54,6 +56,33 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'district_id'           => 'required',
+            'city_id'           => 'required',
+            'teacher_name'          => 'required|min:3',
+            'employment_status'     => 'required',
+            'nuptk'                 => 'required',
+            'place_of_birth'                 => 'required',
+            'date_of_birth'                 => 'required',
+            'religion'                 => 'required',
+            'gender'                 => 'required',
+            'last_education'                 => 'required',
+            'class'                 => 'required',
+            'School_Origin'                 => 'required',
+            'phone'                 => 'required|min:8',
+            'provinsi'                 => 'required',
+            'subjects_taught'                 => 'required',
+            'certification_status'                 => 'required',
+            'unbk_socialization_activities'                 => 'required',
+            'involvement_unbk'                 => 'required',
+            'kode_kuisioner'                 => 'required',
+            'tekkom'                 => 'required',
+            'tingkatan_sekolah'                 => 'required',
+            'nama_petugas'                 => 'required',
+            'nip'                 => 'required',
+            'analisis'                 => 'required',
+        ]);
+
         $data = $request->all();
         if ($request->unbk_socialization_activities) {
             $data['unbk_socialization_activities'] = $request->unbk_socialization_activities;
@@ -66,28 +95,69 @@ class TeacherController extends Controller
         } else {
             $data['involvement_unbk'] = 'Belum';
         }
+
+
+        $periode = Periode::first();
         $data['user_id'] = auth()->user()->id;
         $data['username'] = $this->uniqueSlug($request->teacher_name);
+        $data['periode'] = $periode->year;
 
         Teacher::create($data);
 
-        $teacher_id = Teacher::latest()->first();
+        $teacher = Teacher::latest()->first();
 
-        foreach ($request->name_of_training as $item => $name) {
-            $data1 = [
-                'teacher_id' => $teacher_id->id,
-                'name' => $request['name_of_training'][$item],
-                'level' => $request['level'][$item],
-                'lesson_hours' => $request['jampel'][$item],
-            ];
-            Training::create($data1);
+        // Update Training
+        ProgramTeacher::where('teacher_id', $teacher->id)->delete();
+        if ($request->program) {
+            foreach ($request->program as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['program'][$item],
+                ];
+                ProgramTeacher::create($data);
+            }
         }
-        foreach ($request->training_needs_now as $item => $name) {
-            $data2 = [
-                'teacher_id' => $teacher_id->id,
-                'name' => $request['training_needs_now'][$item],
-            ];
-            TrainingNeedNow::create($data2);
+
+        CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
+        if ($request->competencies_taught) {
+            foreach ($request->competencies_taught as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['competencies_taught'][$item],
+                ];
+                CompetensiTeacher::create($data);
+            }
+        }
+        if ($request->competencies_taught_n) {
+            CompetensiTeacher::create([
+                'teacher_id'    => $teacher->id,
+                'name'          => $request->competencies_taught_n
+            ]);
+        }
+
+        Training::where('teacher_id', $teacher->id)->delete();
+        if ($request->name_of_training) {
+            foreach ($request->name_of_training as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['name_of_training'][$item],
+                    'level' => $request['level'][$item],
+                    'lesson_hours' => $request['jampel'][$item],
+                ];
+                Training::create($data);
+            }
+        }
+
+        // Update Training Needed
+        TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
+        if ($request->training_needs_now) {
+            foreach ($request->training_needs_now as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['training_needs_now'][$item]
+                ];
+                TrainingNeedNow::create($data);
+            }
         }
 
         return redirect()->route('teachers.index')->with('message', 'Teacher has been added..');
@@ -135,30 +205,38 @@ class TeacherController extends Controller
     public function update(Request $request, Teacher $teacher)
     {
         $data = [
-            'teacher_name' => $request->teacher_name,
-            'employment_status' => $request->employment_status,
-            'nip' => $request->nip,
-            'nuptk' => $request->nuptk,
-            'place_of_birth' => $request->place_of_birth,
-            'date_of_birth' => $request->date_of_birth,
-            'gender' => $request->gender,
-            'tmt_pns_tahun' => $request->tmt_pns_tahun,
-            'class' => $request->class,
-            'tmt_class_tahun' => $request->tmt_class_tahun,
-            'tmt_class_bulan' => $request->tmt_class_bulan,
-            'School_Origin' => $request->School_Origin,
-            'district_id' => $request->district_id,
-            'city_id' => $request->city_id,
-            'phone' => $request->phone,
-            'subjects_taught' => $request->subjects_taught,
-            'program' => $request->program,
-            'certification_status' => $request->certification_status,
-            'certification_year' => $request->certification_year,
-            'reason_not_certified' => $request->reason_not_certified,
-            'competencies_taught' => $request->competencies_taught,
+            'teacher_name'                  => $request->teacher_name,
+            'employment_status'             => $request->employment_status,
+            'nip'                           => $request->nip,
+            'nuptk'                         => $request->nuptk,
+            'place_of_birth'                => $request->place_of_birth,
+            'date_of_birth'                 => $request->date_of_birth,
+            'gender'                        => $request->gender,
+            'tmt_pns_tahun'                 => $request->tmt_pns_tahun,
+            'tmt_pns_bulan'                 => $request->tmt_pns_bulan,
+            'class'                         => $request->class,
+            'tmt_class_tahun'               => $request->tmt_class_tahun,
+            'tmt_class_bulan'               => $request->tmt_class_bulan,
+            'School_Origin'                 => $request->School_Origin,
+            'district_id'                   => $request->district_id,
+            'city_id'                       => $request->city_id,
+            'phone'                         => $request->phone,
+            'subjects_taught'               => $request->subjects_taught,
+            'certification_status'          => $request->certification_status,
+            'certification_year'            => $request->certification_year,
+            'reason_not_certified'          => $request->reason_not_certified,
             'unbk_socialization_activities' => $request->unbk_socialization_activities,
-            'involvement_unbk' => $request->involvement_unbk,
-            'history_involvement_unbk' => $request->history_involvement_unbk,
+            'involvement_unbk'              => $request->involvement_unbk,
+            'history_involvement_unbk'      => $request->history_involvement_unbk,
+            'kode_kuisioner'                => $request->kode_kuisioner,
+            'tekkom'                        => $request->tekkom,
+            'tingkatan_sekolah'             => $request->tingkatan_sekolah,
+            'nama_petugas'                  => $request->nama_petugas,
+            'range_waktu_dari'              => $request->range_waktu_dari,
+            'range_waktu_sampai'            => $request->range_waktu_sampai,
+            'analisis'                      => $request->analisis,
+            'nama_responden'                => $request->nama_responden,
+            'date_responden'                => $request->date_responden,
         ];
 
         if ($request->reason_not_certified) {
@@ -179,25 +257,58 @@ class TeacherController extends Controller
         $teacher->update($data);
 
         // Update Training
+        ProgramTeacher::where('teacher_id', $teacher->id)->delete();
+        if ($request->program) {
+            foreach ($request->program as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['program'][$item],
+                ];
+                ProgramTeacher::create($data);
+            }
+        }
+
+        CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
+        if ($request->competencies_taught) {
+            foreach ($request->competencies_taught as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['competencies_taught'][$item],
+                ];
+                CompetensiTeacher::create($data);
+            }
+        }
+
+        if ($request->competencies_taught_n) {
+            CompetensiTeacher::create([
+                'teacher_id'    => $teacher->id,
+                'name'          => $request->competencies_taught_n
+            ]);
+        }
+
         Training::where('teacher_id', $teacher->id)->delete();
-        foreach ($request->name_of_training as $item => $name) {
-            $data = [
-                'teacher_id' => $teacher->id,
-                'name' => $request['name_of_training'][$item],
-                'level' => $request['level'][$item],
-                'lesson_hours' => $request['jampel'][$item],
-            ];
-            Training::create($data);
+        if ($request->name_of_training) {
+            foreach ($request->name_of_training as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['name_of_training'][$item],
+                    'level' => $request['level'][$item],
+                    'lesson_hours' => $request['jampel'][$item],
+                ];
+                Training::create($data);
+            }
         }
 
         // Update Training Needed
         TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
-        foreach ($request->training_needs_now as $item => $name) {
-            $data = [
-                'teacher_id' => $teacher->id,
-                'name' => $request['training_needs_now'][$item]
-            ];
-            TrainingNeedNow::create($data);
+        if ($request->training_needs_now) {
+            foreach ($request->training_needs_now as $item => $name) {
+                $data = [
+                    'teacher_id' => $teacher->id,
+                    'name' => $request['training_needs_now'][$item]
+                ];
+                TrainingNeedNow::create($data);
+            }
         }
 
         return redirect()->route('teachers.index')->with('message', 'Data has been updated..');
@@ -214,6 +325,8 @@ class TeacherController extends Controller
         $teacher->delete();
         Training::where('teacher_id', $teacher->id)->delete();
         TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
+        CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
+        ProgramTeacher::where('teacher_id', $teacher->id)->delete();
         return redirect()->route('teachers.index')->with('success', 'The account has been deleted..');
     }
 

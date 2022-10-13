@@ -165,13 +165,13 @@
         
         // Add input Teacher
         $('.add-input-training').on('click', function(){
-            let input1 = `<div class="form-row form-input">
+            let input1 = `<div class="form-row form-training">
                             <div class="form-group col-md-5">
                                 <input type="text" class="form-control" name="name_of_training[]">
                             </div>
                             <div class="form-group col-md-3">
-                                <select name="level[]" class="form-control">
-                                    <option selected>-- Pilih --</option>
+                                <select name="level[]" class="custom-select">
+                                    <option selected>Pilih</option>
                                     <option>Pemula</option>
                                     <option>Lanjutan</option>
                                     <option>Mahir</option>
@@ -183,16 +183,53 @@
                         </div>`;
             $('.page-input-training').append(input1);
         })
-        $('.remove-input-training').on('click', function(){
-            $('.page-input-training div.form-input:last').remove();
+
+        $('.remove-input-training').click(function(){
+            $('.page-input-training div.form-training:last').remove();
         })
 
         $('.add-input-training-needs').on('click', function(){
-            let input = `<input type="text" name="training_needs_now[]" class="form-control mb-2 form-input">`;
+            let input = `<input type="text" class="form-control mb-2 form-training-now" id="training_needs_now" name="training_needs_now[]">`;
             $('.page-input-training-needs').append(input);
         })
-        $('.remove-input-training-needs').on('click', function(){
-            $('.page-input-training-needs input.form-input:last').remove();
+        
+        $('.remove-input-training-needs').click(function(){
+            $('.page-input-training-needs input.form-training-now:last').remove();
+        })
+        
+        $('.add-input-program').on('click', function(){
+            let input = `<input type="text" class="form-control mb-2 form-program" id="program" name="program[]" placeholder="" multiple>`;
+            $('.page-input-program').append(input);
+        })
+
+        $('.remove-input-program').click(function(){
+            $('.page-input-program input.form-program:last').remove();
+        })
+            
+        // edit city
+        $('.edit-city').click(function(){
+            let id = $(this).attr('id');
+            $.ajax({
+                url : "{{ url('/cities/edit') }}",
+                type: 'get',
+                data: 'id='+ id,
+                success:function(data){
+                    $('#modal-edit-city').html(data);
+                }
+            })
+        })
+        
+        // edit district
+        $('.edit-district').click(function(){
+            let id = $(this).attr('id');
+            $.ajax({
+                url : "{{ url('/district/edit') }}",
+                type: 'get',
+                data: 'id='+ id,
+                success:function(data){
+                    $('#modal-edit-district').html(data);
+                }
+            })
         })
     </script>
 

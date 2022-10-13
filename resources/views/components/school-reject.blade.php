@@ -1,8 +1,3 @@
-<div class="card p-5">
-    <h1>Maaf data anda tidak memenuhi persyaratan... mohon periksa kembali data anda..</h1>
-    <a href="{{ route('schools.edit', $school) }}" class="btn btn-sm btn-success">Ubah Data</a>
-</div>
-
 <div class="container-fluid">
   {{-- Message --}}
   @if(session()->has('message'))
@@ -39,16 +34,17 @@
                           </thead>
                           <tbody>
                              
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>1</td>
+                              <td>{{ $school->name }}</td>
+                              <td>{{ $school->npsn }}</td>
+                              <td>{{ $school->jumlah_siswa }}</td>
+                              <td>{{ $school->district->name }}</td>
                               <td>
                                     <span class="badge badge-danger">Failed</span>
                               </td>
-                              <td>
-                                <a href="{{ route('schools.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i class="fas fa-eye"></i></a>
+                              <td class="d-flex">
+                                <a href="{{ route('schools.show', $school) }}" class="btn btn-sm btn-info btn-rounded mr-1"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('schools.edit', $school) }}" class="btn btn-sm btn-warning btn-rounded"><i class="fas fa-pencil"></i>edit</a>
                               </td>
                           </tbody>
                       </table>

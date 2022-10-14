@@ -16,12 +16,10 @@
               </div>
               <div class="card-body">
                   <div class="table-responsive">
-                        <a href="" class="btn btn-success btn-sm btn-icon-split mb-5">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-check"></i>
-                            </span>
-                            <span class="text">Data Berhasil di Verifikasi</span>
-                        </a>
+                        <div class="d-flex justify-content-between mb-4 ">
+                            <a href="{{ route('schools.create') }}"
+                                class="btn btn-sm px-3 pt-2 rounded-pill btn-primary"><i class="fas fa-plus-square"></i> Tambah Data</a>
+                        </div>
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
                               <th width="5%">No</th>
@@ -30,7 +28,6 @@
                               <th>Jumlah Siswa</th>
                               <th>Desa / Kecamatan</th>
                               <th width="10%">Status</th>
-                              <th width="5%">Action</th>
                           </thead>
                           <tbody>
                              
@@ -39,16 +36,7 @@
                               <td></td>
                               <td></td>
                               <td></td>
-                              <td>
-                                    @if($school->isActive == 0)
-                                    <span class="badge badge-danger">Not Acitived</span>
-                                    @else
-                                    <span class="badge badge-success">Acitived</span>
-                                    @endif
-                              </td>
-                              <td>
-                                <a href="{{ route('schools.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i class="fas fa-eye"></i></a>
-                              </td>
+                              <td></td>
                           </tbody>
                       </table>
                   </div>

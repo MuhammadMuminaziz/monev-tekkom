@@ -80,47 +80,7 @@
                   </div>
               </div>
 
-              <!-- Edit data -->
-              <div>
-                    <div class="col-2">
-                        <button type="button" class="btn btn-primary my-2 rounded-pill" data-toggle="modal" data-target="#exampleModal2">Edit Data</button>
-                    </div>
-                    <!-- Modal Edit Data -->
-                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h6 class="modal-title font-weight-bold text-primary" id="exampleModalLabel2"><i class="fas fa-edit"></i> Data Kecamatan</h6>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Kode Kota</label>
-                                    <input wire:model="code" type="text" class="form-control" name="code" id="code" placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-form-label">Nama Kota</label>
-                                    <input wire:model="name" type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="" required>
-                                    @error('name')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kemabali</button>
-                                <button type="button" class="btn btn-primary">Simpan Data</button>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Modal -->
-                </div>
+              
           </div>
       </div>
   </div>

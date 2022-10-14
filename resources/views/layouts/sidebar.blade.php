@@ -36,13 +36,13 @@
         <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('reporting.index') }}">
                 <i class="fas fa-school"></i>
-                <span>Laporan</span></a>
+                <span>Laporan Data</span></a>
         </li>
-        <!-- <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
+       <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('reporting.index') }}">
                 <i class="fas fa-user-graduate"></i>
                 <span>Laporan Data Guru</span></a>
-        </li> -->
+        </li>
 
         @endcan
 

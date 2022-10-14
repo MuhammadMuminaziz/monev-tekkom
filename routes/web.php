@@ -59,13 +59,19 @@ Route::middleware(['auth', 'verifikator'])->group(function () {
     Route::get('/schools-verify/{school}/reject', [VerifikatorController::class, 'schoolReject'])->name('verifikator.schools.reject');
     Route::get('/schools-verify/{school}', [VerifikatorController::class, 'show'])->name('verifikator.show');
     Route::get('/teachers-verify', [VerifikatorController::class, 'teacher'])->name('verifikator.teachers');
+    Route::get('/teacher-verify/{teacher}/ferify', [VerifikatorController::class, 'teacherVerify'])->name('verifikator.teacher.verify');
+    Route::get('/teacher-verify/{teacher}/reject', [VerifikatorController::class, 'teacherReject'])->name('verifikator.teacher.reject');
 });
 
 Route::middleware(['auth', 'owner'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::get('/reporting', [ReportingController::class, 'index'])->name('reporting.index');
-    Route::get('/reporting/{city}', [ReportingController::class, 'district'])->name('reporting.district');
-    Route::get('/reporting/{city}/{district}', [ReportingController::class, 'school'])->name('reporting.school');
+    Route::get('/reporting/{school}', [ReportingController::class, 'schoolShow'])->name('reporting.school.show');
+    Route::get('/reporting/{school}/teacher', [ReportingController::class, 'teacher'])->name('reporting.school.teacher');
+    Route::get('/reporting/{school}/{teacher}', [ReportingController::class, 'teacherShow'])->name('reporting.school.teacher.show');
+
+    // filter
+    Route::get('/filter-by-district', [ReportingController::class, 'filterDistrict']);
 });
 
 

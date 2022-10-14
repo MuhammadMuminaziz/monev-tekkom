@@ -20,7 +20,7 @@ class VerifikatorController extends Controller
         $school->update([
             'isActive'      => 1
         ]);
-        return back()->with('message', 'Sekolah berhasil di verifikasi..');
+        return back()->with('message', 'Data Sekolah berhasil di verifikasi..');
     }
 
     public function schoolReject(School $school)
@@ -28,7 +28,7 @@ class VerifikatorController extends Controller
         $school->update([
             'isActive'      => 2
         ]);
-        return back()->with('message', 'Sekolah berhasil di tolak..');
+        return back()->with('message', 'Data Sekolah berhasil di tolak..');
     }
 
     public function teacher()
@@ -37,6 +37,22 @@ class VerifikatorController extends Controller
         return view('verifikator.teacher', [
             'teachers' => Teacher::where('periode', $periode->year)->where('user_id', auth()->user()->id)->get()
         ]);
+    }
+
+    public function teacherVerify(Teacher $teacher)
+    {
+        $teacher->update([
+            'isActive'      => 1
+        ]);
+        return back()->with('message', 'Data guru berhasil di verifikasi..');
+    }
+
+    public function teacherReject(Teacher $teacher)
+    {
+        $teacher->update([
+            'isActive'      => 2
+        ]);
+        return back()->with('message', 'Data guru berhasil di tolak..');
     }
 
     public function show(School $school)

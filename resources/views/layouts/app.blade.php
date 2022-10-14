@@ -168,18 +168,18 @@
         $('.add-input-training').on('click', function(){
             let input1 = `<div class="form-row form-training">
                             <div class="form-group col-md-5">
-                                <input type="text" class="form-control" name="name_of_training[]">
+                                <input type="text" class="form-control" name="name_of_training[]" value="{{ old('name_of_training') }}">
                             </div>
                             <div class="form-group col-md-3">
                                 <select name="level[]" class="custom-select">
                                     <option selected>Pilih</option>
-                                    <option>Pemula</option>
-                                    <option>Lanjutan</option>
-                                    <option>Mahir</option>
+                                    <option {{ old('level') == 'Pemula' ? 'selected' : '' }}>Pemula</option>
+                                    <option {{ old('level') == 'Lanjutan' ? 'selected' : '' }}>Lanjutan</option>
+                                    <option {{ old('level') == 'Mahir' ? 'selected' : '' }}>Mahir</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control" name="jampel[]">
+                                <input type="text" class="form-control" name="jampel[]" value="{{ old('jampel') }}">
                             </div>
                         </div>`;
             $('.page-input-training').append(input1);
@@ -190,7 +190,7 @@
         })
 
         $('.add-input-training-needs').on('click', function(){
-            let input = `<input type="text" class="form-control mb-2 form-training-now" id="training_needs_now" name="training_needs_now[]">`;
+            let input = `<input type="text" class="form-control mb-2 form-training-now" id="training_needs_now" name="training_needs_now[]" value="{{ old('training_needs_now') }}">`;
             $('.page-input-training-needs').append(input);
         })
         
@@ -199,7 +199,7 @@
         })
         
         $('.add-input-program').on('click', function(){
-            let input = `<input type="text" class="form-control mb-2 form-program" id="program" name="program[]" placeholder="" multiple>`;
+            let input = `<input type="text" class="form-control mb-2 form-program" id="program" name="program[]" value="{{ old('program') }}" placeholder="" multiple>`;
             $('.page-input-program').append(input);
         })
 
@@ -229,6 +229,22 @@
                 data: 'id='+ id,
                 success:function(data){
                     $('#modal-edit-district').html(data);
+                }
+            })
+        })
+
+        // filter bt district
+        $('#filterDistrict').on('change', function(){
+            let id = $(this).val()
+            $.ajax({
+                url : "{{ url('/filter-by-district') }}",
+                type: "get",
+                data: {id},
+                success:function(data){
+                    $('#page-school').html(data)
+                },
+                error:function(e){
+                    console.log(e);
                 }
             })
         })

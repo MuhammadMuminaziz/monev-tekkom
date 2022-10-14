@@ -20,29 +20,36 @@ class ReportingController extends Controller
     public function index()
     {
         $periode    = Periode::first();
-        $cities     = City::where('periode', $periode->year)->orderBy('name', 'asc')->get();
-        $schools    = School::where('periode', $periode->year)->orderBy('name', 'asc')->get();
-        $teachers   = Teacher::where('periode', $periode->year)->orderBy('teacher_name', 'asc')->get();
+        $schools    = School::with(['city', 'district'])->where('periode', $periode->year)->where('isActive', 1)->orderBy('name', 'asc')->get();
+        $districts  = District::where('periode', $periode->year)->orderBy('name', 'asc')->get();
 
-        return view('reporting.index', compact('cities', 'schools', 'teachers'));
+        return view('reporting.index', compact('schools', 'districts'));
     }
 
-    public function district(City $city)
+    public function schoolShow(School $school)
     {
-        $periode    = Periode::first();
-        $districts  = District::where('periode', $periode->year)->where('city_id', $city->id)->orderBy('name', 'asc')->get();
-        $schools    = School::where('periode', $periode->year)->where('city_id', $city->id)->orderBy('name', 'asc')->get();
-        $teachers   = Teacher::where('periode', $periode->year)->where('city_id', $city->id)->orderBy('teacher_name', 'asc')->get();
-
-        return view('reporting.district', compact('city', 'districts', 'schools', 'teachers'));
+        return view('reporting.school-show', compact('school'));
     }
 
-    public function school(City $city, District $district)
+    public function teacher(School $school)
     {
         $periode    = Periode::first();
-        $schools    = School::where('periode', $periode->year)->where('city_id', $city->id)->where('district_id', $district->id)->orderBy('name', 'asc')->get();
-        $teachers   = Teacher::where('periode', $periode->year)->where('city_id', $city->id)->where('district_id', $district->id)->orderBy('teacher_name', 'asc')->get();
+        $teachers   = Teacher::where('periode', $periode->year)->where('school_origin', $school->name)->where('isActive', 1)->get();
 
-        return view('reporting.school', compact('city', 'district', 'schools', 'teachers'));
+        return view('reporting.teacher', compact('school', 'teachers'));
+    }
+
+    public function teacherShow(School $school, Teacher $teacher)
+    {
+        return view('reporting.teacher-show', compact('school', 'teacher'));
+    }
+
+    // Filter
+    public function filterDistrict(Request $request)
+    {
+        $periode    = Periode::first();
+        $schools    = School::where('periode', $periode->year)->where('isActive', 1)->where('district_id', $request->id)->orderBy('name', 'asc')->get();
+
+        return view('reporting.table-school', compact('schools'));
     }
 }

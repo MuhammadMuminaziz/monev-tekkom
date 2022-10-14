@@ -28,7 +28,7 @@ class SchoolController extends Controller
             $school = School::where('periode', $periode->year)->where('user_id', auth()->user()->id);
             // dd($school->where('isActive', 2)->exists());
             if ($school->where('isActive', 1)->exists()) {
-                $data = $school->where('isActive', 1)->first();
+                $data = School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 1)->first();
                 $success = 'data';
             } elseif (School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 2)->exists()) {
                 $data = School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 2)->first();

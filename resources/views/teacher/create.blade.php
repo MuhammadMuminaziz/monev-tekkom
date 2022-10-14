@@ -52,8 +52,8 @@
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('employment_status') is-invalid @enderror" id="employment_status" name="employment_status">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option>PNS</option>
-                                                <option>NON PNS</option>
+                                                <option {{ old('employment_status') == 'PNS' ? 'selected' : '' }}>PNS</option>
+                                                <option {{ old('employment_status') == 'NON PNS' ? 'selected' : '' }}>NON PNS</option>
                                             </select>
                                             @error('employment_status')
                                             <div class="invalid-feedback">
@@ -67,7 +67,7 @@
                                                 PNS)</span></label>
 
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="nip" name="nip" placeholder="">
+                                            <input type="text" class="form-control" id="nip" name="nip" value="{{ old('nip') }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -108,11 +108,11 @@
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('religion') is-invalid @enderror" id="religion" name="religion">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option>Islam</option>
-                                                <option>Katolik</option>
-                                                <option>Kristen</option>
-                                                <option>Hindu</option>
-                                                <option>Budha</option>
+                                                <option {{ old('religion') == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                                <option {{ old('religion') == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                                <option {{ old('religion') == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                                <option {{ old('religion') == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                                <option {{ old('religion') == 'Budha' ? 'selected' : '' }}>Budha</option>
                                             </select>
                                             @error('religion')
                                             <div class="invalid-feedback">
@@ -129,8 +129,8 @@
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('gender') is-invalid @enderror" id="gender" name="gender">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option>Laki-Laki</option>
-                                                <option>Perempuan</option>
+                                                <option {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                                <option {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                             </select>
                                             @error('gender')
                                             <div class="invalid-feedback">
@@ -144,14 +144,14 @@
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('last_education') is-invalid @enderror" id="last_education" name="last_education">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option>SMA</option>
-                                                <option>D1</option>
-                                                <option>D2</option>
-                                                <option>D3</option>
-                                                <option>D4</option>
-                                                <option>S1</option>
-                                                <option>S2</option>
-                                                <option>S3</option>
+                                                <option {{ old('last_education') == 'SMA' ? 'selected' : '' }}>SMA</option>
+                                                <option {{ old('last_education') == 'D1' ? 'selected' : '' }}>D1</option>
+                                                <option {{ old('last_education') == 'D2' ? 'selected' : '' }}>D2</option>
+                                                <option {{ old('last_education') == 'D3' ? 'selected' : '' }}>D3</option>
+                                                <option {{ old('last_education') == 'D4' ? 'selected' : '' }}>D4</option>
+                                                <option {{ old('last_education') == 'S1' ? 'selected' : '' }}>S1</option>
+                                                <option {{ old('last_education') == 'S2' ? 'selected' : '' }}>S2</option>
+                                                <option {{ old('last_education') == 'S3' ? 'selected' : '' }}>S3</option>
                                             </select>
                                             @error('last_education')
                                             <div class="invalid-feedback">
@@ -167,13 +167,13 @@
                                     <div class="form-group row">
                                         <label for="tmt_pns_tahun" class="col-sm-4 col-form-label">TMT PNS</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_pns_tahun" name="tmt_pns_tahun" placeholder="">
+                                            <input type="text" class="form-control" id="tmt_pns_tahun" name="tmt_pns_tahun" value="{{ old('tmt_pns_tahun') }}" placeholder="">
                                         </div>
                                         <div class="col-sm-1">
                                             Tahun
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_pns_bulan" name="tmt_pns_bulan" placeholder="">
+                                            <input type="text" class="form-control" id="tmt_pns_bulan" name="tmt_pns_bulan" value="{{ old('tmt_pns_bulan') }}" placeholder="">
                                         </div>
                                         <div class="col-sm-1">
                                             Bulan
@@ -193,13 +193,13 @@
                                     <div class="form-group row">
                                         <label for="tmt_class_tahun" class="col-sm-4 col-form-label">TMT Golongan</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_class_tahun" name="tmt_class_tahun" placeholder="">
+                                            <input type="text" class="form-control" id="tmt_class_tahun" name="tmt_class_tahun" value="{{ old('tmt_class_tahun') }}" placeholder="">
                                         </div>
                                         <div class="col-sm-1">
                                             Tahun
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_class_bulan" name="tmt_class_bulan" placeholder="">
+                                            <input type="text" class="form-control" id="tmt_class_bulan" name="tmt_class_bulan" value="{{ old('tmt_class_bulan') }}" placeholder="">
                                         </div>
                                         <div class="col-sm-1">
                                             Bulan
@@ -217,7 +217,7 @@
                                             <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 <option value="" selected disabled>Pilih</option>
                                                 @foreach($districts as $district)
-                                                <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                                <option {{ old('district_id') == $district->id ? 'selected' : '' }} value="{{ $district->id }}">{{ $district->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('district_id')
@@ -233,10 +233,10 @@
                                             <select name="city_id" id="city_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 <option value="" selected disabled>Pilih</option>
                                                 @foreach($cities as $city)
-                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                                <option {{ old('city_id') == $city->id ? 'selected' : '' }} value="{{ $city->id }}">{{ $city->name }}</option>
                                                 @endforeach
                                             </select>
-                                            @error('district_id')
+                                            @error('city_id')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -285,7 +285,7 @@
                                         <label for="program" class="col-sm-4 col-form-label">Program / Kegiatan Yang
                                             Dilaksanakan</label>
                                         <div class="col-sm-8 page-input-program">
-                                            <input type="text" class="form-control mb-2" id="program" name="program[]" placeholder="" multiple>
+                                            <input type="text" class="form-control mb-2" id="program" name="program[]" value="{{ old('program') }}" placeholder="" multiple>
                                         </div>
                                     </div>
                                     <div class="row justify-content-end mx-3 mb-3">
@@ -297,8 +297,8 @@
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('certification_status') is-invalid @enderror" id="certification_status" name="certification_status">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option>Sudah</option>
-                                                <option>Belum</option>
+                                                <option {{ old('certification_status' == 'Sudah' ? 'selected' : '') }}>Sudah</option>
+                                                <option {{ old('certification_status' == 'Belum' ? 'selected' : '') }}>Belum</option>
                                             </select>
                                             @error('certification_status')
                                             <div class="invalid-feedback">
@@ -310,7 +310,7 @@
                                     <div class="form-group row">
                                         <label for="certification_year" class="col-sm-4 col-form-label">Tahun Sertifikasi</label><br>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="certification_year" name="certification_year" placeholder=""> <br>
+                                            <input type="text" class="form-control" id="certification_year" name="certification_year" value="{{ old('certification_year') }}" placeholder=""> <br>
                                         </div>
                                         <div class="col-sm-2">
                                             <small>*(diisi jika sudah sertifikasi)</small>
@@ -324,7 +324,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" id="reason_not_certified" name="reason_not_certified"
-                                                rows="6"></textarea>
+                                                rows="6">{{ old('reason_not_certified') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -377,28 +377,28 @@
                                         <label for="unbk_socialization_activities" class="col-sm-4 col-form-label">Kegiatan Sosialisasi
                                             UNBK</label>
                                         <div class="col-sm-4">
-                                            <select class="custom-select" id="unbk_socialization_activities" name="">
+                                            <select class="custom-select" id="unbk_socialization_activities" name="unbk_socialization_activities">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option>Sudah</option>
-                                                <option>Belum</option>
+                                                <option {{ old('unbk_socialization_activities') == 'Sudah' ? 'selected' : ''  }}>Sudah</option>
+                                                <option {{ old('unbk_socialization_activities') == 'Belum' ? 'selected' : ''  }}>Belum</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" name="unbk_socialization_activities" placeholder="Tahun">
+                                            <input type="text" class="form-control" id="#" name="unbk_socialization_activities_tahun" placeholder="Tahun" value="{{ old('unbk_socialization_activities_tahun') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="involvement_unbk" class="col-sm-4 col-form-label">Keterlibatan dalam
                                             UNBK</label>
                                         <div class="col-sm-4">
-                                            <select class="custom-select" id="involvement_unbk">
+                                            <select class="custom-select" id="involvement_unbk" name="involvement_unbk">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option>Sudah</option>
-                                                <option>Belum</option>
+                                                <option {{ old('involvement_unbk') == 'Sudah' ? 'selected' : ''  }}>Sudah</option>
+                                                <option {{ old('involvement_unbk') == 'Belum' ? 'selected' : ''  }}>Belum</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="involvement_unbk" name="involvement_unbk" placeholder="Tahun">
+                                            <input type="text" class="form-control" id="involvement_unbk" value="{{ old('involvement_unbk_tahun') }}" name="involvement_unbk_tahun" placeholder="Tahun">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -409,7 +409,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" id="history_involvement_unbk" name="history_involvement_unbk"
-                                                rows="6"></textarea>
+                                                rows="6">{{ old('history_involvement_unbk') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -421,21 +421,21 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-5">
                                                 <label for="name_of_training">Nama Diklat/Workshop/Seminar</label>
-                                                <input type="text" class="form-control" id="name_of_training"
+                                                <input type="text" class="form-control" id="name_of_training" value="{{ old('name_of_training') }}"
                                                     name="name_of_training[]" multiple>
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="level">Tingkatan/Jenis Diklat</label>
                                                 <select id="level" name="level[]" class="custom-select">
                                                     <option selected>Pilih</option>
-                                                    <option>Pemula</option>
-                                                    <option>Lanjutan</option>
-                                                    <option>Mahir</option>
+                                                    <option {{ old('level') == 'Pemula' ? 'selected' : '' }}>Pemula</option>
+                                                    <option {{ old('level') == 'Lanjutan' ? 'selected' : '' }}>Lanjutan</option>
+                                                    <option {{ old('level') == 'Mahir' ? 'selected' : '' }}>Mahir</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="jampel">Jampel</label>
-                                                <input type="text" class="form-control mb-2" id="jampel" name="jampel[]" multiple>
+                                                <input type="text" class="form-control mb-2" id="jampel" name="jampel[]" value="{{ old('jampel') }}" multiple>
                                             </div>
                                         </div>
                                     </div>
@@ -447,7 +447,7 @@
                                         <label for="training_needs_now" class="col-sm-4 col-form-label">Kebutuhan Diklat Saat
                                             Ini</label>
                                         <div class="col-sm-12 page-input-training-needs">
-                                            <input type="text" class="form-control mb-2" id="training_needs_now" name="training_needs_now[]" multiple>
+                                            <input type="text" class="form-control mb-2" id="training_needs_now" name="training_needs_now[]" value="{{ old('training_needs_now') }}" multiple>
                                         </div>
                                         <div class="col-sm-12 d-flex px-4 mt-3 justify-content-end">
                                             <small class="add-input-training-needs text-primary mr-2" style="cursor: pointer;">tambah data |</small>
@@ -480,28 +480,28 @@
                                         <div class="col-sm-8">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="sdz" value="SD" checked>
+                                                    id="sdz" value="SD" {{ old('tingkatan_sekolah') == 'SD' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="sdz">
                                                     SD
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="exampleRadios2" value="SMP">
+                                                    id="exampleRadios2" value="SMP" value="SD" {{ old('tingkatan_sekolah') == 'SMP' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios2">
                                                     SMP
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="exampleRadios3" value="SMA">
+                                                    id="exampleRadios3" value="SMA" value="SD" {{ old('tingkatan_sekolah') == 'SMA' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios3">
                                                     SMA
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="exampleRadios4" value="SMK">
+                                                    id="exampleRadios4" value="SMK" value="SD" {{ old('tingkatan_sekolah') == 'SMK' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios4">
                                                     SMK
                                                 </label>
@@ -528,16 +528,16 @@
                                     <div class="form-group row">
                                         <label for="range_waktu_dari" class="col-sm-4 col-form-label">Range Waktu Pendataan</label>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_dari" name="range_waktu_dari" placeholder="">
+                                            <input type="date" class="form-control" id="range_waktu_dari" name="range_waktu_dari" placeholder="" value="{{ old('range_waktu_dari') }}">
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="">
+                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="" value="{{ old('range_waktu_sampai') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="analisis" class="col-sm-4 col-form-label">Analisa Petugas Pendataan</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" id="analisis" name="analisis" rows="8"></textarea>
+                                            <textarea class="form-control" id="analisis" name="analisis" rows="8">{{ old('analisis') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -551,7 +551,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="" name="date_responden" placeholder="">
+                                            <input type="date" class="form-control" id="" name="date_responden" value="{{ old('date_responden') }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 my-5">

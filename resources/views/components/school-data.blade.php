@@ -34,17 +34,13 @@
                           </thead>
                           <tbody>
                              
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>1</td>
+                              <td>{{ $school->name }}</td>
+                              <td>{{ $school->npsn }}</td>
+                              <td>{{ $school->jumlah_siswa }}</td>
+                              <td>{{ $school->district->name }}</td>
                               <td>
-                                    @if($school->isActive == 0)
-                                    <span class="badge badge-danger">Not Acitived</span>
-                                    @else
                                     <span class="badge badge-success">Acitived</span>
-                                    @endif
                               </td>
                               <td>
                                 <a href="{{ route('schools.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i class="fas fa-eye"></i></a>

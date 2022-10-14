@@ -84,16 +84,12 @@ class TeacherController extends Controller
         ]);
 
         $data = $request->all();
-        if ($request->unbk_socialization_activities) {
-            $data['unbk_socialization_activities'] = $request->unbk_socialization_activities;
-        } else {
-            $data['unbk_socialization_activities'] = 'Belum';
+        if ($request->unbk_socialization_activities == 'Sudah') {
+            $data['unbk_socialization_activities'] = $request->unbk_socialization_activities_tahun;
         }
 
-        if ($request->involvement_unbk) {
-            $data['involvement_unbk'] = $request->involvement_unbk;
-        } else {
-            $data['involvement_unbk'] = 'Belum';
+        if ($request->involvement_unbk == 'Sudah') {
+            $data['involvement_unbk'] = $request->involvement_unbk_tahun;
         }
 
 

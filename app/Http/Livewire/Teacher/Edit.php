@@ -13,6 +13,7 @@ class Edit extends Component
     {
         $periode = Periode::first();
         $user = User::find(auth()->user()->id)->districts->pluck('id');
+
         return view('livewire.teacher.edit', [
             'teachersNotActived' => Teacher::where('isActive', 0)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),
             'teachersActived' => Teacher::where('isActive', 1)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),

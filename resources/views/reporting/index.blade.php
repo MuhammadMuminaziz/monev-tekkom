@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="row mt-4">
+    <!-- <div class="row mt-4">
         <div class="col">
             <div class="card">
                 <div class="card-header">
@@ -28,13 +28,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-<br><br><br>
     <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <div class="card shadow py-3 border-bottom-primary">
+                    
                     <div class="card-header">
                             <h6 class="m-0 font-weight-bold text-primary">Laporan Data Sekolah</h6>
                     </div>
@@ -49,7 +49,7 @@
                                         <th>NPSN</th>
                                         <th>Jumlah Siswa</th>
                                         <th>Desa / Kecamatan</th>
-                                        <th width="10%">Action</th>
+                                        <th >Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,7 +60,8 @@
                                         <td>#</td>
                                         <td>#</td>
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-info btn-rounded"><i class="fas fa-print"></i> Cetak</a>
+                                            <a href="#" class="btn btn-sm btn-info btn-rounded mr-3"><i class="fas fa-print"></i> Cetak</a>
+                                            <a href="#" class="btn btn-sm btn-primary btn-rounded">Data Guru</a>
                                             </form>
                                         </td>
                                     </tr>

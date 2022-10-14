@@ -36,13 +36,13 @@
         <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('reporting.index') }}">
                 <i class="fas fa-school"></i>
-                <span>Laporan Data Sekolah</span></a>
+                <span>Laporan</span></a>
         </li>
-        <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
+        <!-- <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('reporting.index') }}">
                 <i class="fas fa-user-graduate"></i>
                 <span>Laporan Data Guru</span></a>
-        </li>
+        </li> -->
 
         @endcan
 
@@ -121,11 +121,34 @@
             Master Data
         </div>
 
-        <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
+        <!-- <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('verifikator.schools') }}">
                 <i class="fas fa-school"></i>
                 <span>Data Sekolah</span></a>
+        </li> -->
+
+        <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="{{ route('schools.index') }}" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-school"></i>
+                <span>Data Sekolah</span>
+                <span class="pull-right-container">
+                    <span class="badge badge-light">4</span>
+                </span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="buttons.html">
+                        <span>Menunggu Persetujuan</span>
+                        <span class="pull-right-container">
+                            <span class="badge badge-primary pull-right">4</span>
+                        </span>
+                    </a>
+                    <a class="collapse-item" href="cards.html">Terverifikasi</a>
+                </div>
+            </div>
         </li>
+
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('verifikator.teachers') }}">

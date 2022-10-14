@@ -20,7 +20,7 @@ class CreateTeachersTable extends Migration
             $table->foreignId('user_id');
             $table->string('teacher_name');
             $table->string('username')->unique();
-            $table->enum('employment_status', ['PNS', 'NON-PNS'])->default('PNS');
+            $table->string('employment_status')->default('PNS');
             $table->integer('nip')->nullable();
             $table->integer('nuptk');
             $table->string('place_of_birth');
@@ -37,15 +37,21 @@ class CreateTeachersTable extends Migration
             $table->string('phone');
             $table->string('provinsi')->default('Maluku');
             $table->string('subjects_taught');
-            $table->text('program')->nullable();
             $table->enum('certification_status', ['Sudah', 'Belum'])->default('sudah');
             $table->integer('certification_year')->nullable();
             $table->text('reason_not_certified')->nullable();
-            $table->text('competencies_taught')->nullable();
             $table->string('unbk_socialization_activities')->default('sudah');
             $table->string('involvement_unbk')->default('sudah');
             $table->boolean('isActive')->default(false);
             $table->string('periode');
+            $table->string('kode_kuisioner');
+            $table->string('tingkatan_sekolah');
+            $table->string('nama_petugas');
+            $table->date('range_waktu_dari')->nullable();
+            $table->date('range_waktu_sampai')->nullable();
+            $table->string('analisis')->nullable();
+            $table->string('nama_responden')->nullable();
+            $table->date('date_responden')->nullable();
             $table->text('history_involvement_unbk')->nullable();
 
             $table->timestamps();

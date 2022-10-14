@@ -34,11 +34,11 @@
                           </thead>
                           <tbody>
                              
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>1</td>
+                              <td>{{ $school->name }}</td>
+                              <td>{{ $school->npsn }}</td>
+                              <td>{{ $school->jumlah_siswa }}</td>
+                              <td>{{ $school->district->name }}</td>
                               <td>
                                     <span class="badge badge-warning">Pending</span>
                               </td>

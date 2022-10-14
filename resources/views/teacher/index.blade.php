@@ -19,7 +19,25 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">
+                            @if($school->isActive == 1)
                             <a href="{{ route('teachers.create') }}" class="btn btn-sm px-3 pt-2 rounded-pill btn-primary"><i class="fas fa-plus-square"></i> Tambah Data</a>
+                            @endif
+                            @if($school->isActive == 0)
+                            <a href="" class="btn btn-warning btn-sm btn-icon-split mb-3">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                                <span class="text">Data Anda Sedang di Tinjau</span>
+                            </a>
+                            @endif
+                            @if($school->isActive == 2)
+                            <a href="" class="btn btn-danger btn-sm btn-icon-split mb-3">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                                <span class="text">Verifikasi Data di Tolak, Mohon Perika Kembali !</span>
+                            </a>
+                            @endif
                         </div>
                         <table class="table " id="dataTable" width="100%" cellspacing="0">
                             <thead>

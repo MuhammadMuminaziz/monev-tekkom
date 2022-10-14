@@ -63,7 +63,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-2">
                                                     <label for="jumlah_siswa">Total</label>
-                                                    <input type="text" class="form-control" id="jumlah_siswa" name="jumlah_siswa" value="{{ old('jumlah_siswa', $school->jumlah_siswa) }}">
+                                                    <input type="text" class="form-control" id="jumlah_siswa" name="jumlah_siswa" value="{{ old('jumlah_siswa', $school->jumlah_siswa) }}" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -350,15 +350,15 @@
                                 aria-labelledby="kuisioner_data-tab">
                                 <div class="container mt-5">
                                     <div class="form-group row">
-                                        <label for="tekkom" class="col-sm-4 col-form-label">Kode Kuisioner</label>
+                                        <label for="kode_kuisioner" class="col-sm-4 col-form-label">Kode Kuisioner</label>
+                                        <div class="col-sm-1">
+                                            <input type="text" class="form-control" id="kode_kuisioner" name="kode_kuisioner" value="{{ old('kode_kuisioner', $school->kode_kuisioner) }}" placeholder="">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label for="tekkom" class="col-form-label">/B.Tekkom/</label>
+                                        </div>
                                         <div class="col-sm-1">
                                             <input type="text" class="form-control" id="tekkom" name="tekkom" value="{{ old('tekkom', $school->tekkom) }}" placeholder="">
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <label for="#" class="col-form-label">/B.Tekkom/</label>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <input type="text" class="form-control" id="#" placeholder="">
                                         </div>
                                         <div class="col-sm-1">
                                             <label for="#" class="col-form-label">/KR/2016</label>
@@ -369,28 +369,28 @@
                                         <div class="col-sm-8">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios1" value="option1" checked>
+                                                    id="exampleRadios1" value="SD" {{ $school->tingkat_sekolah == 'SD' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     SD
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios2" value="option2">
+                                                    id="exampleRadios2" value="SMP" {{ $school->tingkat_sekolah == 'SMP' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios2">
                                                     SMP
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios3" value="option1" checked>
+                                                    id="exampleRadios3" value="SMA" {{ $school->tingkat_sekolah == 'SMA' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios3">
                                                     SMA
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios4" value="option2">
+                                                    id="exampleRadios4" value="SMK" {{ $school->tingkat_sekolah == 'SMK' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios4">
                                                     SMK
                                                 </label>
@@ -406,7 +406,7 @@
                                     <div class="form-group row">
                                         <label for="nip" class="col-sm-4 col-form-label">NIP</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="nip" name="nip" placeholder="">
+                                            <input type="text" class="form-control" id="nip" name="nip" value="{{ old('nip', $school->nip) }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -425,12 +425,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Responden</label>
+                                        <label for="nama_responden" class="col-sm-4 col-form-label">Responden</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" placeholder="Nama Responden">
+                                            <input type="text" class="form-control" id="nama_responden" name="nama_responden" value="{{ old('nama_responden', $school->nama_responden) }}" placeholder="Nama Responden">
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="">
+                                            <input type="date" class="form-control" id="date_responden" name="date_responden" value="{{ old('date_responden', $school->date_responden) }}" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 my-5">

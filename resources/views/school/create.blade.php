@@ -69,14 +69,14 @@
                                             <div class="col-sm-8">
                                                 <div class="form-row">
                                                     <div class="col-sm-5">
-                                                        <select class="custom-select" id="unbk" name="unbk" required>
+                                                        <select class="custom-select" id="unbk" name="" required>
                                                             <option selected disabled value="">Pilih</option>
                                                             <option>Sudah</option>
                                                             <option>Belum</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-sm-2">
-                                                        <input type="text" class="form-control" id="inputCity" name="unbk"  placeholder="Tahun">
+                                                        <input type="text" class="form-control" id="inputCity" name="unbk" placeholder="Tahun">
                                                     </div>
                                                     <small>(diisi jika sudah melaksanakan UNBK)</small>
                                                 </div>
@@ -245,7 +245,7 @@
                                         <div class="form-group row">
                                             <label for="lan" class="col-sm-4 col-form-label">A. LAN/Wireless LAN</label>
                                             <div class="col-sm-5">
-                                                <select class="custom-select" id="lan" name="lan">
+                                                <select class="custom-select" id="lan" name="">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
@@ -259,7 +259,7 @@
                                         <div class="form-group row">
                                             <label for="router" class="col-sm-4 col-form-label">B. Router</label>
                                             <div class="col-sm-5">
-                                                <select class="custom-select" id="router" name="router">
+                                                <select class="custom-select" id="router" name="">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
@@ -273,14 +273,14 @@
                                         <div class="form-group row">
                                             <label for="komputer" class="col-sm-4 col-form-label">A. Komputer</label>
                                             <div class="col-sm-5">
-                                                <select class="custom-select" id="komputer" name="komputer">
+                                                <select class="custom-select" id="komputer" name="">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="#"
+                                                <input type="text" class="form-control" id="#" name="komputer"
                                                     placeholder="Jumlah Unit">
                                             </div>
                                         </div>
@@ -328,22 +328,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
                             </div>
                             <!-- Kuisioner -->
                             <div class="tab-pane fade" id="kuisioner_data" role="tabpanel"
                                 aria-labelledby="kuisioner_data-tab">
                                 <div class="container mt-5">
                                     <div class="form-group row">
-                                        <label for="tekkom" class="col-sm-4 col-form-label">Kode Kuisioner</label>
+                                        <label for="kode_kuisioner" class="col-sm-4 col-form-label">Kode Kuisioner</label>
+                                        <div class="col-sm-1">
+                                            <input type="number" class="form-control" id="kode_kuisioner" name="kode_kuisioner" placeholder="">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label for="tekkom" class="col-form-label">/B.Tekkom/</label>
+                                        </div>
                                         <div class="col-sm-1">
                                             <input type="text" class="form-control" id="tekkom" name="tekkom" placeholder="">
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <label for="#" class="col-form-label">/B.Tekkom/</label>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <input type="text" class="form-control" id="#" placeholder="">
                                         </div>
                                         <div class="col-sm-1">
                                             <label for="#" class="col-form-label">/KR/2016</label>
@@ -353,30 +352,30 @@
                                         <label for="tingkat_sekolah" class="col-sm-4 col-form-label">Tingkatan Sekolah</label>
                                         <div class="col-sm-8">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios1" value="option1" checked>
-                                                <label class="form-check-label" for="exampleRadios1">
+                                                <input class="form-check-input" type="radio" name="tingkat_sekolah"
+                                                    id="sd" value="SD" checked>
+                                                <label class="form-check-label" for="sd">
                                                     SD
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios2" value="option2">
-                                                <label class="form-check-label" for="exampleRadios2">
+                                                <input class="form-check-input" type="radio" name="tingkat_sekolah"
+                                                    id="smp" value="SMP">
+                                                <label class="form-check-label" for="smp">
                                                     SMP
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios3" value="option1" checked>
-                                                <label class="form-check-label" for="exampleRadios3">
+                                                <input class="form-check-input" type="radio" name="tingkat_sekolah"
+                                                    id="sma" value="SMA" checked>
+                                                <label class="form-check-label" for="sma">
                                                     SMA
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios4" value="option2">
-                                                <label class="form-check-label" for="exampleRadios4">
+                                                <input class="form-check-input" type="radio" name="tingkat_sekolah"
+                                                    id="smk" value="SMK">
+                                                <label class="form-check-label" for="smk">
                                                     SMK
                                                 </label>
                                             </div>
@@ -410,12 +409,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Responden</label>
+                                        <label for="nama_responden" class="col-sm-4 col-form-label">Responden</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" placeholder="Nama Responden">
+                                            <input type="text" class="form-control" id="nama_responden" name="nama_responden" placeholder="Nama Responden">
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="">
+                                            <input type="date" class="form-control" id="" name="date_responden" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 my-5">
@@ -436,6 +435,8 @@
 
                                 </div>
                             </div>
+
+                        </form>
 
                         </div>
                     </div>

@@ -22,19 +22,19 @@ class SchoolController extends Controller
     public function index()
     {
         $periode = Periode::first();
-        $school = School::where('periode', $periode->year);
+        $school = School::where('periode', $periode->year)->where('user_id', auth()->user()->id);
 
         if ($school->exists()) {
-            $school = School::where('periode', $periode->year);
+            $school = School::where('periode', $periode->year)->where('user_id', auth()->user()->id);
             // dd($school->where('isActive', 2)->exists());
             if ($school->where('isActive', 1)->exists()) {
                 $data = $school->where('isActive', 1)->first();
                 $success = 'data';
-            } elseif (School::where('periode', $periode->year)->where('isActive', 2)->exists()) {
-                $data = School::where('periode', $periode->year)->where('isActive', 2)->first();
+            } elseif (School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 2)->exists()) {
+                $data = School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 2)->first();
                 $success = 'reject';
             } else {
-                $data = $school->first();
+                $data = School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 0)->get()->first();
                 $success = 'no verify';
             }
 
@@ -99,6 +99,8 @@ class SchoolController extends Controller
             $komputer = 'Tidak Ada';
         }
 
+        $periode = Periode::first();
+
         $school = $request->all();
         $school['unbk'] = $unbk;
         $school['lan'] = $lan;
@@ -106,6 +108,8 @@ class SchoolController extends Controller
         $school['komputer'] = $komputer;
         $school['slug'] = $this->uniqueSlug($request->name);
         $school['user_id'] = auth()->user()->id;
+        $school['periode'] = $periode->year;
+        $school['jumlah_siswa'] = $request->siswa_lak + $request->siswa_per;
 
         School::create($school);
 
@@ -195,7 +199,7 @@ class SchoolController extends Controller
             'npsn'                      => $request->npsn,
             'siswa_per'                 => $request->siswa_per,
             'siswa_lak'                 => $request->siswa_lak,
-            'jumlah_siswa'              => $request->jumlah_siswa,
+            'jumlah_siswa'              => $request->siswa_lak + $request->siswa_per,
             'unbk'                      => $unbk,
             'transportasi'              => $request->transportasi,
             'geografis'                 => $request->geografis,
@@ -221,7 +225,6 @@ class SchoolController extends Controller
             'range_waktu_dari'          => $request->range_waktu_dari,
             'range_waktu_sampai'        => $request->range_waktu_sampai,
             'analisis'                  => $request->analisis,
-            'periode'                   => $request->periode,
             'tekkom '                   => $request->tekkom,
             'isActive'                  => 0
         ];

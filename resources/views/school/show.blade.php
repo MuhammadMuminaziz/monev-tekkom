@@ -48,12 +48,12 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Jumlah Siswa</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>{{ $school->jumlah_siswa }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">UNBK</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>{{ $school->unbk }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Desa/Kecamatan</th>
@@ -100,7 +100,7 @@
                                                         <td>:</td>
                                                         <td>
                                                         @foreach($school->lembaga_bantuan as $data)
-                                                        {{ $data->name }}
+                                                        {{ $data->name }}, 
                                                          @endforeach
                                                         </td>
                                                     </tr>
@@ -138,7 +138,7 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Laboratorium</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>Komputer {{ $school->laboratorium_komputer }}, Multimedia {{ $school->laboratorium_multimedia }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Jenis Program / Kegiatan yang  Diterima</th>
@@ -217,7 +217,7 @@
                                                     <tr>
                                                         <th class="col-md-6">Kode Kuisioner</th>
                                                         <td>:</td>
-                                                        <td>{{ $school->city->code }}</td>
+                                                        <td>{{ $school->kode_kuisioner }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th class="col-md-6">Tingkatan Sekolah</th>
@@ -227,7 +227,7 @@
                                                     <tr>
                                                         <th class="col-md-6">Nama Petugas Pendataan</th>
                                                         <td>:</td>
-                                                        <td></td>
+                                                        <td>{{ $school->nama_petugas }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th class="col-md-6">NIP</th>
@@ -295,7 +295,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 my-3">
-                                <button type="button" class="btn btn-secondary mr-2">Kembali</button>
+                                <a href="{{ route('schools.index') }}" class="btn btn-secondary mr-2">Kembali</a>
                             </div>
                         </form>
                     </div>

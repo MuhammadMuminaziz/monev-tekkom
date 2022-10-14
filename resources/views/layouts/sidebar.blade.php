@@ -106,7 +106,7 @@
             Users
         </div>
         <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
-            <a class="nav-link pb-0" href="{{ route('users.index') }}">
+            <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-users"></i>
                 <span>Data User</span></a>
         </li>

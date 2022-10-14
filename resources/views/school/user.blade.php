@@ -21,18 +21,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($schools as $school)
                                     <tr>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $school->name }}</td>
+                                        <td>{{ $school->npsn }}</td>
+                                        <td>{{ $school->jumlah_siswa }}</td>
+                                        <td>{{ $school->district->name }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-info btn-rounded"><i
+                                            <a href="{{ route('school.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i
                                                     class="fas fa-eye"></i></a>
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

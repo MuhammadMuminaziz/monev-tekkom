@@ -1,13 +1,14 @@
 <x-app-layout>
-    <div class="container-fluid">
-    <div class="card border-left-primary">
-        <div class="card-header">
-            <h4 class="text-center text-warning">Attention</h4>
-        </div>
-        <div class="card-body text-center">
-            <p class="mb-5">Anda belum mempunyai data sekolah, Silahkan input Data Sekolah terlebih dahulu!</p>
+    <div class="col-md-6">
+        <div class="card mb-4 py-3 border-left-warning">
+            <div class="card-body">
+
+                <h5 class="font-weight-bold text-warning">Maaf Data Sekolah Tidak Tersedia
+                </h5>
+                <div class="form-group my-3">
+                    <label for="">Untuk melakukan input data guru input data sekolah terlebih dahulu. </label>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
 </x-app-layout>

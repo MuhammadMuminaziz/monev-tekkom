@@ -38,14 +38,24 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-4 col-form-label">Nama Sekolah</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="">
                                             </div>
+                                            @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group row">
                                             <label for="npsn" class="col-sm-4 col-form-label">Nomor Pokok Sekolah Nasional
                                                 (NPSN)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="npsn" name="npsn" placeholder="">
+                                                <input type="text" class="form-control @error('npsn') is-invalid @enderror" id="npsn" name="npsn" placeholder="">
+                                                @error('npsn')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -54,11 +64,21 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-sm-6">
                                                         <label for="siswa_lak">Laki-Laki</label>
-                                                        <input type="text" class="form-control" id="siswa_lak" name="siswa_lak">
+                                                        <input type="text" class="form-control @error('siswa_lak') is-invalid @enderror" id="siswa_lak" name="siswa_lak">
+                                                        @error('siswa_lak')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="siswa_per">Perempuan</label>
-                                                        <input type="text" class="form-control" id="siswa_per" name="siswa_per">
+                                                        <input type="text" class="form-control @error('siswa_per') is-invalid @enderror" id="siswa_per" name="siswa_per">
+                                                        @error('siswa_per')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
 
@@ -69,14 +89,19 @@
                                             <div class="col-sm-8">
                                                 <div class="form-row">
                                                     <div class="col-sm-5">
-                                                        <select class="custom-select" id="unbk" name="" required>
+                                                        <select class="custom-select @error('unbk') is-invalid @enderror" id="unbk" name="unbk">
                                                             <option selected disabled value="">Pilih</option>
-                                                            <option>Sudah</option>
-                                                            <option>Belum</option>
+                                                            <option value="Sudah">Sudah</option>
+                                                            <option value="Belum">Belum</option>
                                                         </select>
                                                     </div>
+                                                    @error('unbk')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                                     <div class="form-group col-sm-2">
-                                                        <input type="text" class="form-control" id="inputCity" name="unbk" placeholder="Tahun">
+                                                        <input type="text" class="form-control" id="inputCity" name="unbk_tahun" placeholder="Tahun">
                                                     </div>
                                                     <small>(diisi jika sudah melaksanakan UNBK)</small>
                                                 </div>
@@ -85,23 +110,33 @@
                                         <div class="form-group row">
                                             <label for="district_id" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
                                             <div class="col-sm-8">
-                                            <select name="district_id" id="district_id" class="custom-select">
+                                            <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                     <option selected disabled value="">Pilih</option>
                                                     @foreach($districts as $district)
                                                     <option value="{{ $district->id }}">{{ $district->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('district_id')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="city_id" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
                                             <div class="col-sm-8">
-                                            <select name="city_id" id="city_id" class="custom-select">
+                                            <select name="city_id" id="city_id" class="custom-select @error('city_id') is-invalid @enderror">
                                                     <option selected disabled value="">Pilih</option>
                                                     @foreach($cities as $city)
                                                     <option value="{{ $city->id }}">{{ $city->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('city_id')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -113,7 +148,12 @@
                                         <div class="form-group row">
                                             <label for="transportasi" class="col-sm-4 col-form-label">Akses Transportasi</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="transportasi" name="transportasi" placeholder="">
+                                                <input type="text" class="form-control @error('transportasi') is-invalid @enderror" id="transportasi" name="transportasi" placeholder="">
+                                                @error('transportasi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -124,34 +164,54 @@
                                             <label for="geografis" class="col-sm-4 col-form-label">Kondisi Geografis <br>
                                                 <small>(Uraikan Singkat)</small></label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control"  id="geografis" name="geografis"
+                                                <textarea class="form-control @error('geografis') is-invalid @enderror" id="geografis" name="geografis"
                                                     rows="4"></textarea>
+                                                    @error('geografis')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="sosekbud" class="col-sm-4 col-form-label">Kondisi sosekbud <br>
                                                 <small>(Uraikan Singkat)</small></label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control" id="sosekbud" name="sosekbud"
+                                                <textarea class="form-control @error('sosekbud') is-invalid @enderror" id="sosekbud" name="sosekbud"
                                                     rows="4"></textarea>
+                                                    @error('sosekbud')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="internet" class="col-sm-4 col-form-label">Fasilitas Komunikasi Internet
                                                 Saat Ini</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="internet" name="internet" placeholder="">
+                                                <input type="text" class="form-control @error('internet') is-invalid @enderror" id="internet" name="internet" placeholder="">
+                                                @error('internet')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="bantuan_teknologi" class="col-sm-4 col-form-label">Pernah Mendapatkan Bantuan
                                                 Terkait Teknologi Informasi dan Komunikasi </label>
                                             <div class="col-sm-8">
-                                                <select class="custom-select"  id="bantuan_teknologi" name="bantuan_teknologi">
+                                                <select class="custom-select @error('bantuan_teknologi') is-invalid @enderror"  id="bantuan_teknologi" name="bantuan_teknologi">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Pernah</option>
                                                     <option>Tidak Pernah</option>
                                                 </select>
+                                                @error('bantuan_teknologi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -168,29 +228,43 @@
                                         <div class="form-group row">
                                             <label for="listrik" class="col-sm-4 col-form-label">Listrik</label>
                                             <div class="col-sm-8">
-                                                <select class="custom-select" id="listrik" name="listrik" required>
+                                                <select class="custom-select @error('listrik') is-invalid @enderror" id="listrik" name="listrik">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
                                                 </select>
+                                                @error('listrik')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="power_suplay" class="col-sm-4 col-form-label">Sumber Daya Listrik</label>
                                             <div class="col-sm-8">
-                                                <select class="custom-select" id="power_suplay" name="power_suplay" required>
+                                                <select class="custom-select @error('power_suplay') is-invalid @enderror" id="power_suplay" name="power_suplay">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>PLN</option>
                                                     <option>Genset</option>
                                                     <option>Solar Cell</option>
-                                                    <option>Lainnya <a href="#">#</a></option>
                                                 </select>
+                                                @error('power_suplay')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="durasi_listrik" class="col-sm-4 col-form-label">Durasi Listrik</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="durasi_listrik" name="durasi_listrik" placeholder="">
+                                                <input type="text" class="form-control @error('durasi_listrik') is-invalid @enderror" id="durasi_listrik" name="durasi_listrik" placeholder="">
+                                                @error('durasi_listrik')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="col-sm-2">
                                                 <p>(Jam)</p>
@@ -211,13 +285,23 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-sm-6">
                                                         <label for="laboratorium_komputer">1. Komputer</label>
-                                                        <input type="text" class="form-control" id="laboratorium_komputer" name="laboratorium_komputer"
+                                                        <input type="text" class="form-control @error('laboratorium_komputer') is-invalid @enderror" id="laboratorium_komputer" name="laboratorium_komputer"
                                                             placeholder="(...Unit)">
+                                                            @error('laboratorium_komputer')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                            @enderror
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="laboratorium_multimedia">2. Multimedia</label>
-                                                        <input type="text" class="form-control" id="laboratorium_multimedia" name="laboratorium_multimedia"
+                                                        <input type="text" class="form-control @error('laboratorium_multimedia') is-invalid @enderror" id="laboratorium_multimedia" name="laboratorium_multimedia"
                                                             placeholder="(...Unit)">
+                                                            @error('laboratorium_multimedia')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                            @enderror
                                                     </div>
                                                 </div>
 
@@ -227,14 +311,24 @@
                                             <label for="jenis_program" class="col-sm-4 col-form-label">Jenis Program / Kegiatan yang
                                                 diterima</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="jenis_program" name="jenis_program" placeholder="">
+                                                <input type="text" class="form-control @error('jenis_program') is-invalid @enderror" id="jenis_program" name="jenis_program" placeholder="">
+                                                @error('jenis_program')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="tahun_bantuan" class="col-sm-4 col-form-label">Tahun Menerima
                                                 Bantuan</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control"id="tahun_bantuan" name="tahun_bantuan" placeholder="">
+                                                <input type="text" class="form-control @error('tahun_bantuan') is-invalid @enderror" id="tahun_bantuan" name="tahun_bantuan" placeholder="">
+                                                @error('tahun_bantuan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -245,42 +339,57 @@
                                         <div class="form-group row">
                                             <label for="lan" class="col-sm-4 col-form-label">A. LAN/Wireless LAN</label>
                                             <div class="col-sm-5">
-                                                <select class="custom-select" id="lan" name="">
+                                                <select class="custom-select @error('lan') is-invalid @enderror" id="lan" name="lan">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
                                                 </select>
+                                                @error('lan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="#" name="lan"
+                                                <input type="text" class="form-control" id="#" name="lan_unit"
                                                     placeholder="Jumlah Unit">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="router" class="col-sm-4 col-form-label">B. Router</label>
                                             <div class="col-sm-5">
-                                                <select class="custom-select" id="router" name="">
+                                                <select class="custom-select @error('router') is-invalid @enderror" id="router" name="router">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
                                                 </select>
+                                                @error('router')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="#" name="router"
+                                                <input type="text" class="form-control" id="#" name="router_unit"
                                                     placeholder="Jumlah Unit">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="komputer" class="col-sm-4 col-form-label">A. Komputer</label>
                                             <div class="col-sm-5">
-                                                <select class="custom-select" id="komputer" name="">
+                                                <select class="custom-select @error('komputer') is-invalid @enderror" id="komputer" name="komputer">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
                                                 </select>
+                                                @error('komputer')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="#" name="komputer"
+                                                <input type="text" class="form-control" id="#" name="komputer_unit"
                                                     placeholder="Jumlah Unit">
                                             </div>
                                         </div>
@@ -288,33 +397,53 @@
                                             <label for="kuota_bandwidth" class="col-sm-4 col-form-label">D. Kuota Banwidth Saat
                                                 Ini</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="kuota_bandwidth" name="kuota_bandwidth" placeholder="">
+                                                <input type="text" class="form-control @error('kuota_bandwidth') is-invalid @enderror" id="kuota_bandwidth" name="kuota_bandwidth" placeholder="">
+                                                @error('kuota_bandwidth')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="col-sm-2">
-                                                <select class="custom-select" id="" name="internet_speed">
+                                                <select class="custom-select @error('internet_speed') is-invalid @enderror" id="" name="internet_speed">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Kbps</option>
                                                     <option>Mbps</option>
                                                 </select>
+                                                @error('internet_speed')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="kesesuaian_kuota" class="col-sm-4 col-form-label">E. Kesesuaian Kuota Dengan
                                                 Kebutuhan</label>
                                             <div class="col-sm-8">
-                                                <select class="custom-select" id="kesesuaian_kuota" name="kesesuaian_kuota">
+                                                <select class="custom-select @error('kesesuaian_kuota') is-invalid @enderror" id="kesesuaian_kuota" name="kesesuaian_kuota">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Ada</option>
                                                     <option>Tidak Ada</option>
                                                 </select>
+                                                @error('kesesuaian_kuota')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="alasan_tambah_kuota" class="col-sm-4 col-form-label">F. Alasan Penambahan
                                                 Kuota</label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control"  id="alasan_tambah_kuota" name="alasan_tambah_kuota"
+                                                <textarea class="form-control @error('alasan_tambah_kuota') is-invalid @enderror" id="alasan_tambah_kuota" name="alasan_tambah_kuota"
                                                     rows="6"></textarea>
+                                                    @error('alasan_tambah_kuota')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -323,8 +452,13 @@
                                         <div class="form-group row">
                                             <label for="saran" class="col-sm-4 col-form-label">Saran</label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control"  id="saran" name="saran"
+                                                <textarea class="form-control @error('saran') is-invalid @enderror" id="saran" name="saran"
                                                     rows="6"></textarea>
+                                                    @error('saran')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -336,13 +470,23 @@
                                     <div class="form-group row">
                                         <label for="kode_kuisioner" class="col-sm-4 col-form-label">Kode Kuisioner</label>
                                         <div class="col-sm-1">
-                                            <input type="number" class="form-control" id="kode_kuisioner" name="kode_kuisioner" placeholder="">
+                                            <input type="text" class="form-control @error('kode_kuisioner') is-invalid @enderror" id="kode_kuisioner" name="kode_kuisioner" placeholder="">
+                                            @error('kode_kuisioner')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-1">
                                             <label for="tekkom" class="col-form-label">/B.Tekkom/</label>
                                         </div>
                                         <div class="col-sm-1">
-                                            <input type="text" class="form-control" id="tekkom" name="tekkom" placeholder="">
+                                            <input type="text" class="form-control @error('tekkom') is-invalid @enderror" id="tekkom" name="tekkom" placeholder="">
+                                            @error('tekkom')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-1">
                                             <label for="#" class="col-form-label">/KR/2016</label>
@@ -367,7 +511,7 @@
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="tingkat_sekolah"
-                                                    id="sma" value="SMA" checked>
+                                                    id="sma" value="SMA">
                                                 <label class="form-check-label" for="sma">
                                                     SMA
                                                 </label>
@@ -390,31 +534,61 @@
                                     <div class="form-group row">
                                         <label for="nip" class="col-sm-4 col-form-label">NIP</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="nip" name="nip" placeholder="">
+                                            <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" placeholder="">
+                                            @error('nip')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="range_waktu_dari" class="col-sm-4 col-form-label">Range Waktu Pendataan</label>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_dari" name="range_waktu_dari" placeholder="">
+                                            <input type="date" class="form-control @error('range_waktu_dari') is-invalid @enderror" id="range_waktu_dari" name="range_waktu_dari" placeholder="">
+                                            @error('range_waktu_dari')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="">
+                                            <input type="date" class="form-control @error('range_waktu_sampai') is-invalid @enderror" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="">
+                                            @error('range_waktu_sampai')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="#" class="col-sm-4 col-form-label">Analisa Petugas Pendataan</label>
+                                        <label for="analisis" class="col-sm-4 col-form-label">Analisa Petugas Pendataan</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" id="analisis" name="analisis"  rows="8"></textarea>
+                                            <textarea class="form-control @error('analisis') is-invalid @enderror" id="analisis" name="analisis"  rows="8"></textarea>
+                                            @error('analisis')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="nama_responden" class="col-sm-4 col-form-label">Responden</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="nama_responden" name="nama_responden" placeholder="Nama Responden">
+                                            <input type="text" class="form-control @error('nama_responden') is-invalid @enderror" id="nama_responden" name="nama_responden" placeholder="Nama Responden">
+                                            @error('nama_responden')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="" name="date_responden" placeholder="">
+                                            <input type="date" class="form-control @error('date_responden') is-invalid @enderror" id="" name="date_responden" placeholder="">
+                                            @error('date_responden')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-sm-12 my-5">

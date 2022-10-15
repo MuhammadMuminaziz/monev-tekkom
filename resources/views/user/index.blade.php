@@ -21,7 +21,7 @@
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between mb-4 ">
                             <a href="{{ route('users.create') }}"
-                                class="btn btn-sm px-4 pt-2 rounded-pill btn-primary"> <i class="fas fa-plus-square"></i> Add User</a>
+                                class="btn btn-sm px-4 pt-2 rounded-pill btn-primary"> <i class="fas fa-plus-square"></i> Tambah User</a>
                         </div>
                         <table class="table " id="dataTable" width="100%" cellspacing="0">
                             <thead>

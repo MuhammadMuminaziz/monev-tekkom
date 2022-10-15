@@ -95,6 +95,7 @@ class SchoolController extends Controller
             'router'                    => 'required',
             'komputer'                  => 'required',
             'kuota_bandwidth'           => 'required',
+            'internet_speed'           => 'required',
             'kesesuaian_kuota'          => 'required',
             'alasan_tambah_kuota'       => 'required',
             'saran'                     => 'required',
@@ -109,28 +110,28 @@ class SchoolController extends Controller
         ]);
         // Input Field UNBK
         if ($request->unbk == 'Sudah') {
-            $unbk = $request->unbk_tahun;
+            $unbk = $request->unbk_tahun ?? 'Sudah';
         } else {
             $unbk = $request->unbk;
         }
 
         // Input Field Bantuan Teknologi
         if ($request->lan == 'Ada') {
-            $lan = $request->lan_unit;
+            $lan = $request->lan_unit ?? 'Ada';
         } else {
             $lan = $request->lan;
         }
 
         // Input Field Bantuan Teknologi
         if ($request->router == 'Ada') {
-            $router = $request->router_unit;
+            $router = $request->router_unit ?? 'Ada';
         } else {
             $router = $request->router;
         }
 
         // Input Field Bantuan Teknologi
         if ($request->komputer == 'Ada') {
-            $komputer = $request->komputer_unit;
+            $komputer = $request->komputer_unit ?? 'Ada';
         } else {
             $komputer = $request->komputer;
         }
@@ -151,7 +152,7 @@ class SchoolController extends Controller
 
         $school_id = School::latest()->first();
 
-        if ($request->nama_lembaga) {
+        if ($request->nama_lembaga != '') {
             foreach ($request->nama_lembaga as $items => $name) {
                 $lembaga = [
                     'school_id' => $school_id->id,
@@ -203,28 +204,28 @@ class SchoolController extends Controller
     {
         // Input Field UNBK
         if ($request->unbk == 'Sudah') {
-            $unbk = $request->unbk_tahun;
+            $unbk = $request->unbk_tahun ?? 'Sudah';
         } else {
             $unbk = $request->unbk;
         }
 
         // Input Field Bantuan Teknologi
         if ($request->lan == 'Ada') {
-            $lan = $request->lan_unit;
+            $lan = $request->lan_unit ?? 'Ada';
         } else {
             $lan = $request->lan;
         }
 
         // Input Field Bantuan Teknologi
         if ($request->router == 'Ada') {
-            $router = $request->router_unit;
+            $router = $request->router_unit ?? 'Ada';
         } else {
             $router = $request->router;
         }
 
         // Input Field Bantuan Teknologi
         if ($request->komputer == 'Ada') {
-            $komputer = $request->komputer_unit;
+            $komputer = $request->komputer_unit ?? 'Ada';
         } else {
             $komputer = $request->komputer;
         }
@@ -269,13 +270,15 @@ class SchoolController extends Controller
         ];
 
         LembagaBantuan::where('school_id', $school->id)->delete();
-        foreach ($request->nama_lembaga as $item => $lembaga) {
-            $data2 = [
-                'school_id'     => $school->id,
-                'name'          => $request['nama_lembaga'][$item]
-            ];
+        if ($request->nama_lembaga != '') {
+            foreach ($request->nama_lembaga as $item => $lembaga) {
+                $data2 = [
+                    'school_id'     => $school->id,
+                    'name'          => $request['nama_lembaga'][$item]
+                ];
 
-            LembagaBantuan::create($data2);
+                LembagaBantuan::create($data2);
+            }
         }
 
         $school->update($data);

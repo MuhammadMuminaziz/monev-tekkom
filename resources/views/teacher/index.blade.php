@@ -42,7 +42,6 @@
                         </div>
                     </div>
                     @endif
-                </div>
 
                 <!-- Add Data -->
                 @if($school->isActive == 1)

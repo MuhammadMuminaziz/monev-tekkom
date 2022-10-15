@@ -91,8 +91,8 @@
                                                     <div class="col-sm-5">
                                                         <select class="custom-select @error('unbk') is-invalid @enderror" id="unbk" name="unbk">
                                                             <option selected disabled value="">Pilih</option>
-                                                            <option>Sudah</option>
-                                                            <option>Belum</option>
+                                                            <option value="Sudah">Sudah</option>
+                                                            <option value="Belum">Belum</option>
                                                         </select>
                                                     </div>
                                                     @error('unbk')
@@ -398,14 +398,19 @@
                                                 Ini</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control @error('kuota_bandwidth') is-invalid @enderror" id="kuota_bandwidth" name="kuota_bandwidth" placeholder="">
+                                                @error('kuota_bandwidth')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="col-sm-2">
-                                                <select class="custom-select" id="" name="internet_speed">
+                                                <select class="custom-select @error('internet_speed') is-invalid @enderror" id="" name="internet_speed">
                                                     <option selected disabled value="">Pilih</option>
                                                     <option>Kbps</option>
                                                     <option>Mbps</option>
                                                 </select>
-                                                @error('kuota_bandwidth')
+                                                @error('internet_speed')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -506,7 +511,7 @@
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="tingkat_sekolah"
-                                                    id="sma" value="SMA" checked>
+                                                    id="sma" value="SMA">
                                                 <label class="form-check-label" for="sma">
                                                     SMA
                                                 </label>

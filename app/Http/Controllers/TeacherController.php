@@ -27,10 +27,10 @@ class TeacherController extends Controller
         $periode    = Periode::first();
         $school     = School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->first();
         if ($school) {
-        return view('teacher.index', [
-            'school'    => $school,
-            'teachers'  => Teacher::where('periode', $periode->year)->where('School_Origin', $school->name)->orderBy('teacher_name', 'asc')->get(),
-        ]);
+            return view('teacher.index', [
+                'school'    => $school,
+                'teachers'  => Teacher::where('periode', $periode->year)->where('School_Origin', $school->name)->orderBy('teacher_name', 'asc')->get(),
+            ]);
         } else {
             return view('teacher.message');
         }
@@ -62,30 +62,30 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'district_id'           => 'required',
-            'city_id'           => 'required',
-            'teacher_name'          => 'required|min:3',
-            'employment_status'     => 'required',
-            'nuptk'                 => 'required',
-            'place_of_birth'                 => 'required',
-            'date_of_birth'                 => 'required',
-            'religion'                 => 'required',
-            'gender'                 => 'required',
-            'last_education'                 => 'required',
-            'class'                 => 'required',
-            'School_Origin'                 => 'required',
-            'phone'                 => 'required|min:8',
-            'provinsi'                 => 'required',
-            'subjects_taught'                 => 'required',
-            'certification_status'                 => 'required',
-            'unbk_socialization_activities'                 => 'required',
-            'involvement_unbk'                 => 'required',
-            'kode_kuisioner'                 => 'required',
-            'tekkom'                 => 'required',
+            'district_id'                       => 'required',
+            'city_id'                           => 'required',
+            'teacher_name'                      => 'required|min:3',
+            'employment_status'                 => 'required',
+            'nuptk'                             => 'required',
+            'place_of_birth'                    => 'required',
+            'date_of_birth'                     => 'required',
+            'religion'                          => 'required',
+            'gender'                            => 'required',
+            'last_education'                    => 'required',
+            'class'                             => 'required',
+            'School_Origin'                     => 'required',
+            'phone'                             => 'required|min:8',
+            'provinsi'                          => 'required',
+            'subjects_taught'                   => 'required',
+            'certification_status'              => 'required',
+            'unbk_socialization_activities'     => 'required',
+            'involvement_unbk'                  => 'required',
+            'kode_kuisioner'                    => 'required',
+            'tekkom'                            => 'required',
             'tingkatan_sekolah'                 => 'required',
-            'nama_petugas'                 => 'required',
-            'nip'                 => 'required',
-            'analisis'                 => 'required',
+            'nama_petugas'                      => 'required',
+            'nip'                               => 'required',
+            'analisis'                          => 'required',
         ]);
 
         $data = $request->all();

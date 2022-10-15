@@ -26,11 +26,16 @@ class TeacherController extends Controller
     {
         $periode    = Periode::first();
         $school     = School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->first();
+        if ($school) {
         return view('teacher.index', [
             'school'    => $school,
             'teachers'  => Teacher::where('periode', $periode->year)->where('School_Origin', $school->name)->orderBy('teacher_name', 'asc')->get(),
         ]);
+        } else {
+            return view('teacher.message');
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.

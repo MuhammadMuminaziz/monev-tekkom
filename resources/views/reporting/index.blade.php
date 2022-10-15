@@ -63,22 +63,25 @@
         <div class="row">
             <div class="col">
                 <div class="card shadow py-3 border-bottom-primary">
-                    
                     <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary">Laporan Data Sekolah</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Laporan</h6>
                     </div>
-
                     <div class="card-body">
+                        <div class="justify-content-between mb-4 ">
+                            <a href="#" class="btn btn-sm px-4 rounded-pill btn-primary"> Filter</a>
+                            <a href="#" class="btn btn-sm px-4 rounded-pill btn-danger"> Reset</a>
+                        </div>
                         <div class="table-responsive">
                             <table class="table " id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th width="5%">ID</th>
+                                        <th width="5%">No</th>
                                         <th>Nama Sekolah</th>
                                         <th>NPSN</th>
                                         <th>Jumlah Siswa</th>
                                         <th>Desa / Kecamatan</th>
-                                        <th >Action</th>
+                                        <th>Dokumen</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,9 +91,10 @@
                                         <td>#</td>
                                         <td>#</td>
                                         <td>#</td>
+                                        <td> <a href="#" class="btn btn-sm btn-primary btn-rounded">Data Guru</a></td>
                                         <td>
                                             <a href="#" class="btn btn-sm btn-info btn-rounded mr-3"><i class="fas fa-print"></i> Cetak</a>
-                                            <a href="#" class="btn btn-sm btn-primary btn-rounded">Data Guru</a>
+                                          
                                             </form>
                                         </td>
                                     </tr>
@@ -102,5 +106,5 @@
             </div>
         </div>
     </div>
-    
+
 </x-app-layout>

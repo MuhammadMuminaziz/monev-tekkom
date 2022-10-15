@@ -36,12 +36,7 @@
         <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('reporting.index') }}">
                 <i class="fas fa-school"></i>
-                <span>Laporan Data</span></a>
-        </li>
-       <li class="nav-item {{ request()->is('reporting*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('reporting.index') }}">
-                <i class="fas fa-user-graduate"></i>
-                <span>Laporan Data Guru</span></a>
+                <span>Laporan</span></a>
         </li>
 
         @endcan
@@ -138,13 +133,13 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="buttons.html">
-                        <span>Menunggu Persetujuan</span>
+                    <a class="collapse-item" href="#">
+                        <span>Permintaan Verifikasi</span>
                         <span class="pull-right-container">
                             <span class="badge badge-primary pull-right">4</span>
                         </span>
                     </a>
-                    <a class="collapse-item" href="cards.html">Terverifikasi</a>
+                    <a class="collapse-item" href="#">Tealh Diverifikasi</a>
                 </div>
             </div>
         </li>

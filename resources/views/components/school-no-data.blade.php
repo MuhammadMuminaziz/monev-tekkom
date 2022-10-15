@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="card border-left-primary">
         <div class="card-header">
-            <h4 class="text-center text-warning">Attention...</h4>
+            <h4 class="text-center text-warning">Attention</h4>
         </div>
         <div class="card-body text-center">
             <p class="mb-5">Maaf Anda belum mempunyai data sekolah...</p>

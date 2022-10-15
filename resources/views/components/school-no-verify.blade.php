@@ -1,10 +1,17 @@
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <h3 class="text-center text-warning">Attention...</h3>
-        </div>
-        <div class="card-body text-center">
-            <p class="mb-5">Data Anda sedang di tinjau</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4 py-3 border-left-warning">
+                <div class="card-body">
+                    <h5 class="font-weight-bold text-warning">Data sedang di Verifikasi </h5>
+                        <div class="form-group my-3">
+                            <label for="">Terimakasih telah melakukan input Data Sekolah. Mohon tunggu, sedang dilakukan penintauan data. </label>
+                        </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+

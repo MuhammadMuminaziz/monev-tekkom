@@ -1,10 +1,13 @@
 <x-app-layout>
-    <div class="row">
-        <div class="col">
-            <div class="card p-2">
-                <h1 class="text-center">Maaf Anda belum mempunyai data sekolah...</h1>
-                <strong class="text-center text-danger"><h3>Harap Masukan Data Sekolah terlebih dahulu!!!</h3></strong>
-            </div>
+    <div class="container-fluid">
+    <div class="card border-left-primary">
+        <div class="card-header">
+            <h4 class="text-center text-warning">Attention</h4>
+        </div>
+        <div class="card-body text-center">
+            <p class="mb-5">Anda belum mempunyai data sekolah, Silahkan input Data Sekolah terlebih dahulu!</p>
         </div>
     </div>
+</div>
+
 </x-app-layout>

@@ -116,13 +116,13 @@
             Master Data
         </div>
 
-        <!-- <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
+        <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
             <a class="nav-link pb-0" href="{{ route('verifikator.schools') }}">
                 <i class="fas fa-school"></i>
                 <span>Data Sekolah</span></a>
-        </li> -->
+        </li>
 
-        <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
+        <!-- <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
             <a class="nav-link collapsed" href="{{ route('schools.index') }}" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-school"></i>
@@ -142,7 +142,7 @@
                     <a class="collapse-item" href="#">Tealh Diverifikasi</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">

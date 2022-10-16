@@ -1,62 +1,67 @@
 <x-app-layout>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Sekolah</h6>
-                </div>
-                <div class="card-body">
-                    <div class="row p-3 justify-content-between">
-                        <div class="col-md-3">
-                            <div class="input-group mb-3">
-                                <select class="custom-select" id="filterDistrict" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                    <option selected disabled>- pilih kecamatan -</option>
-                                    @foreach($districts as $district)
-                                    <option value="{{ $district->id }}">{{ $district->name }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2">filter</button>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="" class="mr-3 mt-1">
-                            <button class="btn btn-primary">Print</button>
-                        </a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow border-bottom-primary">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Laporan Data Sekolah</h6>
                     </div>
-
-                    <div class="row p-2">
-                        <div class="col">
-                            <div class="table-responsive">
-                                <table class="table " id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="text-center">No</th>
-                                            <th scope="col">Nama Sekolah</th>
-                                            <th scope="col" class="text-center">NPSN</th>
-                                            <th scope="col" class="text-center">Kecamatan</th>
-                                            <th scope="col" class="text-center">Kota</th>
-                                            <th scope="col" class="text-center">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="page-school">
-                                        @foreach ($schools as $school)
-                                        <tr>
-                                            <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td>{{ $school->name }}</td>
-                                            <td class="text-center">{{ $school->npsn }}</td>
-                                            <td class="text-center">{{ $school->district->name }}</td>
-                                            <td class="text-center">{{ $school->city->name }}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('reporting.school.show', $school) }}" class="btn btn-sm btn-success">Data sekolah</a>
-                                                <a href="{{ route('reporting.school.teacher', $school) }}" class="btn btn-sm btn-warning">Data guru</a>
-                                                <a href="" class="btn btn-sm btn-primary">Print</a>
-                                            </td>
-                                        </tr>
+                    <div class="card-body">
+                        <div class="row p-3">
+                            <div class="col-md-3">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="btn btn-primary" for="filterDistrict">Filter</label>
+                                    </div>
+                                    <select class="custom-select" id="filterDistrict">
+                                        <option selected disabled>- Pilih Kecamatan -</option>
+                                        @foreach($districts as $district)
+                                        <option value="{{ $district->id }}">{{ $district->name }}</option>
                                         @endforeach
-                                    </tbody>
-                                </table>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <a href="{{ route('reporting.index') }}" class="">
+                                <button class="btn btn-danger float-right mb-3" type="button">Reset</button>
+                            </a>
+                        </div>
+
+                        <div class="row p-2">
+                            <div class="col">
+                                <div class="table-responsive">
+                                    <table class="table " id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th scope="col">Nama Sekolah</th>
+                                                <th>NPSN</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kota</th>
+                                                <th>Dokumen</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="page-school">
+                                            @foreach ($schools as $school)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $school->name }}</td>
+                                                <td>{{ $school->npsn }}</td>
+                                                <td>{{ $school->district->name }}</td>
+                                                <td>{{ $school->city->name }}</td>
+                                                <td>
+                                                    <a href="{{ route('reporting.school.teacher', $school) }}" class="btn btn-sm btn-success">Data guru</a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('reporting.school.show', $school) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
+                                                    <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-print"></i> Print</a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,6 +69,5 @@
             </div>
         </div>
     </div>
-</div>
 
 </x-app-layout>

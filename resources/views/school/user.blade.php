@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <div class="card shadow py-3 border-bottom-primary">
-                    <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Sekolah</h6>
+                <div class="card shadow  border-bottom-primary">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Sekolah</h6>
                     </div>
 
                     <div class="card-body">

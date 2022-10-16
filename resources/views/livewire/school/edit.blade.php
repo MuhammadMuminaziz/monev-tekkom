@@ -98,7 +98,7 @@
                                         </td>
                                         <td>
                                             <a href="{{ route('verifikator.schools.verify', $school) }}"
-                                                class="btn btn-sm btn-success">Verifikasi</a>
+                                                class="btn btn-sm btn-success"> Verifikasi</a>
                                             <a href="{{ route('verifikator.schools.reject', $school) }}"
                                                 class="btn btn-sm btn-danger">Tolak</a>
                                             <a href="{{ route('verifikator.show', $school) }}"

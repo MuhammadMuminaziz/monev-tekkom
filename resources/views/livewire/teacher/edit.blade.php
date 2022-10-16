@@ -28,9 +28,10 @@
                                 Terverifikasi</button>
                         </li>
                     </ul>
-                    <div class="tab-content my-5" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <!-- Belum Verifikasi Data guru -->
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Belum Verifikasi Data guru -->
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
+                            <a href="#" class="btn btn-sm btn-success my-4"><i class="far fa-check-square"></i> Verifikasi </a>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -71,10 +72,10 @@
                                 </table>
                             </div>
                         </div>
+                        <!-- Sudah Verifikasi Data guru -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <!-- Sudah Verifikasi Data guru -->
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered my-5" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <th width="5%">No</th>
                                         <th>Nama Sekolah</th>

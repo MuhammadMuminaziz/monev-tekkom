@@ -12,7 +12,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card mb-4 py-3 border-left-danger">
                 <div class="card-body">
                     <h5 class="font-weight-bold text-danger">Verifikasi Data di Tolak!</h5>

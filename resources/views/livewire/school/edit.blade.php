@@ -20,7 +20,9 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
                                 type="button" role="tab" aria-controls="home" aria-selected="true">Permintaan
-                                Verifikasi <span class="badge badge-primary">17</span></button>
+                                Verifikasi 
+                                @if($schoolsVerify->count() > 0) <span class="badge badge-primary">{{ $schoolsVerify->count() }}</span> @endif
+                            </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile"
@@ -43,18 +45,14 @@
                                         <th>Action</th>
                                     </thead>
                                     <tbody>
-                                        @foreach($schools as $school)
+                                        @foreach($schoolsVerify as $school)
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $school->name }}</td>
                                         <td>{{ $school->npsn }}</td>
                                         <td>{{ $school->jumlah_siswa }}</td>
                                         <td>{{ $school->district->name }}</td>
                                         <td>
-                                            @if($school->isActive == 0)
                                             <span class="badge badge-danger">Not Acitived</span>
-                                            @else
-                                            <span class="badge badge-success">Acitived</span>
-                                            @endif
                                         </td>
                                         <td>
                                             <a href="{{ route('verifikator.schools.verify', $school) }}"
@@ -83,24 +81,23 @@
                                         <th>Action</th>
                                     </thead>
                                     <tbody>
-                                        @foreach($schools as $school)
+                                        @foreach($schoolsActived as $school)
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $school->name }}</td>
                                         <td>{{ $school->npsn }}</td>
                                         <td>{{ $school->jumlah_siswa }}</td>
                                         <td>{{ $school->district->name }}</td>
                                         <td>
-                                            @if($school->isActive == 0)
-                                            <span class="badge badge-danger">Not Acitived</span>
-                                            @else
                                             <span class="badge badge-success">Acitived</span>
-                                            @endif
                                         </td>
                                         <td>
+
                                             <a href="{{ route('verifikator.schools.verify', $school) }}"
                                                 class="btn btn-sm btn-success"> Verifikasi</a>
                                             <a href="{{ route('verifikator.schools.reject', $school) }}"
                                                 class="btn btn-sm btn-danger">Tolak</a>
+                                            <a href="{{ route('verifikator.schools.cansel', $school) }}"
+                                                class="btn btn-sm btn-danger">Batal Verifikasi</a>
                                             <a href="{{ route('verifikator.show', $school) }}"
                                                 class="btn btn-sm btn-primary">Lihat</a>
                                         </td>

@@ -28,6 +28,7 @@ class CreateSchoolsTable extends Migration
             $table->integer('siswa_lak')->nullable();
             $table->integer('jumlah_siswa')->nullable();
             $table->string('unbk')->default('Belum');
+            $table->string('unbk_tahun')->nullable();
             $table->string('provinsi')->default('Maluku');
             $table->string('transportasi')->nullable();
             $table->string('geografis')->nullable();
@@ -42,8 +43,11 @@ class CreateSchoolsTable extends Migration
             $table->string('jenis_program')->nullable();
             $table->string('tahun_bantuan')->nullable();
             $table->string('lan')->nullable();
+            $table->string('lan_unit')->nullable();
             $table->string('router')->nullable();
+            $table->string('router_unit')->nullable();
             $table->string('komputer')->nullable();
+            $table->string('komputer_unit')->nullable();
             $table->string('kuota_bandwidth')->nullable();
             $table->string('internet_speed')->nullable();
             $table->string('kesesuaian_kuota')->nullable();

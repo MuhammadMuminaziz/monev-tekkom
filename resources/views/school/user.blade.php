@@ -17,7 +17,6 @@
                                         <th>NPSN</th>
                                         <th>Jumlah Siswa</th>
                                         <th>Desa / Kecamatan</th>
-                                        <th>Status</th>
                                         <th width="15%">Action</th>
                                     </tr>
                                 </thead>
@@ -29,13 +28,6 @@
                                         <td>{{ $school->npsn }}</td>
                                         <td>{{ $school->jumlah_siswa }}</td>
                                         <td>{{ $school->district->name }}</td>
-                                        <td>
-                                            @if($school->isActive == 0)
-                                            <span class="badge badge-danger">Not Acitived</span>
-                                            @else
-                                            <span class="badge badge-success">Acitived</span>
-                                            @endif
-                                        </td>
                                         <td>
                                             <a href="{{ route('school.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i
                                                     class="fas fa-eye"></i></a>

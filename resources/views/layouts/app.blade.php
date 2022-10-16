@@ -24,6 +24,9 @@
     <!-- Custom styles for this page -->
     <link href="{{ asset('sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
+    {{-- checkbox datatable --}}
+    <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+
 
     @livewireStyles
 
@@ -133,11 +136,14 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('sb-admin-2/js/demo/datatables-demo.js') }}"></script>
+    <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     
 
     <script>
+        var table;
         $(document).ready(function(){
             $('.select2').select2({
                 placeholder: "- pilih kecamatan -"
@@ -149,6 +155,49 @@
                 $('.form-city').removeClass('d-block');
             }
 
+
+            // checkbox
+            table = $('#dataTableCheckBox').DataTable({
+                'columnDefs': [{
+                    'targets': 0,
+                    'checkboxes': {
+                        'selectRow': true
+                    }
+                }]
+            })
+
+            
+        })
+        $('#verify').on('click', function(){
+            var selectedRow = table.column(0).checkboxes.selected();
+            var data = [];
+            $.each(selectedRow, function(key, id){
+                data.push(id);
+            })
+            $.ajax({
+                url: "{{ url('/teachers-verify/ferify') }}",
+                type: 'get',
+                data: {data},
+                success:function(data){
+                    location.reload();
+                }
+            })
+        })
+        
+        $('#reject').on('click', function(){
+            var selectedRow = table.column(0).checkboxes.selected();
+            var data = [];
+            $.each(selectedRow, function(key, id){
+                data.push(id);
+            })
+            $.ajax({
+                url: "{{ url('/teachers-verify/reject') }}",
+                type: 'get',
+                data: {data},
+                success:function(data){
+                    location.reload();
+                }
+            })
         })
     </script>
 
@@ -178,7 +227,7 @@
         $('.add-input-training').on('click', function(){
             let input1 = `<div class="form-row form-training">
                             <div class="form-group col-md-5">
-                                <input type="text" class="form-control" name="name_of_training[]" value="{{ old('name_of_training') }}">
+                                <input type="text" class="form-control" name="name_of_training[]">
                             </div>
                             <div class="form-group col-md-3">
                                 <select name="level[]" class="custom-select">
@@ -189,7 +238,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control" name="jampel[]" value="{{ old('jampel') }}">
+                                <input type="text" class="form-control" name="jampel[]">
                             </div>
                         </div>`;
             $('.page-input-training').append(input1);
@@ -200,7 +249,7 @@
         })
 
         $('.add-input-training-needs').on('click', function(){
-            let input = `<input type="text" class="form-control mb-2 form-training-now" id="training_needs_now" name="training_needs_now[]" value="{{ old('training_needs_now') }}">`;
+            let input = `<input type="text" class="form-control mb-2 form-training-now" id="training_needs_now" name="training_needs_now[]">`;
             $('.page-input-training-needs').append(input);
         })
         
@@ -209,7 +258,7 @@
         })
         
         $('.add-input-program').on('click', function(){
-            let input = `<input type="text" class="form-control mb-2 form-program" id="program" name="program[]" value="{{ old('program') }}" placeholder="" multiple>`;
+            let input = `<input type="text" class="form-control mb-2 form-program" id="program" name="program[]" placeholder="" multiple>`;
             $('.page-input-program').append(input);
         })
 

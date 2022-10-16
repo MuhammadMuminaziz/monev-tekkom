@@ -17,7 +17,7 @@ class SchoolUserController extends Controller
     public function index()
     {
         return view('school.user', [
-            'schools' => School::orderBy('name', 'asc')->get()
+            'schools' => School::where('isActive', 1)->orderBy('name', 'asc')->get()
         ]);
     }
 

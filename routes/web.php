@@ -57,10 +57,13 @@ Route::middleware(['auth', 'verifikator'])->group(function () {
     Route::get('/schools-verify', [VerifikatorController::class, 'school'])->name('verifikator.schools');
     Route::get('/schools-verify/{school}/ferify', [VerifikatorController::class, 'schoolVerify'])->name('verifikator.schools.verify');
     Route::get('/schools-verify/{school}/reject', [VerifikatorController::class, 'schoolReject'])->name('verifikator.schools.reject');
+    Route::get('/schools-verify/{school}/cansel', [VerifikatorController::class, 'schoolCansel'])->name('verifikator.schools.cansel');
     Route::get('/schools-verify/{school}', [VerifikatorController::class, 'show'])->name('verifikator.show');
     Route::get('/teachers-verify', [VerifikatorController::class, 'teacher'])->name('verifikator.teachers');
-    Route::get('/teacher-verify/{teacher}/ferify', [VerifikatorController::class, 'teacherVerify'])->name('verifikator.teacher.verify');
-    Route::get('/teacher-verify/{teacher}/reject', [VerifikatorController::class, 'teacherReject'])->name('verifikator.teacher.reject');
+    Route::get('/teachers-verify/ferify', [VerifikatorController::class, 'teacherVerify'])->name('verifikator.teacher.verify');
+    Route::get('/teachers-verify/reject', [VerifikatorController::class, 'teacherReject'])->name('verifikator.teacher.reject');
+    Route::get('/teachers-verify/{teacher}/cansel', [VerifikatorController::class, 'teacherCansel'])->name('verifikator.teacher.cansel');
+    Route::get('/teachers-verify/{teacher}', [VerifikatorController::class, 'showTeacher'])->name('verifikator.teacher.show');
 });
 
 Route::middleware(['auth', 'owner'])->group(function () {

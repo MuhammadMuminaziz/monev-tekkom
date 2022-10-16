@@ -173,23 +173,15 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kegiatan Sosialisasi UNBK</th>
                                                         <td>:</td>
-                                                        <td>
-                                                            @if($teacher->unbk_socialization_activities == 'Belum')
-                                                            Belum
-                                                            @else
-                                                            {{ 'Sudah, ' . $teacher->unbk_socialization_activities}}
-                                                            @endif
+                                                        <td>{{ $teacher->unbk_socialization_activities }}
+                                                            {{ $teacher->unbk_socialization_activities_tahun ? ', tahun ' . $teacher->unbk_socialization_activities_tahun : '' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Keterlibatan dalam UNBK</th>
                                                         <td>:</td>
-                                                        <td>
-                                                            @if($teacher->involvement_unbk == 'Belum')
-                                                            Belum
-                                                            @else
-                                                            {{ 'Sudah, ' . $teacher->involvement_unbk}}
-                                                            @endif
+                                                        <td>{{ $teacher->involvement_unbk }}
+                                                            {{ $teacher->involvement_unbk_tahun ? ', tahun ' . $teacher->involvement_unbk_tahun : '' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -264,14 +256,11 @@
                                                         <td>:</td>
                                                         <td>{{ $teacher->nip }}</td>
                                                     <tr>
-                                                    <tr>
-                                                        <th colspan="3">Range Waktu Pendataan</th>
-                                                    <tr>
-                                                    <tr>
-                                                        <td>{{ $teacher->range_waktu_dari }}</td>
-                                                        <td>s/d</td>
-                                                        <td>{{ $teacher->range_waktu_sampai }}</td>
-                                                    <tr>
+                                                        <tr>
+                                                            <th class="align-top">Range Waktu Pendataan</th>
+                                                            <td class="align-top">:</td>
+                                                            <td class="align-top">{{ $teacher->range_waktu_dari . ' s/d ' . $teacher->range_waktu_sampai }}</td>
+                                                        <tr>
                                                     <tr>
                                                         <th colspan="3">Analisa Petugas Pendataan</th>
                                                     <tr>

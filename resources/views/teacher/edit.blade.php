@@ -7,28 +7,6 @@
                         <h6 class="card-title font-weight-bold text-primary">Edit Data Guru</h6>
                     </div>
                     <div class="card-body">
-                        {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="general_data-tab" data-toggle="tab"
-                                    data-target="#general_data" type="button" role="tab" aria-controls="general_data"
-                                    aria-selected="true">A. Data Umum</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="competency_data-tab" data-toggle="tab"
-                                    data-target="#competency_data" type="button" role="tab"
-                                    aria-controls="competency_data" aria-selected="false">B. Data
-                                    Kompetensi </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="kuisioner_data-tab" data-toggle="tab"
-                                    data-target="#kuisioner_data" type="button" role="tab"
-                                    aria-controls="kuisioner_data" aria-selected="false">Kuisioner</button>
-                            </li>
-                        </ul> --}}
-                        {{-- <div class="tab-content" id="myTabContent"> --}}
-                            <!-- A. Data Umum -->
-                            {{-- <div class="tab-pane fade show active" id="general_data" role="tabpanel"
-                            aria-labelledby="general_data-tab"> --}}
                             <form action="{{ route('teachers.update', $teacher) }}" method="post">
                             @method('put')
                             @csrf
@@ -52,8 +30,8 @@
                                         <label for="employment_status" class="col-sm-4 col-form-label">Status Ketenagaan</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('employment_status') is-invalid @enderror" id="employment_status" name="employment_status">
-                                                <option {{ $teacher->employment_status == 'PNS' ? 'selected' : '' }}>PNS</option>
-                                                <option {{ $teacher->employment_status != 'PNS' ? 'selected' : '' }}>NON PNS</option>
+                                                <option {{ old('employment_status', $teacher->employment_status) == 'PNS' ? 'selected' : '' }}>PNS</option>
+                                                <option {{ old('employment_status', $teacher->employment_status) != 'PNS' ? 'selected' : '' }}>NON PNS</option>
                                             </select>
                                             @error('employment_status')
                                             <div class="invalid-feedback">
@@ -67,7 +45,12 @@
                                                 PNS)</span></label>
 
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="nip" name="nip" value="{{ old('nip', $teacher->nip) }}" placeholder="">
+                                            <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="{{ old('nip', $teacher->nip) }}" placeholder="">
+                                            @error('nip')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -107,11 +90,11 @@
                                         <label for="religion" class="col-sm-4 col-form-label">Agama</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('religion') is-invalid @enderror" id="religion" name="religion">
-                                                <option {{ $teacher->religion == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                                <option {{ $teacher->religion == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                                                <option {{ $teacher->religion == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                                                <option {{ $teacher->religion == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                                                <option {{ $teacher->religion == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                                <option {{ old('religion', $teacher->religion) == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                                <option {{ old('religion', $teacher->religion) == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                                <option {{ old('religion', $teacher->religion) == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                                <option {{ old('religion', $teacher->religion) == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                                <option {{ old('religion', $teacher->religion) == 'Budha' ? 'selected' : '' }}>Budha</option>
                                             </select>
                                             @error('religion')
                                             <div class="invalid-feedback">
@@ -127,8 +110,8 @@
                                         <label for="gender" class="col-sm-4 col-form-label">Jenis Kelamin</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('gender') is-invalid @enderror" id="gender" name="gender">
-                                                <option {{ $teacher->gender == 'Laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
-                                                <option {{ $teacher->gender != 'Laki-laki' ? 'selected' : '' }}>Perempuan</option>
+                                                <option {{ old('gender', $teacher->gender) == 'Laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                                <option {{ old('gender', $teacher->gender) != 'Laki-laki' ? 'selected' : '' }}>Perempuan</option>
                                             </select>
                                             @error('gender')
                                             <div class="invalid-feedback">
@@ -141,14 +124,14 @@
                                         <label for="last_education" class="col-sm-4 col-form-label">Pendidikan Terakhir</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('last_education') is-invalid @enderror" id="last_education" name="last_education">
-                                                <option {{ $teacher->last_education == 'SMA' ? 'selected' : '' }}>SMA</option>
-                                                <option {{ $teacher->last_education == 'D1' ? 'selected' : '' }}>D1</option>
-                                                <option {{ $teacher->last_education == 'D2' ? 'selected' : '' }}>D2</option>
-                                                <option {{ $teacher->last_education == 'D3' ? 'selected' : '' }}>D3</option>
-                                                <option {{ $teacher->last_education == 'D4' ? 'selected' : '' }}>D4</option>
-                                                <option {{ $teacher->last_education == 'S1' ? 'selected' : '' }}>S1</option>
-                                                <option {{ $teacher->last_education == 'S2' ? 'selected' : '' }}>S2</option>
-                                                <option {{ $teacher->last_education == 'S3' ? 'selected' : '' }}>S3</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'SMA' ? 'selected' : '' }}>SMA</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'D1' ? 'selected' : '' }}>D1</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'D2' ? 'selected' : '' }}>D2</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'D3' ? 'selected' : '' }}>D3</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'D4' ? 'selected' : '' }}>D4</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'S1' ? 'selected' : '' }}>S1</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'S2' ? 'selected' : '' }}>S2</option>
+                                                <option {{ old('last_education', $teacher->last_education) == 'S3' ? 'selected' : '' }}>S3</option>
                                             </select>
                                             @error('last_education')
                                             <div class="invalid-feedback">
@@ -164,13 +147,23 @@
                                     <div class="form-group row">
                                         <label for="tmt_pns_tahun" class="col-sm-4 col-form-label">TMT PNS</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_pns_tahun" name="tmt_pns_tahun" value="{{ old('tmt_pns_tahun', $teacher->tmt_pns_tahun) }}" placeholder="">
+                                            <input type="text" class="form-control @error('tmt_pns_tahun') is-invalid @enderror" id="tmt_pns_tahun" name="tmt_pns_tahun" value="{{ old('tmt_pns_tahun', $teacher->tmt_pns_tahun) }}" placeholder="">
+                                            @error('tmt_pns_tahun')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-1">
                                             Tahun
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_pns_bulan" name="tmt_pns_bulan" value="{{ old('tmt_pns_bulan', $teacher->tmt_pns_bulan) }}" placeholder="">
+                                            <input type="text" class="form-control @error('tmt_pns_bulan') is-invalid @enderror" id="tmt_pns_bulan" name="tmt_pns_bulan" value="{{ old('tmt_pns_bulan', $teacher->tmt_pns_bulan) }}" placeholder="">
+                                            @error('tmt_pns_bulan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-1">
                                             Bulan
@@ -190,13 +183,23 @@
                                     <div class="form-group row">
                                         <label for="tmt_class_tahun" class="col-sm-4 col-form-label">TMT Golongan</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_class_tahun" name="tmt_class_tahun" value="{{ old('tmt_class_tahun', $teacher->tmt_class_tahun) }}" placeholder="">
+                                            <input type="text" class="form-control @error('tmt_class_tahun') is-invalid @enderror" id="tmt_class_tahun" name="tmt_class_tahun" value="{{ old('tmt_class_tahun', $teacher->tmt_class_tahun) }}" placeholder="">
+                                            @error('tmt_class_tahun')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-1">
                                             Tahun
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="tmt_class_bulan" name="tmt_class_bulan" value="{{ old('tmt_class_bulan', $teacher->tmt_class_bulan) }}" placeholder="">
+                                            <input type="text" class="form-control @error('tmt_class_bulan') is-invalid @enderror" id="tmt_class_bulan" name="tmt_class_bulan" value="{{ old('tmt_class_bulan', $teacher->tmt_class_bulan) }}" placeholder="">
+                                            @error('tmt_class_bulan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-1">
                                             Bulan
@@ -213,7 +216,7 @@
                                         <div class="col-sm-8">
                                             <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 @foreach($districts as $district)
-                                                @if($district->name == $teacher->district->name)
+                                                @if($district->id == old('district->id', $teacher->district->id))
                                                 <option selected value="{{ $district->id }}">{{ $district->name }}</option>
                                                 @else
                                                 <option value="{{ $district->id }}">{{ $district->name }}</option>
@@ -232,7 +235,7 @@
                                         <div class="col-sm-8">
                                             <select name="city_id" id="city_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 @foreach($cities as $city)
-                                                @if($city->name == $teacher->city->name)
+                                                @if($city->id == old('city->id', $teacher->city->id))
                                                 <option selected value="{{ $city->id }}">{{ $city->name }}</option>
                                                 @else
                                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -264,10 +267,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            {{-- </div> --}}
-                            <!-- B. Data Kompetensi -->
-                            {{-- <div class="tab-pane fade" id="competency_data" role="tabpanel"
-                                aria-labelledby="competency_data-tab"> --}}
                                 <div class="form-group bg-light border-bottom p-2 row">
                                     <h6><strong> B. Data Kompetensi</strong></h6>
                                 </div>
@@ -301,8 +300,8 @@
                                         <label for="certification_status" class="col-sm-4 col-form-label">Status Sertifikasi</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('certification_status') is-invalid @enderror" id="certification_status" name="certification_status">
-                                                <option {{ $teacher->certification_status == 'Sudah' ? 'selected' : '' }}>Sudah</option>
-                                                <option {{ $teacher->certification_status != 'Sudah' ? 'selected' : '' }}>Belum</option>
+                                                <option {{ old('certification_status', $teacher->certification_status) == 'Sudah' ? 'selected' : '' }}>Sudah</option>
+                                                <option {{ old('certification_status', $teacher->certification_status) != 'Sudah' ? 'selected' : '' }}>Belum</option>
                                             </select>
                                             @error('certification_status')
                                             <div class="invalid-feedback">
@@ -327,8 +326,13 @@
                                             <small>*(diisi jika sudah sertifikasi tidak perlu diisi)</small>
                                         </div>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" id="reason_not_certified" name="reason_not_certified"
-                                                rows="6">{{ $teacher->reason_not_certified }}</textarea>
+                                            <textarea class="form-control @error('reason_not_certified') is-invalid @enderror" id="reason_not_certified" name="reason_not_certified"
+                                                rows="6">{{ old('reason_not_certified', $teacher->reason_not_certified) }}</textarea>
+                                                @error('reason_not_certified')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -381,26 +385,36 @@
                                         <label for="unbk_socialization_activities" class="col-sm-4 col-form-label">Kegiatan Sosialisasi
                                             UNBK</label>
                                         <div class="col-sm-4">
-                                            <select class="custom-select" id="unbk_socialization_activities" name="">
-                                                <option {{ $teacher->unbk_socialization_activities != 'Belum' ? 'selected' : '' }}>Sudah</option>
-                                                <option {{ $teacher->unbk_socialization_activities == 'Belum' ? 'selected' : '' }}>Belum</option>
+                                            <select class="custom-select @error('unbk_socialization_activities') is-invalid @enderror" id="unbk_socialization_activities" name="unbk_socialization_activities">
+                                                <option {{ old('unbk_socialization_activities', $teacher->unbk_socialization_activities) != 'Belum' ? 'selected' : '' }}>Sudah</option>
+                                                <option {{ old('unbk_socialization_activities', $teacher->unbk_socialization_activities) == 'Belum' ? 'selected' : '' }}>Belum</option>
                                             </select>
+                                            @error('unbk_socialization_activities')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" name="unbk_socialization_activities" value="{{ old('unbk_socialization_activities', $teacher->unbk_socialization_activities) }}" placeholder="Tahun">
+                                            <input type="text" class="form-control" id="#" name="unbk_socialization_activities_tahun" value="{{ old('unbk_socialization_activities_tahun', $teacher->unbk_socialization_activities_tahun) }}" placeholder="Tahun">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="involvement_unbk" class="col-sm-4 col-form-label">Keterlibatan dalam
                                             UNBK</label>
                                         <div class="col-sm-4">
-                                            <select class="custom-select" id="involvement_unbk">
-                                                <option {{ $teacher->involvement_unbk != 'Belum' ? 'selected' : '' }}>Sudah</option>
-                                                <option {{ $teacher->involvement_unbk == 'Belum' ? 'selected' : '' }}>Belum</option>
+                                            <select class="custom-select @error('involvement_unbk') is-invalid @enderror" id="involvement_unbk" name="involvement_unbk">
+                                                <option {{ old('involvement_unbk', $teacher->involvement_unbk) != 'Belum' ? 'selected' : '' }}>Sudah</option>
+                                                <option {{ old('involvement_unbk', $teacher->involvement_unbk) == 'Belum' ? 'selected' : '' }}>Belum</option>
                                             </select>
+                                            @error('involvement_unbk')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="involvement_unbk" name="involvement_unbk" value="{{ old('involvement_unbk', $teacher->involvement_unbk) }}" placeholder="Tahun">
+                                            <input type="text" class="form-control" id="involvement_unbk_tahun" name="involvement_unbk_tahun" value="{{ old('involvement_unbk_tahun', $teacher->involvement_unbk_tahun) }}" placeholder="Tahun">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -410,8 +424,13 @@
                                             <small>*(jika telah melaksanakan UNBK)</small>
                                         </div>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" id="history_involvement_unbk" name="history_involvement_unbk"
-                                                rows="6">{{ $teacher->history_involvement_unbk }}</textarea>
+                                            <textarea class="form-control @error('history_involvement_unbk') is-invaild @enderror" id="history_involvement_unbk" name="history_involvement_unbk"
+                                                rows="6">{{ old('history_involvement_unbk', $teacher->history_involvement_unbk) }}</textarea>
+                                                @error('history_involvement_unbk')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -467,10 +486,6 @@
                                         </div>
                                     </div>       
                                 </div>
-                            {{-- </div> --}}
-                            <!-- Kuisioner -->
-                            {{-- <div class="tab-pane fade" id="kuisioner_data" role="tabpanel"
-                                aria-labelledby="kuisioner_data-tab"> --}}
                                 <div class="container mt-3">
                                     <div class="form-group row">
                                         <label for="kode_kuisioner" class="col-sm-4 col-form-label">Kode Kuisioner</label>
@@ -490,34 +505,18 @@
                                     <div class="form-group row">
                                         <label for="tingkatan_sekolah" class="col-sm-4 col-form-label">Tingkatan Sekolah</label>
                                         <div class="col-sm-8">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="sdz" value="SD" {{ $teacher->tingkatan_sekolah == 'SD' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="sdz">
-                                                    SD
-                                                </label>
+                                            <select class="custom-select @error('tingkatan_sekolah') is-invalid @enderror" id="tingkatan_sekolah" name="tingkatan_sekolah">
+                                                <option selected disabled value="">Pilih</option>
+                                                <option {{ old('tingkatan_sekolah', $teacher->tingkatan_sekolah) == 'SD' ? 'selected' : '' }}>SD</option>
+                                                <option {{ old('tingkatan_sekolah', $teacher->tingkatan_sekolah) == 'SMP' ? 'selected' : '' }}>SMP</option>
+                                                <option {{ old('tingkatan_sekolah', $teacher->tingkatan_sekolah) == 'SMA' ? 'selected' : '' }}>SMA</option>
+                                                <option {{ old('tingkatan_sekolah', $teacher->tingkatan_sekolah) == 'SMK' ? 'selected' : '' }}>SMK</option>
+                                            </select>
+                                            @error('tingkatan_sekolah')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="exampleRadios2" value="SMP" {{ $teacher->tingkatan_sekolah == 'SMP' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="exampleRadios2">
-                                                    SMP
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="exampleRadios3" value="SMA" {{ $teacher->tingkatan_sekolah == 'SMA' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="exampleRadios3">
-                                                    SMA
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="tingkatan_sekolah"
-                                                    id="exampleRadios4" value="SMK" {{ $teacher->tingkatan_sekolah == 'SMK' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="exampleRadios4">
-                                                    SMK
-                                                </label>
-                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -540,16 +539,31 @@
                                     <div class="form-group row">
                                         <label for="range_waktu_dari" class="col-sm-4 col-form-label">Range Waktu Pendataan</label>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_dari" name="range_waktu_dari" placeholder="" value="{{ old('range_waktu_dari', $teacher->range_waktu_dari) }}">
+                                            <input type="date" class="form-control @error('range_waktu_dari') is-invalid @enderror" id="range_waktu_dari" name="range_waktu_dari" placeholder="" value="{{ old('range_waktu_dari', $teacher->range_waktu_dari) }}">
+                                            @error('range_waktu_dari')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="" value="{{ old('range_waktu_sampai', $teacher->range_waktu_sampai) }}">
+                                            <input type="date" class="form-control @error('range_waktu_sampai') is-invalid @enderror" id="range_waktu_sampai" name="range_waktu_sampai" placeholder="" value="{{ old('range_waktu_sampai', $teacher->range_waktu_sampai) }}">
+                                            @error('range_waktu_sampai')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="analisis" class="col-sm-4 col-form-label">Analisa Petugas Pendataan</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" id="analisis" name="analisis" rows="8">{{ $teacher->analisis }}</textarea>
+                                            <textarea class="form-control @error('analisis') is-invalid @enderror" id="analisis" name="analisis" rows="8">{{ old('analisis', $teacher->analisis) }}</textarea>
+                                            @error('analisis')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -563,7 +577,12 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="date" class="form-control" id="" name="date_responden" value="{{ old('date_responden', $teacher->date_responden) }}" placeholder="">
+                                            <input type="date" class="form-control @error('date_responden') is-invalid @enderror" id="" name="date_responden" value="{{ old('date_responden', $teacher->date_responden) }}" placeholder="">
+                                            @error('date_responden')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-sm-12 my-5">

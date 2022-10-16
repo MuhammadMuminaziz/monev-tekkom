@@ -122,29 +122,6 @@
                 <span>Data Sekolah</span></a>
         </li>
 
-        <!-- <li class="nav-item {{ request()->is('schools*') ? 'active' : '' }}">
-            <a class="nav-link collapsed" href="{{ route('schools.index') }}" data-toggle="collapse" data-target="#collapseTwo"
-                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-school"></i>
-                <span>Data Sekolah</span>
-                <span class="pull-right-container">
-                    <span class="badge badge-light">4</span>
-                </span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="#">
-                        <span>Permintaan Verifikasi</span>
-                        <span class="pull-right-container">
-                            <span class="badge badge-primary pull-right">4</span>
-                        </span>
-                    </a>
-                    <a class="collapse-item" href="#">Tealh Diverifikasi</a>
-                </div>
-            </div>
-        </li> -->
-
-
         <li class="nav-item {{ request()->is('teachers*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('verifikator.teachers') }}">
             <i class="fas fa-user-graduate"></i>

@@ -20,8 +20,8 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
         $periode = Periode::first();
-        $school = School::where('periode', $periode->year)->get()->count();
-        $teacher = Teacher::where('periode', $periode->year)->get()->count();
+        $school = School::where('periode', $periode->year)->where('isActive', 1)->get()->count();
+        $teacher = Teacher::where('periode', $periode->year)->where('isActive', 1)->get()->count();
         $district = District::where('periode', $periode->year)->get()->count();
         $city = City::where('periode', $periode->year)->get()->count();
         return view('dashboard', [

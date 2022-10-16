@@ -24,6 +24,9 @@
     <!-- Custom styles for this page -->
     <link href="{{ asset('sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
+    {{-- checkbox datatable --}}
+    <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+
 
     @livewireStyles
 
@@ -133,11 +136,14 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('sb-admin-2/js/demo/datatables-demo.js') }}"></script>
+    <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     
 
     <script>
+        var table;
         $(document).ready(function(){
             $('.select2').select2({
                 placeholder: "- pilih kecamatan -"
@@ -149,6 +155,49 @@
                 $('.form-city').removeClass('d-block');
             }
 
+
+            // checkbox
+            table = $('#dataTableCheckBox').DataTable({
+                'columnDefs': [{
+                    'targets': 0,
+                    'checkboxes': {
+                        'selectRow': true
+                    }
+                }]
+            })
+
+            
+        })
+        $('#verify').on('click', function(){
+            var selectedRow = table.column(0).checkboxes.selected();
+            var data = [];
+            $.each(selectedRow, function(key, id){
+                data.push(id);
+            })
+            $.ajax({
+                url: "{{ url('/teachers-verify/ferify') }}",
+                type: 'get',
+                data: {data},
+                success:function(data){
+                    location.reload();
+                }
+            })
+        })
+        
+        $('#reject').on('click', function(){
+            var selectedRow = table.column(0).checkboxes.selected();
+            var data = [];
+            $.each(selectedRow, function(key, id){
+                data.push(id);
+            })
+            $.ajax({
+                url: "{{ url('/teachers-verify/reject') }}",
+                type: 'get',
+                data: {data},
+                success:function(data){
+                    location.reload();
+                }
+            })
         })
     </script>
 

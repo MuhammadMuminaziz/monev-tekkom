@@ -53,7 +53,7 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">UNBK</th>
                                                         <td>:</td>
-                                                        <td>{{ $school->unbk }}</td>
+                                                        <td>{{ $school->unbk . ', Tahun ' . $school->unbk_tahun }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Desa/Kecamatan</th>
@@ -156,26 +156,26 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">A. LAN/Wireless LAN</th>
                                                         <td>:</td>
-                                                        <td>{{ $school->lan != 'Tidak Ada' ? 'Ada' : 'Tidak Ada' }}</td>
-                                                        <!-- <td>Jumlah Unit</td>
+                                                        <td>{{ $school->lan }}</td>
+                                                        <td>Jumlah Unit</td>
                                                         <td>:</td>
-                                                        <td>{{ $school->lan != 'Tidak Ada' ? $school->lan : '' }}</td> -->
+                                                        <td>{{ $school->lan_unit }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">B. Router</th>
                                                         <td>:</td>
-                                                        <td>{{ $school->router != 'Tidak Ada' ? 'Ada' : 'Tidak Ada' }}</td>
-                                                        <!-- <td>Jumlah Unit</td>
+                                                        <td>{{ $school->router }}</td>
+                                                        <td>Jumlah Unit</td>
                                                         <td>:</td>
-                                                        <td>{{ $school->router != 'Tidak Ada' ? $school->router : '' }}</td> -->
+                                                        <td>{{ $school->router_unit }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">C. Komputer</th>
                                                         <td>:</td>
-                                                        <td>{{ $school->komputer != 'Tidak Ada' ? 'Ada' : 'Tidak Ada' }}</td>
-                                                        <!-- <td>Jumlah Unit</td>
+                                                        <td>{{ $school->komputer }}</td>
+                                                        <td>Jumlah Unit</td>
                                                         <td>:</td>
-                                                        <td>{{ $school->komputer != 'Tidak Ada' ? $school->komputer : '' }}</td> -->
+                                                        <td>{{ $school->komputer_unit }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">D. Kuota Banwidth Saat Ini</th>
@@ -235,12 +235,9 @@
                                                         <td>{{ $school->nip }}</td>
                                                     <tr>
                                                     <tr>
-                                                        <th colspan="3">Range Waktu Pendataan</th>
-                                                    <tr>
-                                                    <tr>
-                                                        <td>{{ $school->range_waktu_dari }}</td>
-                                                        <td>s/d</td>
-                                                        <td>{{ $school->range_waktu_sampai }}</td>
+                                                        <th class="align-top">Range Waktu Pendataan</th>
+                                                        <td class="align-top">:</td>
+                                                        <td class="align-top">{{ $school->range_waktu_dari . ' s/d ' . $school->range_waktu_sampai }}</td>
                                                     <tr>
                                                     <tr>
                                                         <th colspan="3">Analisa Petugas Pendataan</th>
@@ -293,6 +290,9 @@
                                         </div>
                                     <!-- </div> -->
                                 </div>
+                            </div>
+                            <div class="col-sm-12 my-3">
+                                <a href="{{ route('schools.index') }}" class="btn btn-secondary mr-2">Kembali</a>
                             </div>
                         </form>
                     </div>

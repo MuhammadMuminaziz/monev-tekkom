@@ -31,6 +31,14 @@ class VerifikatorController extends Controller
         return back()->with('message', 'Data Sekolah berhasil di tolak..');
     }
 
+    public function schoolCansel(School $school)
+    {
+        $school->update([
+            'isActive'      => 0
+        ]);
+        return back()->with('message', 'Data Sekolah berhasil dibatalkan..');
+    }
+
     public function teacher()
     {
         $periode = Periode::first();
@@ -39,26 +47,51 @@ class VerifikatorController extends Controller
         ]);
     }
 
-    public function teacherVerify(Teacher $teacher)
+    public function teacherVerify(Request $request)
     {
-        $teacher->update([
-            'isActive'      => 1
+        Teacher::whereIn('id', $request->data)->update([
+            'isActive' => 1,
         ]);
-        return back()->with('message', 'Data guru berhasil di verifikasi..');
+
+        return $request->data;
+        // $teacher->update([
+        //     'isActive'      => 1
+        // ]);
+        // return back()->with('message', 'Data guru berhasil di verifikasi..');
     }
 
-    public function teacherReject(Teacher $teacher)
+    public function teacherReject(Request $request)
+    {
+        Teacher::whereIn('id', $request->data)->update([
+            'isActive' => 2,
+        ]);
+
+        return $request->data;
+        // $teacher->update([
+        //     'isActive'      => 2
+        // ]);
+        // return back()->with('message', 'Data guru berhasil di tolak..');
+    }
+
+    public function teacherCansel(Teacher $teacher)
     {
         $teacher->update([
-            'isActive'      => 2
+            'isActive'      => 0
         ]);
-        return back()->with('message', 'Data guru berhasil di tolak..');
+        return back()->with('message', 'Data guru berhasil dibatalkan..');
     }
 
     public function show(School $school)
     {
         return view('verifikator.school-show', [
             'school' => $school,
+        ]);
+    }
+
+    public function showTeacher(Teacher $teacher)
+    {
+        return view('verifikator.teacher-show', [
+            'teacher' => $teacher,
         ]);
     }
 }

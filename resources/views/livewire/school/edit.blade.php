@@ -20,17 +20,14 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
                                 type="button" role="tab" aria-controls="home" aria-selected="true">Permintaan
-                                Verifikasi <span class="badge badge-primary">17</span></button>
+                                Verifikasi 
+                                @if($schoolsVerify->count() > 0) <span class="badge badge-primary">{{ $schoolsVerify->count() }}</span> @endif
+                            </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile"
                                 type="button" role="tab" aria-controls="profile" aria-selected="false">Data
                                 Terverifikasi</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="reject-tab" data-toggle="tab" data-target="#reject"
-                                type="button" role="tab" aria-controls="reject" aria-selected="false">Data
-                                Ditolak</button>
                         </li>
                     </ul>
                     <div class="tab-content my-5" id="myTabContent">
@@ -94,42 +91,8 @@
                                             <span class="badge badge-success">Acitived</span>
                                         </td>
                                         <td>
-                                            <a href="{{ route('verifikator.schools.reject', $school) }}"
+                                            <a href="{{ route('verifikator.schools.cansel', $school) }}"
                                                 class="btn btn-sm btn-danger">Batal Verifikasi</a>
-                                            <a href="{{ route('verifikator.show', $school) }}"
-                                                class="btn btn-sm btn-primary">Lihat</a>
-                                        </td>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="reject" role="tabpanel" aria-labelledby="reject-tab">
-                            <!-- Sudah Verifikasi Data Sekolah -->
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <th width="5%">No</th>
-                                        <th>Nama Sekolah</th>
-                                        <th>NPSN</th>
-                                        <th>Jumlah Siswa</th>
-                                        <th>Desa / Kecamatan</th>
-                                        <th>Status Verifikasi</th>
-                                        <th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($schoolsReject as $school)
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $school->name }}</td>
-                                        <td>{{ $school->npsn }}</td>
-                                        <td>{{ $school->jumlah_siswa }}</td>
-                                        <td>{{ $school->district->name }}</td>
-                                        <td>
-                                            <span class="badge badge-danger">Not Acitived</span>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('verifikator.schools.verify', $school) }}"
-                                                class="btn btn-sm btn-success">Verifikasi</a>
                                             <a href="{{ route('verifikator.show', $school) }}"
                                                 class="btn btn-sm btn-primary">Lihat</a>
                                         </td>

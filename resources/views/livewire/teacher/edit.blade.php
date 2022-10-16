@@ -1,61 +1,118 @@
 <div class="container-fluid">
+    {{-- Message --}}
+    @if(session()->has('message'))
+    <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert"
+        style="z-index: 99; top: 80px; right: 10px;">
+        {{ session('message') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="row">
         <div class="col">
-            {{-- Message --}}
-            @if(session()->has('message'))
-            <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">
-                {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            @endif
-            
             <div class="card shadow border-bottom-primary">
-                <div class="card-header py-3">
+                <div class="card-header py-3 mb-3">
                     <h6 class="m-0 font-weight-bold text-primary">Verifikasi Data Guru</h6>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table " id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th width="5%">No</th>
-                                    <th>Nama Guru</th>
-                                    <th>NIP</th>
-                                    <th>NUPTK</th>
-                                    <th>Asal Sekolah</th>
-                                    <th>Desa / Kecamatan</th>
-                                    <th>Kota</th>
-                                    <th>Status Verifikasi</th>
-                                    <th width="15%">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($teachersNotActived as $teacher)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td><a href="#link ke menu show">{{ $teacher->teacher_name }}</a> </td>
-                                    <td>{{ $teacher->nip }}</td>
-                                    <td>{{ $teacher->nuptk }}</td>
-                                    <td>{{ $teacher->School_Origin }}</td>
-                                    <td>{{ $teacher->district->name }}</td>
-                                    <td>{{ $teacher->city->name }}</td>
-                                    <td>
-                                        @if($teacher->isActive == 0)
-                                        <span class="badge badge-danger">Not Acitived</span>
-                                        @else
-                                        <span class="badge badge-success">Acitived</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                      <a href="{{ route('verifikator.teacher.verify', $teacher) }}" class="btn btn-sm btn-success">Verifikasi</a>
-                                      <a href="{{ route('verifikator.teacher.reject', $teacher) }}" class="btn btn-sm btn-danger">Tolak</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
+                                type="button" role="tab" aria-controls="home" aria-selected="true">Permintaan
+                                Verifikasi <span class="badge badge-primary">32</span></button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile"
+                                type="button" role="tab" aria-controls="profile" aria-selected="false">Data
+                                Terverifikasi</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content my-5" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <!-- Belum Verifikasi Data guru -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <th width="5%">No</th>
+                                        <th>Nama Sekolah</th>
+                                        <th>NPSN</th>
+                                        <th>Jumlah Siswa</th>
+                                        <th>Desa / Kecamatan</th>
+                                        <th>Status Verifikasi</th>
+                                        <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($teachersNotActived as $teacher)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><a href="#link ke menu show">{{ $teacher->teacher_name }}</a> </td>
+                                            <td>{{ $teacher->nip }}</td>
+                                            <td>{{ $teacher->nuptk }}</td>
+                                            <td>{{ $teacher->School_Origin }}</td>
+                                            <td>{{ $teacher->district->name }}</td>
+                                            <td>{{ $teacher->city->name }}</td>
+                                            <td>
+                                                @if($teacher->isActive == 0)
+                                                <span class="badge badge-danger">Not Acitived</span>
+                                                @else
+                                                <span class="badge badge-success">Acitived</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('verifikator.teacher.verify', $teacher) }}"
+                                                    class="btn btn-sm btn-success">Verifikasi</a>
+                                                <a href="{{ route('verifikator.teacher.reject', $teacher) }}"
+                                                    class="btn btn-sm btn-danger">Tolak</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <!-- Sudah Verifikasi Data guru -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <th width="5%">No</th>
+                                        <th>Nama Sekolah</th>
+                                        <th>NPSN</th>
+                                        <th>Jumlah Siswa</th>
+                                        <th>Desa / Kecamatan</th>
+                                        <th>Status Verifikasi</th>
+                                        <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($teachersNotActived as $teacher)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><a href="#link ke menu show">{{ $teacher->teacher_name }}</a> </td>
+                                            <td>{{ $teacher->nip }}</td>
+                                            <td>{{ $teacher->nuptk }}</td>
+                                            <td>{{ $teacher->School_Origin }}</td>
+                                            <td>{{ $teacher->district->name }}</td>
+                                            <td>{{ $teacher->city->name }}</td>
+                                            <td>
+                                                @if($teacher->isActive == 0)
+                                                <span class="badge badge-danger">Not Acitived</span>
+                                                @else
+                                                <span class="badge badge-success">Acitived</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('verifikator.teacher.verify', $teacher) }}"
+                                                    class="btn btn-sm btn-success">Verifikasi</a>
+                                                <a href="{{ route('verifikator.teacher.reject', $teacher) }}"
+                                                    class="btn btn-sm btn-danger">Tolak</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

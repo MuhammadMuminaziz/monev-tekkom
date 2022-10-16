@@ -41,10 +41,13 @@ class CreateTeachersTable extends Migration
             $table->integer('certification_year')->nullable();
             $table->text('reason_not_certified')->nullable();
             $table->string('unbk_socialization_activities')->default('sudah');
+            $table->string('unbk_socialization_activities_tahun')->nullable();
             $table->string('involvement_unbk')->default('sudah');
+            $table->string('involvement_unbk_tahun')->nullable();
             $table->boolean('isActive')->default(false);
             $table->string('periode');
             $table->string('kode_kuisioner');
+            $table->string('tekkom');
             $table->string('tingkatan_sekolah');
             $table->string('nama_petugas');
             $table->date('range_waktu_dari')->nullable();

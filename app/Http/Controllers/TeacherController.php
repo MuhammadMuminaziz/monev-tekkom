@@ -66,42 +66,48 @@ class TeacherController extends Controller
             'city_id'                           => 'required',
             'teacher_name'                      => 'required|min:3',
             'employment_status'                 => 'required',
+            'nip'                               => 'required',
             'nuptk'                             => 'required',
             'place_of_birth'                    => 'required',
             'date_of_birth'                     => 'required',
             'religion'                          => 'required',
             'gender'                            => 'required',
             'last_education'                    => 'required',
+            'tmt_pns_tahun'                     => 'required',
+            'tmt_pns_bulan'                     => 'required',
             'class'                             => 'required',
+            'tmt_class_tahun'                   => 'required',
+            'tmt_class_bulan'                   => 'required',
             'School_Origin'                     => 'required',
             'phone'                             => 'required|min:8',
             'provinsi'                          => 'required',
             'subjects_taught'                   => 'required',
             'certification_status'              => 'required',
+            'reason_not_certified'              => 'required',
             'unbk_socialization_activities'     => 'required',
             'involvement_unbk'                  => 'required',
             'kode_kuisioner'                    => 'required',
             'tekkom'                            => 'required',
-            'tingkatan_sekolah'                 => 'required',
             'nama_petugas'                      => 'required',
+            'tingkatan_sekolah'                 => 'required',
+            'range_waktu_dari'                  => 'required',
+            'range_waktu_sampai'                => 'required',
             'nip'                               => 'required',
+            'nama_responden'                    => 'required',
+            'date_responden'                    => 'required',
             'analisis'                          => 'required',
+            'history_involvement_unbk'          => 'required',
         ]);
-
-        $data = $request->all();
-        if ($request->unbk_socialization_activities == 'Sudah') {
-            $data['unbk_socialization_activities'] = $request->unbk_socialization_activities_tahun;
-        }
-
-        if ($request->involvement_unbk == 'Sudah') {
-            $data['involvement_unbk'] = $request->involvement_unbk_tahun;
-        }
-
 
         $periode = Periode::first();
         $data['user_id'] = auth()->user()->id;
         $data['username'] = $this->uniqueSlug($request->teacher_name);
         $data['periode'] = $periode->year;
+        $data['unbk_socialization_activities_tahun'] = $request->unbk_socialization_activities_tahun;
+        $data['involvement_unbk_tahun'] = $request->involvement_unbk_tahun;
+        $data['certification_year'] = $request->involvement_unbk_tahun;
+
+        // dd($request);
 
         Teacher::create($data);
 
@@ -109,7 +115,7 @@ class TeacherController extends Controller
 
         // Update Training
         ProgramTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->program) {
+        if ($request->program != []) {
             foreach ($request->program as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -120,7 +126,7 @@ class TeacherController extends Controller
         }
 
         CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->competencies_taught) {
+        if ($request->competencies_taught != []) {
             foreach ($request->competencies_taught as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -137,7 +143,7 @@ class TeacherController extends Controller
         }
 
         Training::where('teacher_id', $teacher->id)->delete();
-        if ($request->name_of_training) {
+        if ($request->name_of_training != []) {
             foreach ($request->name_of_training as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -151,7 +157,7 @@ class TeacherController extends Controller
 
         // Update Training Needed
         TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
-        if ($request->training_needs_now) {
+        if ($request->training_needs_now != []) {
             foreach ($request->training_needs_now as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -161,7 +167,7 @@ class TeacherController extends Controller
             }
         }
 
-        return redirect()->route('teachers.index')->with('message', 'Teacher has been added..');
+        return redirect()->route('teachers.index')->with('message', 'Data guru berhasil ditambahkan..');
     }
 
     /**
@@ -205,6 +211,44 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
+        $request->validate([
+            'district_id'                       => 'required',
+            'city_id'                           => 'required',
+            'teacher_name'                      => 'required|min:3',
+            'employment_status'                 => 'required',
+            'nip'                               => 'required',
+            'nuptk'                             => 'required',
+            'place_of_birth'                    => 'required',
+            'date_of_birth'                     => 'required',
+            'religion'                          => 'required',
+            'gender'                            => 'required',
+            'last_education'                    => 'required',
+            'tmt_pns_tahun'                     => 'required',
+            'tmt_pns_bulan'                     => 'required',
+            'class'                             => 'required',
+            'tmt_class_tahun'                   => 'required',
+            'tmt_class_bulan'                   => 'required',
+            'School_Origin'                     => 'required',
+            'phone'                             => 'required|min:8',
+            'provinsi'                          => 'required',
+            'subjects_taught'                   => 'required',
+            'certification_status'              => 'required',
+            'reason_not_certified'              => 'required',
+            'unbk_socialization_activities'     => 'required',
+            'involvement_unbk'                  => 'required',
+            'kode_kuisioner'                    => 'required',
+            'tekkom'                            => 'required',
+            'nama_petugas'                      => 'required',
+            'tingkatan_sekolah'                 => 'required',
+            'range_waktu_dari'                  => 'required',
+            'range_waktu_sampai'                => 'required',
+            'nip'                               => 'required',
+            'nama_responden'                    => 'required',
+            'date_responden'                    => 'required',
+            'analisis'                          => 'required',
+            'history_involvement_unbk'          => 'required',
+        ]);
+
         $data = [
             'teacher_name'                  => $request->teacher_name,
             'employment_status'             => $request->employment_status,
@@ -227,7 +271,9 @@ class TeacherController extends Controller
             'certification_year'            => $request->certification_year,
             'reason_not_certified'          => $request->reason_not_certified,
             'unbk_socialization_activities' => $request->unbk_socialization_activities,
+            'unbk_socialization_activities_tahun' => $request->unbk_socialization_activities_tahun,
             'involvement_unbk'              => $request->involvement_unbk,
+            'involvement_unbk_tahun'        => $request->involvement_unbk_tahun,
             'history_involvement_unbk'      => $request->history_involvement_unbk,
             'kode_kuisioner'                => $request->kode_kuisioner,
             'tekkom'                        => $request->tekkom,
@@ -240,26 +286,13 @@ class TeacherController extends Controller
             'date_responden'                => $request->date_responden,
         ];
 
-        if ($request->reason_not_certified) {
-            $reason_not_certified = $request->reason_not_certified;
-        } else {
-            $reason_not_certified = $teacher->reason_not_certified;
-        }
-
-        if ($request->history_involvement_unbk) {
-            $history_involvement_unbk = $request->history_involvement_unbk;
-        } else {
-            $history_involvement_unbk = $teacher->history_involvement_unbk;
-        }
-
-        $data['reason_not_certified'] = $reason_not_certified;
-        $data['history_involvement_unbk'] = $history_involvement_unbk;
+        // dd($request);
 
         $teacher->update($data);
 
         // Update Training
         ProgramTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->program) {
+        if ($request->program != []) {
             foreach ($request->program as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -270,7 +303,7 @@ class TeacherController extends Controller
         }
 
         CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->competencies_taught) {
+        if ($request->competencies_taught != []) {
             foreach ($request->competencies_taught as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -288,7 +321,7 @@ class TeacherController extends Controller
         }
 
         Training::where('teacher_id', $teacher->id)->delete();
-        if ($request->name_of_training) {
+        if ($request->name_of_training != []) {
             foreach ($request->name_of_training as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -302,7 +335,7 @@ class TeacherController extends Controller
 
         // Update Training Needed
         TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
-        if ($request->training_needs_now) {
+        if ($request->training_needs_now != []) {
             foreach ($request->training_needs_now as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -312,7 +345,7 @@ class TeacherController extends Controller
             }
         }
 
-        return redirect()->route('teachers.index')->with('message', 'Data has been updated..');
+        return redirect()->route('teachers.index')->with('message', 'Data guru berhasil di edit..');
     }
 
     /**

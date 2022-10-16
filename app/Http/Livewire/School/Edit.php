@@ -14,7 +14,9 @@ class Edit extends Component
         $periode = Periode::first();
         $user = User::find(auth()->user()->id)->districts->pluck('id');
         return view('livewire.school.edit', [
-            'schools' => School::where('isActive', 0)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),
+            'schoolsVerify' => School::where('isActive', 0)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),
+            'schoolsActived' => School::where('isActive', 1)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),
+            'schoolsReject' => School::where('isActive', 2)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),
         ]);
     }
 

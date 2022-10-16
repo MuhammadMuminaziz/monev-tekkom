@@ -168,7 +168,7 @@
         $('.add-input-training').on('click', function(){
             let input1 = `<div class="form-row form-training">
                             <div class="form-group col-md-5">
-                                <input type="text" class="form-control" name="name_of_training[]" value="{{ old('name_of_training') }}">
+                                <input type="text" class="form-control" name="name_of_training[]">
                             </div>
                             <div class="form-group col-md-3">
                                 <select name="level[]" class="custom-select">
@@ -179,7 +179,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control" name="jampel[]" value="{{ old('jampel') }}">
+                                <input type="text" class="form-control" name="jampel[]">
                             </div>
                         </div>`;
             $('.page-input-training').append(input1);
@@ -190,7 +190,7 @@
         })
 
         $('.add-input-training-needs').on('click', function(){
-            let input = `<input type="text" class="form-control mb-2 form-training-now" id="training_needs_now" name="training_needs_now[]" value="{{ old('training_needs_now') }}">`;
+            let input = `<input type="text" class="form-control mb-2 form-training-now" id="training_needs_now" name="training_needs_now[]">`;
             $('.page-input-training-needs').append(input);
         })
         
@@ -199,7 +199,7 @@
         })
         
         $('.add-input-program').on('click', function(){
-            let input = `<input type="text" class="form-control mb-2 form-program" id="program" name="program[]" value="{{ old('program') }}" placeholder="" multiple>`;
+            let input = `<input type="text" class="form-control mb-2 form-program" id="program" name="program[]" placeholder="" multiple>`;
             $('.page-input-program').append(input);
         })
 

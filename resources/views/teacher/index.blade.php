@@ -31,10 +31,10 @@
                       <!-- Data ditolak -->
                     @if($school->isActive == 2)
                     <div class="col-md-6">
-                        <div class="card mb-4 py-3 border-left-warning">
+                        <div class="card mb-4 py-3 border-left-danger">
                             <div class="card-body">
 
-                                <h5 class="font-weight-bold text-warning">Verifikasi Data Sekolah di Tolak!</h5>
+                                <h5 class="font-weight-bold text-danger">Verifikasi Data Sekolah di Tolak!</h5>
                                 <div class="form-group my-3">
                                     <label for="">Mohon periksa kembali data sekolah agar dapat melakukan input data Guru</label>
                                 </div>
@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <a href="{{ route('teachers.create') }}"
-                                class="btn btn-sm px-3 pt-2 rounded-pill btn-primary"><i class="fas fa-plus-square"></i>
+                                class="btn btn-sm px-3 pt-2 rounded-pill btn-primary mb-3"><i class="fas fa-plus-square"></i>
                                 Tambah Data</a>
                             <table class="table " id="dataTable" width="100%" cellspacing="0">
                                 <thead>

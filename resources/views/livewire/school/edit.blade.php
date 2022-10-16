@@ -91,6 +91,11 @@
                                             <span class="badge badge-success">Acitived</span>
                                         </td>
                                         <td>
+
+                                            <a href="{{ route('verifikator.schools.verify', $school) }}"
+                                                class="btn btn-sm btn-success"> Verifikasi</a>
+                                            <a href="{{ route('verifikator.schools.reject', $school) }}"
+                                                class="btn btn-sm btn-danger">Tolak</a>
                                             <a href="{{ route('verifikator.schools.cansel', $school) }}"
                                                 class="btn btn-sm btn-danger">Batal Verifikasi</a>
                                             <a href="{{ route('verifikator.show', $school) }}"

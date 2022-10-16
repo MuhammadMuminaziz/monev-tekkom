@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card mb-4 py-3 border-left-warning">
                 <div class="card-body">
                     <h5 class="font-weight-bold text-warning">Data sedang di Verifikasi </h5>

@@ -1,14 +1,16 @@
 @foreach ($schools as $school)
 <tr>
-    <td class="text-center">{{ $loop->iteration }}</td>
+    <td>{{ $loop->iteration }}</td>
     <td>{{ $school->name }}</td>
-    <td class="text-center">{{ $school->npsn }}</td>
-    <td class="text-center">{{ $school->district->name }}</td>
-    <td class="text-center">{{ $school->city->name }}</td>
-    <td class="text-center">
-        <a href="{{ route('reporting.school.show', $school) }}" class="btn btn-sm btn-success">Data sekolah</a>
-        <a href="{{ route('reporting.school.teacher', $school) }}" class="btn btn-sm btn-warning">Data guru</a>
-        <a href="" class="btn btn-sm btn-primary">Print</a>
+    <td>{{ $school->npsn }}</td>
+    <td>{{ $school->district->name }}</td>
+    <td>{{ $school->city->name }}</td>
+
+    <td><a href="{{ route('reporting.school.teacher', $school) }}" class="btn btn-sm btn-success">Data guru</a></td>
+    <td>
+        <a href="{{ route('reporting.school.show', $school) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i
+                class="fas fa-eye"></i></a>
+        <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-print"></i> Print</a>
     </td>
 </tr>
 @endforeach

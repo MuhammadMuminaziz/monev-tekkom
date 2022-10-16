@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <div class="card shadow py-3 border-bottom-primary">
-                    <div class="card-header">
+                <div class="card shadow border-bottom-primary">
+                    <div class="card-header  py-3">
                           <h6 class="m-0 font-weight-bold text-primary">Data Kecamatan</h6>
                     </div>
 
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                               <div class="d-flex justify-content-between mb-4 ">
-                                  <button type="button" class="btn btn-primary my-2 rounded-pill" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus-square"></i> Tambah Data</button>
+                                  <button type="button" class="btn btn-sm px-3 pt-2 mb-2 btn-primary rounded-pill" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus-square"></i> Tambah Data</button>
                               </div>
                               <!-- Modal Tambah Data -->
                               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

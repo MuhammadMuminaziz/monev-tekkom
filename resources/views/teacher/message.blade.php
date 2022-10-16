@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="card mb-4 py-3 border-left-warning">
             <div class="card-body">
 

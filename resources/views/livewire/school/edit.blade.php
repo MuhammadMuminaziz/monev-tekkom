@@ -20,7 +20,7 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
                                 type="button" role="tab" aria-controls="home" aria-selected="true">Permintaan
-                                Verifikasi</button>
+                                Verifikasi <span class="badge badge-primary">17</span></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile"

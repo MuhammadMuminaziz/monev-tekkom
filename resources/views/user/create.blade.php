@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col">
             <div class="card shadow">
-                <div class="card-header">
-                    <h6 class="font-weight-bold text-primary">Tambah Data User</h6>
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Tambah Data User</h6>
                 </div>
                 <div class="card-body">
                     <form class="user" method="post" action="{{ route('register') }}">

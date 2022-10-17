@@ -67,10 +67,10 @@
                                 </table>
                             </div>
                         </div>
+                        <!-- Sudah Verifikasi Data guru -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <!-- Sudah Verifikasi Data guru -->
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered my-5" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <th width="5%">No</th>
                                         <th>Nama Guru</th>

@@ -292,7 +292,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 my-3">
-                                <a href="{{ route('schools.index') }}" class="btn btn-secondary mr-2">Kembali</a>
+                                <a href="{{ route('school.index') }}" class="btn btn-secondary mr-2">Kembali</a>
                             </div>
                         </form>
                     </div>

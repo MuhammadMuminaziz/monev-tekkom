@@ -293,7 +293,7 @@
         })
 
         // filter bt district
-        $('.btn-filter').on('click', function(){
+        $('#btn-filter').on('click', function(){
             let id = $('#filterDistrict').val()
             $.ajax({
                 url : "{{ url('/filter-by-district') }}",

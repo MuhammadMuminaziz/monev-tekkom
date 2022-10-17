@@ -34,7 +34,7 @@ class ReportingController extends Controller
     public function teacher(School $school)
     {
         $periode    = Periode::first();
-        $teachers   = Teacher::with('school')->where('periode', $periode->year)->where('school_origin', $school->name)->where('isActive', 1)->get();
+        $teachers   = Teacher::with('school')->where('periode', $periode->year)->where('school_id', $school->id)->where('isActive', 1)->get();
 
         return view('reporting.teacher', compact('school', 'teachers'));
     }

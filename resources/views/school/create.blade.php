@@ -285,7 +285,7 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-sm-6">
                                                         <label for="laboratorium_komputer">1. Komputer</label>
-                                                        <input type="text" class="form-control @error('laboratorium_komputer') is-invalid @enderror" id="laboratorium_komputer" name="laboratorium_komputer"
+                                                        <input type="number" class="form-control @error('laboratorium_komputer') is-invalid @enderror" id="laboratorium_komputer" name="laboratorium_komputer"
                                                             placeholder="(...Unit)" value="{{ old('laboratorium_komputer') }}">
                                                             @error('laboratorium_komputer')
                                                             <div class="invalid-feedback">
@@ -295,7 +295,7 @@
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="laboratorium_multimedia">2. Multimedia</label>
-                                                        <input type="text" class="form-control @error('laboratorium_multimedia') is-invalid @enderror" id="laboratorium_multimedia" name="laboratorium_multimedia"
+                                                        <input type="number" class="form-control @error('laboratorium_multimedia') is-invalid @enderror" id="laboratorium_multimedia" name="laboratorium_multimedia"
                                                             placeholder="(...Unit)" value="{{ old('laboratorium_multimedia') }}">
                                                             @error('laboratorium_multimedia')
                                                             <div class="invalid-feedback">

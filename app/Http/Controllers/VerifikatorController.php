@@ -43,7 +43,7 @@ class VerifikatorController extends Controller
     {
         $periode = Periode::first();
         return view('verifikator.teacher', [
-            'teachers' => Teacher::where('periode', $periode->year)->where('user_id', auth()->user()->id)->get()
+            'teachers' => Teacher::with('school')->where('periode', $periode->year)->where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -53,11 +53,9 @@ class VerifikatorController extends Controller
             'isActive' => 1,
         ]);
 
-        return $request->data;
-        // $teacher->update([
-        //     'isActive'      => 1
-        // ]);
-        // return back()->with('message', 'Data guru berhasil di verifikasi..');
+        return response()->json([
+            'success' => 'Data guru berhasil di verifikasi',
+        ]);
     }
 
     public function teacherReject(Request $request)

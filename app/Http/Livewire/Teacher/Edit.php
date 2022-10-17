@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Teacher;
 
 use App\Models\District;
 use App\Models\Periode;
+use App\Models\School;
 use App\Models\Teacher;
 use App\Models\User;
 use Livewire\Component;
@@ -16,9 +17,9 @@ class Edit extends Component
         $user = User::find(auth()->user()->id)->districts->pluck('id');
 
         return view('livewire.teacher.edit', [
-            'teachersNotActived' => Teacher::where('isActive', 0)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),
-            'teachersActived'       => Teacher::where('isActive', 1)->where('periode', $periode->year)->whereIn('district_id', $user)->get(),
-            'districts'             => District::where('periode', $periode->year)->orderBy('name', 'asc')->get()
+            'teachersNotActived'    => Teacher::with('school')->where('isActive', 0)->where('periode', $periode->year)->whereIn('district_id', $user)->orderBy('school_id', 'asc')->get(),
+            'teachersActived'       => Teacher::with('school')->where('isActive', 1)->where('periode', $periode->year)->whereIn('district_id', $user)->orderBy('school_id', 'asc')->get(),
+            'schools'               => School::where('periode', $periode->year)->where('isActive', 1)->orderBy('name', 'asc')->get()
         ]);
     }
 

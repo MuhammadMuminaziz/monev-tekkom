@@ -27,22 +27,18 @@
                               <th width="5%">No</th>
                               <th>Nama Sekolah</th>
                               <th>NPSN</th>
-                              <th>Jumlah Siswa</th>
-                              <th>Desa / Kecamatan</th>
-                              <th width="10%">Status</th>
-                              <th width="5%">Action</th>
+                              <th>Kecamatan</th>
+                              <th>Kota</th>
+                              <th width="5%" class="text-center">Action</th>
                           </thead>
                           <tbody>
                              
                               <td>1</td>
                               <td>{{ $school->name }}</td>
                               <td>{{ $school->npsn }}</td>
-                              <td>{{ $school->jumlah_siswa }}</td>
                               <td>{{ $school->district->name }}</td>
-                              <td>
-                                    <span class="badge badge-success">Acitived</span>
-                              </td>
-                              <td>
+                              <td>{{ $school->city->name }}</td>
+                              <td class="text-center">
                                 <a href="{{ route('schools.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i class="fas fa-eye"></i></a>
                               </td>
                           </tbody>

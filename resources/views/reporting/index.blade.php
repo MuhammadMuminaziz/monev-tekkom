@@ -17,7 +17,7 @@
                                     @endforeach
                                 </select>
                                 <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2">filter</button>
+                                <button class="btn btn-outline-primary btn-filter" type="button" id="button-addon2">filter</button>
                                 </div>
                             </div>
                         </div>

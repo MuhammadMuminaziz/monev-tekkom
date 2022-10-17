@@ -72,8 +72,8 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'                      => 'required|min:5',
-            'npsn'                      => 'required|min:5',
+            'name'                      => 'required',
+            'npsn'                      => 'required',
             'siswa_lak'                 => 'required',
             'siswa_per'                 => 'required',
             'unbk'                      => 'required',
@@ -116,6 +116,27 @@ class SchoolController extends Controller
         $school['user_id'] = auth()->user()->id;
         $school['periode'] = $periode->year;
         $school['jumlah_siswa'] = $request->siswa_lak + $request->siswa_per;
+
+        if ($request->unbk == 'Belum') {
+            $school['unbk_tahun'] = '';
+        } else {
+            $school['unbk_tahun'] = $request->unbk_tahun;
+        }
+        if ($request->lan != 'Ada') {
+            $school['lan_unit'] = '';
+        } else {
+            $school['lan_unit'] = $request->lan_unit;
+        }
+        if ($request->router != 'Ada') {
+            $school['router_unit'] = '';
+        } else {
+            $school['router_unit'] = $request->router_unit;
+        }
+        if ($request->komputer != 'Ada') {
+            $school['komputer_unit'] = '';
+        } else {
+            $school['komputer_unit'] = $request->komputer_unit;
+        }
 
         School::create($school);
 

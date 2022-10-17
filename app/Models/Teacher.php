@@ -22,6 +22,11 @@ class Teacher extends Model
         return $this->belongsTo(District::class);
     }
 
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
+
     public function trainings()
     {
         return $this->hasMany(Training::class);

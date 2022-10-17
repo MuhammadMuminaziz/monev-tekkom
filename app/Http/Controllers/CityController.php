@@ -42,10 +42,7 @@ class CityController extends Controller
             'name' => 'required|min:3|max:255|unique:cities',
         ]);
 
-        $periode = Periode::first();
         $data['slug']       = $this->uniqueSlug($request->name);
-        $data['periode']    = $periode->year;
-
         City::create($data);
         return redirect()->back()->with('message', 'Data Kota berhasil ditambahkan..');
     }

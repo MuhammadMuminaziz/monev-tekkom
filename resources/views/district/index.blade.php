@@ -37,7 +37,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="" class="col-form-label">Nama Kota</label>
-                                                    <select name="city_id" class="form-control" id="city_id">
+                                                    <select name="city_id" class="form-control" id="city_id" required>
                                                         <option value="" selected disabled>- Pilih Kota -</option>
                                                         @foreach($cities as $city)
                                                         <option value="{{ $city->id }}">{{ $city->name }}</option>

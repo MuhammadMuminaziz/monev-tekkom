@@ -112,8 +112,8 @@
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('gender') is-invalid @enderror" id="gender" name="gender">
                                                 <option selected disabled value="">Pilih</option>
-                                                <option {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
-                                                <option {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                                <option {{ old('gender') == 'Laki-laki' ? 'selected' : '' }} value="Laki-Laki">Laki-Laki</option>
+                                                <option {{ old('gender') == 'Perempuan' ? 'selected' : '' }} value="Perempuan">Perempuan</option>
                                             </select>
                                             @error('gender')
                                             <div class="invalid-feedback">
@@ -209,15 +209,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="School_Origin" class="col-sm-4 col-form-label">Asal Sekolah</label>
+                                        <label for="school_id" class="col-sm-4 col-form-label">Asal Sekolah</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="School_Origin" name="School_Origin" placeholder="" value="{{ $school->name ?? '' }}" readonly>
+                                            <input type="text" class="form-control" id="school_id" name="school_id" placeholder="" value="{{ $school->name ?? '' }}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="district_id" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
                                         <div class="col-sm-8">
-                                            <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
+                                            <input type="text" name="district_id" class="form-control" id="district_id" value="{{ $school->district->name }}" readonly>
+                                            {{-- <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 <option value="" selected disabled>Pilih</option>
                                                 @foreach($districts as $district)
                                                 <option {{ old('district_id') == $district->id ? 'selected' : '' }} value="{{ $district->id }}">{{ $district->name }}</option>
@@ -227,13 +228,14 @@
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="city_id" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
                                         <div class="col-sm-8">
-                                            <select name="city_id" id="city_id" class="custom-select @error('district_id') is-invalid @enderror">
+                                            <input type="text" name="city_id" class="form-control" id="city_id" value="{{ $school->city->name }}" readonly>
+                                            {{-- <select name="city_id" id="city_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 <option value="" selected disabled>Pilih</option>
                                                 @foreach($cities as $city)
                                                 <option {{ old('city_id') == $city->id ? 'selected' : '' }} value="{{ $city->id }}">{{ $city->name }}</option>
@@ -243,7 +245,7 @@
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -296,7 +298,7 @@
                                         <label for="certification_status" class="col-sm-4 col-form-label">Status Sertifikasi</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select @error('certification_status') is-invalid @enderror" id="certification_status" name="certification_status">
-                                                <option selected disabled value="">Pilih</option>
+                                                <option selected disabled>Pilih</option>
                                                 <option {{ old('certification_status' == 'Sudah' ? 'selected' : '') }}>Sudah</option>
                                                 <option {{ old('certification_status' == 'Belum' ? 'selected' : '') }}>Belum</option>
                                             </select>

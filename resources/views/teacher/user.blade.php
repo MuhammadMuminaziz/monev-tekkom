@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="card shadow py-3 border-bottom-primary">
                     <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Sekolah</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Guru</h6>
                     </div>
 
                     <div class="card-body">
@@ -13,25 +13,25 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">No</th>
-                                        <th>Nama Sekolah</th>
-                                        <th>NPSN</th>
+                                        <th>Nama Guru</th>
+                                        <th>Asal sekolah</th>
                                         <th>Kecamatan</th>
                                         <th>Kota</th>
                                         <th>Periode</th>
-                                        <th width="15%">Action</th>
+                                        <th width="15%" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($schools as $school)
+                                    @foreach($teachers as $teacher)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $school->name }}</td>
-                                        <td>{{ $school->npsn }}</td>
-                                        <td>{{ $school->district->name }}</td>
-                                        <td>{{ $school->city->name }}</td>
-                                        <td>{{ $school->periode }}</td>
-                                        <td>
-                                            <a href="{{ route('school.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i
+                                        <td>{{ $teacher->teacher_name }}</td>
+                                        <td>{{ $teacher->school->name }}</td>
+                                        <td>{{ $teacher->district->name }}</td>
+                                        <td>{{ $teacher->city->name }}</td>
+                                        <td>{{ $teacher->periode }}</td>
+                                        <td class="text-center">
+                                            <a href="{{ route('teacher.show', $teacher) }}" class="btn btn-sm btn-info btn-rounded"><i
                                                     class="fas fa-eye"></i></a>
                                             </form>
                                         </td>

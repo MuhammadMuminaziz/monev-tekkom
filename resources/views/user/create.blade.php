@@ -32,9 +32,10 @@
                         <div class="form-group">
                         <label>Role Name</label>
                             <select name="role_id" class="form-control " id="role_id" required onchange="getCity()">
-                                @foreach($roles as $role)
-                                <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                @endforeach
+                                <option value="1">Operator</option>
+                                <option value="2" {{ $districts->count() == 0 ? 'disabled' : '' }}>Verifikator</option>
+                                <option value="3">Super Admin</option>
+                                <option value="4">Owner</option>
                             </select>
                         </div>
                         <div class="form-group d-none form-city">

@@ -58,8 +58,8 @@ class CreateSchoolsTable extends Migration
             $table->date('range_waktu_sampai')->nullable();
             $table->string('analisis')->nullable();
             $table->boolean('isActive')->default(false);
-            $table->string('periode')->unique();
-            $table->string('tekkom')->unique();
+            $table->string('periode');
+            $table->string('tekkom');
             $table->string('nama_responden')->nullable();
             $table->string('date_responden')->nullable();
             $table->timestamps();

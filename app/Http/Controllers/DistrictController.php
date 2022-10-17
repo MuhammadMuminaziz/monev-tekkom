@@ -25,10 +25,7 @@ class DistrictController extends Controller
             'name'      => 'required|unique:districts'
         ]);
 
-        $periode = Periode::first();
         $data['slug']       = $this->uniqueSlug($request->name);
-        $data['periode']    = $periode->year;
-
         District::create($data);
         return redirect()->back()->with('message', 'Data Kecamatan berhasil ditambahkan..');
     }
@@ -37,7 +34,7 @@ class DistrictController extends Controller
     {
         $periode = Periode::first();
         return view('district.edit', [
-            'cities'    => City::where('periode', $periode->year)->orderBy('name', 'asc')->get(),
+            'cities'    => City::orderBy('name', 'asc')->get(),
             'district' => District::find($request->id)
         ]);
     }

@@ -29,7 +29,7 @@ class TeacherController extends Controller
         if ($school) {
             return view('teacher.index', [
                 'school'    => $school,
-                'teachers'  => Teacher::where('periode', $periode->year)->where('School_Origin', $school->name)->orderBy('teacher_name', 'asc')->get(),
+                'teachers'  => Teacher::where('periode', $periode->year)->where('school_id', $school->id)->orderBy('teacher_name', 'asc')->get(),
             ]);
         } else {
             return view('teacher.message');
@@ -46,8 +46,8 @@ class TeacherController extends Controller
     {
         $periode = Periode::first();
         return view('teacher.create', [
-            'cities'    => City::where('periode', $periode->year)->orderBy('name', 'asc')->get(),
-            'districts' => District::where('periode', $periode->year)->orderBy('name', 'asc')->get(),
+            'cities'    => City::orderBy('name', 'asc')->get(),
+            'districts' => District::orderBy('name', 'asc')->get(),
             'periodes'  => Tahun::get(),
             'school'    => School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 1)->first()
         ]);
@@ -62,8 +62,8 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'district_id'                       => 'required',
-            'city_id'                           => 'required',
+            // 'district_id'                       => 'required',
+            // 'city_id'                           => 'required',
             'teacher_name'                      => 'required|min:3',
             'employment_status'                 => 'required',
             'nip'                               => 'required',
@@ -78,7 +78,6 @@ class TeacherController extends Controller
             'class'                             => 'required',
             'tmt_class_tahun'                   => 'required',
             'tmt_class_bulan'                   => 'required',
-            'School_Origin'                     => 'required',
             'phone'                             => 'required|min:8',
             'provinsi'                          => 'required',
             'subjects_taught'                   => 'required',
@@ -99,12 +98,29 @@ class TeacherController extends Controller
             'history_involvement_unbk'          => 'required',
         ]);
 
-        $periode = Periode::first();
+
+        $periode    = Periode::first();
+        $district   = District::where('name', $request->district_id)->first();
+        $city       = City::where('name', $request->city_id)->first();
+        $school     = School::where('periode', $periode->year)->where('name', $request->school_id)->first();
+        $data['district_id'] = $district->id;
+        $data['city_id'] = $city->id;
         $data['user_id'] = auth()->user()->id;
+        $data['school_id'] = $school->id;
         $data['username'] = $this->uniqueSlug($request->teacher_name);
         $data['periode'] = $periode->year;
-        $data['unbk_socialization_activities_tahun'] = $request->unbk_socialization_activities_tahun;
-        $data['involvement_unbk_tahun'] = $request->involvement_unbk_tahun;
+
+        if ($request->unbk_socialization_activities == 'Belum') {
+            $data['unbk_socialization_activities_tahun'] = '';
+        } else {
+            $data['unbk_socialization_activities_tahun'] = $request->unbk_socialization_activities_tahun;
+        }
+
+        if ($request->involvement_unbk) {
+            $data['involvement_unbk_tahun'] = '';
+        } else {
+            $data['involvement_unbk_tahun'] = $request->involvement_unbk_tahun;
+        }
         $data['certification_year'] = $request->involvement_unbk_tahun;
 
         // dd($request);
@@ -115,7 +131,7 @@ class TeacherController extends Controller
 
         // Update Training
         ProgramTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->program != []) {
+        if ($request->program == array()) {
             foreach ($request->program as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -126,7 +142,7 @@ class TeacherController extends Controller
         }
 
         CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->competencies_taught != []) {
+        if ($request->competencies_taught) {
             foreach ($request->competencies_taught as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -143,7 +159,7 @@ class TeacherController extends Controller
         }
 
         Training::where('teacher_id', $teacher->id)->delete();
-        if ($request->name_of_training != []) {
+        if ($request->name_of_training == array()) {
             foreach ($request->name_of_training as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -157,7 +173,7 @@ class TeacherController extends Controller
 
         // Update Training Needed
         TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
-        if ($request->training_needs_now != []) {
+        if ($request->training_needs_now == array()) {
             foreach ($request->training_needs_now as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -193,12 +209,14 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
+        $periode = Periode::first();
         return view('teacher.edit', [
-            'teacher' => $teacher,
-            'trainings' => Training::where('teacher_id', $teacher->id)->orderBy('name', 'asc')->get(),
-            'training_needs' => TrainingNeedNow::where('teacher_id', $teacher->id)->orderBy('name', 'asc')->get(),
-            'districts' => District::get(),
-            'cities' => City::get(),
+            'teacher'           => $teacher,
+            'trainings'         => Training::where('teacher_id', $teacher->id)->orderBy('name', 'asc')->get(),
+            'training_needs'    => TrainingNeedNow::where('teacher_id', $teacher->id)->orderBy('name', 'asc')->get(),
+            'districts'         => District::get(),
+            'cities'            => City::get(),
+            'school'            => School::where('periode', $periode->year)->where('user_id', auth()->user()->id)->where('isActive', 1)->first()
         ]);
     }
 
@@ -212,8 +230,8 @@ class TeacherController extends Controller
     public function update(Request $request, Teacher $teacher)
     {
         $request->validate([
-            'district_id'                       => 'required',
-            'city_id'                           => 'required',
+            // 'district_id'                       => 'required',
+            // 'city_id'                           => 'required',
             'teacher_name'                      => 'required|min:3',
             'employment_status'                 => 'required',
             'nip'                               => 'required',
@@ -228,7 +246,6 @@ class TeacherController extends Controller
             'class'                             => 'required',
             'tmt_class_tahun'                   => 'required',
             'tmt_class_bulan'                   => 'required',
-            'School_Origin'                     => 'required',
             'phone'                             => 'required|min:8',
             'provinsi'                          => 'required',
             'subjects_taught'                   => 'required',
@@ -262,9 +279,8 @@ class TeacherController extends Controller
             'class'                         => $request->class,
             'tmt_class_tahun'               => $request->tmt_class_tahun,
             'tmt_class_bulan'               => $request->tmt_class_bulan,
-            'School_Origin'                 => $request->School_Origin,
-            'district_id'                   => $request->district_id,
-            'city_id'                       => $request->city_id,
+            // 'district_id'                   => $request->district_id,
+            // 'city_id'                       => $request->city_id,
             'phone'                         => $request->phone,
             'subjects_taught'               => $request->subjects_taught,
             'certification_status'          => $request->certification_status,
@@ -292,7 +308,7 @@ class TeacherController extends Controller
 
         // Update Training
         ProgramTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->program != []) {
+        if ($request->program) {
             foreach ($request->program as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -303,7 +319,7 @@ class TeacherController extends Controller
         }
 
         CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->competencies_taught != []) {
+        if ($request->competencies_taught) {
             foreach ($request->competencies_taught as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -321,7 +337,7 @@ class TeacherController extends Controller
         }
 
         Training::where('teacher_id', $teacher->id)->delete();
-        if ($request->name_of_training != []) {
+        if ($request->name_of_training) {
             foreach ($request->name_of_training as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -335,7 +351,7 @@ class TeacherController extends Controller
 
         // Update Training Needed
         TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
-        if ($request->training_needs_now != []) {
+        if ($request->training_needs_now) {
             foreach ($request->training_needs_now as $item => $name) {
                 $data = [
                     'teacher_id' => $teacher->id,
@@ -344,6 +360,7 @@ class TeacherController extends Controller
                 TrainingNeedNow::create($data);
             }
         }
+
 
         return redirect()->route('teachers.index')->with('message', 'Data guru berhasil di edit..');
     }

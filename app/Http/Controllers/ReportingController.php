@@ -21,7 +21,7 @@ class ReportingController extends Controller
     {
         $periode    = Periode::first();
         $schools    = School::with(['city', 'district'])->where('periode', $periode->year)->where('isActive', 1)->orderBy('name', 'asc')->get();
-        $districts  = District::where('periode', $periode->year)->orderBy('name', 'asc')->get();
+        $districts  = District::orderBy('name', 'asc')->get();
 
         return view('reporting.index', compact('schools', 'districts'));
     }
@@ -34,7 +34,7 @@ class ReportingController extends Controller
     public function teacher(School $school)
     {
         $periode    = Periode::first();
-        $teachers   = Teacher::where('periode', $periode->year)->where('school_origin', $school->name)->where('isActive', 1)->get();
+        $teachers   = Teacher::with('school')->where('periode', $periode->year)->where('school_origin', $school->name)->where('isActive', 1)->get();
 
         return view('reporting.teacher', compact('school', 'teachers'));
     }

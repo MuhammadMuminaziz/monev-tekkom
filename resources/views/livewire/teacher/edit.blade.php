@@ -21,7 +21,7 @@
                             <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
                                 type="button" role="tab" aria-controls="home" aria-selected="true">Permintaan
                                 Verifikasi 
-                                @if($teachersNotActived->count() > 0) <span class="badge badge-primary">{{ $teachersNotActived->count() }}</span> @endif
+                                <span class="badge badge-primary">{{ $teachersNotActived->count() }}</span>
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -30,27 +30,11 @@
                                 Terverifikasi</button>
                         </li>
                     </ul>
+                    <div class="row justify-content-end px-3">
+                        <button class="btn btn-success" id="verify">verifikasi</button>
+                    </div>
                     <div class="tab-content my-4" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row mb-3">
-                                <div class="col-md-5">
-                                    <div class="input-group">
-                                        <select class="custom-select" id="filterDistrict" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                            <option selected disabled>- pilih kecamatan -</option>
-                                            @foreach($districts as $district)
-                                            <option value="{{ $district->id }}">{{ $district->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <div class="input-group-append">
-                                        <button class="btn btn-outline-primary" type="button" id="button-addon2">filter</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-7 text-right">
-                                    <button class="btn btn-success ml-auto" id="verify">Verifikasi</button>
-                                    <button class="btn btn-danger ml-auto" id="reject">Tolak</button>
-                                </div>
-                            </div>
                             <!-- Belum Verifikasi Data guru -->
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTableCheckBox" width="100%" cellspacing="0">
@@ -62,8 +46,7 @@
                                         <th>Asal Sekolah</th>
                                         <th>Desa/Kecamatan</th>
                                         <th>Kabupaten/Kota</th>
-                                        <th>Status Verifikasi</th>
-                                        {{-- <th>Action</th> --}}
+                                        <th class="text-center">Status Verifikasi</th>
                                     </thead>
                                     <tbody>
                                         @foreach($teachersNotActived as $teacher)
@@ -72,20 +55,12 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td><a href="#link ke menu show">{{ $teacher->teacher_name }}</a> </td>
                                             <td>{{ $teacher->nuptk }}</td>
-                                            <td>{{ $teacher->School_Origin }}</td>
+                                            <td>{{ $teacher->school->name }}</td>
                                             <td>{{ $teacher->district->name }}</td>
                                             <td>{{ $teacher->city->name }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <span class="badge badge-danger">Not Acitived</span>
                                             </td>
-                                            {{-- <td>
-                                                <a href="{{ route('verifikator.teacher.verify', $teacher) }}"
-                                                    class="btn btn-sm btn-success">Verifikasi</a>
-                                                <a href="{{ route('verifikator.teacher.reject', $teacher) }}"
-                                                    class="btn btn-sm btn-danger">Tolak</a>
-                                                <a href="{{ route('verifikator.teacher.show', $teacher) }}"
-                                                    class="btn btn-sm btn-primary">Lihat</a>
-                                            </td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -101,10 +76,10 @@
                                         <th>Nama Guru</th>
                                         <th>NUPTK</th>
                                         <th>Asal Sekolah</th>
-                                        <th>Desa/Kecamatan</th>
-                                        <th>Kabupaten/Kota</th>
-                                        <th>Status Verifikasi</th>
-                                        <th>Action</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kota</th>
+                                        <th class="text-center">Status Verifikasi</th>
+                                        <th class="text-center">Action</th>
                                     </thead>
                                     <tbody>
                                         @foreach($teachersActived as $teacher)
@@ -112,15 +87,13 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td><a href="#link ke menu show">{{ $teacher->teacher_name }}</a> </td>
                                             <td>{{ $teacher->nuptk }}</td>
-                                            <td>{{ $teacher->School_Origin }}</td>
+                                            <td>{{ $teacher->school->name }}</td>
                                             <td>{{ $teacher->district->name }}</td>
                                             <td>{{ $teacher->city->name }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <span class="badge badge-success">Acitived</span>
                                             </td>
-                                            <td>
-                                                <a href="{{ route('verifikator.teacher.cansel', $teacher) }}"
-                                                    class="btn btn-sm btn-danger">Batal Verifikasi</a>
+                                            <td class="d-flex justify-content-center">
                                                 <a href="{{ route('verifikator.teacher.show', $teacher) }}"
                                                     class="btn btn-sm btn-primary">Lihat</a>
                                             </td>

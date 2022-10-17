@@ -59,12 +59,12 @@
                                     <tr>
                                         <th width="5%">No</th>
                                         <th>Nama Guru</th>
-                                        <th>NIP</th>
                                         <th>NUPTK</th>
                                         <th>Asal Sekolah</th>
-                                        <th>Desa / Kecamatan</th>
-                                        <th>Status</th>
-                                        <th width="15%">Action</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kota</th>
+                                        <th class="text-center">Status</th>
+                                        <th width="15%" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,18 +72,18 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $teacher->teacher_name }}</td>
-                                        <td>{{ $teacher->nip }}</td>
                                         <td>{{ $teacher->nuptk }}</td>
-                                        <td>{{ $teacher->School_Origin }}</td>
+                                        <td>{{ $teacher->school->name }}</td>
                                         <td>{{ $teacher->district->name }}</td>
-                                        <td>
+                                        <td>{{ $teacher->city->name }}</td>
+                                        <td class="text-center">
                                             @if($teacher->isActive == 0)
                                             <span class="badge badge-danger">Not Acitived</span>
                                             @else
                                             <span class="badge badge-success">Acitived</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('teachers.show', $teacher) }}"
                                                 class="btn btn-sm btn-info btn-circle btn-sm"><i
                                                     class="fas fa-info-circle"></i></a>

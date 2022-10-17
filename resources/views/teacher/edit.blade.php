@@ -206,15 +206,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="School_Origin" class="col-sm-4 col-form-label">Asal Sekolah</label>
+                                        <label for="school_id" class="col-sm-4 col-form-label">Asal Sekolah</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="School_Origin" name="School_Origin" placeholder="" value="{{ old('School_Origin', $teacher->School_Origin) }}" readonly>
+                                            <input type="text" class="form-control" id="school_id" name="school_id" placeholder="" value="{{  $teacher->school->name }}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="district_id" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
                                         <div class="col-sm-8">
-                                            <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
+                                            <input type="text" name="district_id" class="form-control" id="district_id" value="{{ $school->district->name }}" readonly>
+                                            {{-- <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 @foreach($districts as $district)
                                                 @if($district->id == old('district->id', $teacher->district->id))
                                                 <option selected value="{{ $district->id }}">{{ $district->name }}</option>
@@ -227,13 +228,14 @@
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="city_id" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
                                         <div class="col-sm-8">
-                                            <select name="city_id" id="city_id" class="custom-select @error('district_id') is-invalid @enderror">
+                                            <input type="text" name="city_id" class="form-control" id="city_id" value="{{ $school->city->name }}" readonly>
+                                            {{-- <select name="city_id" id="city_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 @foreach($cities as $city)
                                                 @if($city->id == old('city->id', $teacher->city->id))
                                                 <option selected value="{{ $city->id }}">{{ $city->name }}</option>
@@ -246,7 +248,7 @@
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">

@@ -4,7 +4,7 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="" class="col-form-label">Nama Kota</label>
-            <select name="city_id" class="form-control" id="city_id">
+            <select name="city_id" class="form-control" id="city_id" required>
                 @foreach($cities as $city)
                     @if($city->name == $district->city->name)
                     <option selected value="{{ $city->id }}">{{ $city->name }}</option>

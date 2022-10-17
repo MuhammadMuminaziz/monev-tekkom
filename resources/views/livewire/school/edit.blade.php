@@ -21,7 +21,7 @@
                             <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
                                 type="button" role="tab" aria-controls="home" aria-selected="true">Permintaan
                                 Verifikasi 
-                                @if($schoolsVerify->count() > 0) <span class="badge badge-primary">{{ $schoolsVerify->count() }}</span> @endif
+                                <span class="badge badge-primary">{{ $schoolsVerify->count() }}</span>
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -30,7 +30,7 @@
                                 Terverifikasi</button>
                         </li>
                     </ul>
-                    <div class="tab-content my-5" id="myTabContent">
+                    <div class="tab-content my-4" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <!-- Belum Verifikasi Data Sekolah -->
                             <div class="table-responsive">
@@ -39,22 +39,22 @@
                                         <th width="5%">No</th>
                                         <th>Nama Sekolah</th>
                                         <th>NPSN</th>
-                                        <th>Jumlah Siswa</th>
-                                        <th>Desa / Kecamatan</th>
-                                        <th>Status Verifikasi</th>
-                                        <th>Action</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kota</th>
+                                        <th class="text-center">Status Verifikasi</th>
+                                        <th class="text-center">Action</th>
                                     </thead>
                                     <tbody>
                                         @foreach($schoolsVerify as $school)
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $school->name }}</td>
                                         <td>{{ $school->npsn }}</td>
-                                        <td>{{ $school->jumlah_siswa }}</td>
                                         <td>{{ $school->district->name }}</td>
-                                        <td>
+                                        <td>{{ $school->city->name }}</td>
+                                        <td class="text-center">
                                             <span class="badge badge-danger">Not Acitived</span>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('verifikator.schools.verify', $school) }}"
                                                 class="btn btn-sm btn-success">Verifikasi</a>
                                             <a href="{{ route('verifikator.schools.reject', $school) }}"
@@ -75,24 +75,22 @@
                                         <th width="5%">No</th>
                                         <th>Nama Sekolah</th>
                                         <th>NPSN</th>
-                                        <th>Jumlah Siswa</th>
-                                        <th>Desa / Kecamatan</th>
-                                        <th>Status Verifikasi</th>
-                                        <th>Action</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kota</th>
+                                        <th class="text-center">Status Verifikasi</th>
+                                        <th class="text-center">Action</th>
                                     </thead>
                                     <tbody>
                                         @foreach($schoolsActived as $school)
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $school->name }}</td>
                                         <td>{{ $school->npsn }}</td>
-                                        <td>{{ $school->jumlah_siswa }}</td>
                                         <td>{{ $school->district->name }}</td>
-                                        <td>
+                                        <td>{{ $school->city->name }}</td>
+                                        <td class="text-center">
                                             <span class="badge badge-success">Acitived</span>
                                         </td>
-                                        <td>
-                                            <a href="{{ route('verifikator.schools.cansel', $school) }}"
-                                                class="btn btn-sm btn-danger">Batal Verifikasi</a>
+                                        <td class="text-center">
                                             <a href="{{ route('verifikator.show', $school) }}"
                                                 class="btn btn-sm btn-primary">Lihat</a>
                                         </td>

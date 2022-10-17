@@ -18,7 +18,6 @@ class CreateDistrictsTable extends Migration
             $table->foreignId('city_id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('periode');
             $table->timestamps();
         });
     }

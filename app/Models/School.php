@@ -25,6 +25,11 @@ class School extends Model
         return $this->belongsTo(District::class);
     }
 
+    public function teacher()
+    {
+        return $this->hasMany(Teacher::class);
+    }
+
     public function lembaga_bantuan()
     {
         return $this->hasMany(LembagaBantuan::class);

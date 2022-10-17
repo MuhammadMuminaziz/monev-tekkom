@@ -43,6 +43,8 @@ Route::middleware(['auth', 'super_admin'])->group(function () {
 
     Route::get('/school', [SchoolUserController::class, 'index'])->name('school.index');
     Route::get('/school/{school}', [SchoolUserController::class, 'show'])->name('school.show');
+    Route::get('/teacher', [SchoolUserController::class, 'teacher'])->name('teacher.index');
+    Route::get('/teacher/{teacher}', [SchoolUserController::class, 'teacherShow'])->name('teacher.show');
 
     Route::get('/periode', [PeriodeController::class, 'index'])->name('periode.index');
     Route::post('/periodes', [PeriodeController::class, 'update'])->name('periode.update');

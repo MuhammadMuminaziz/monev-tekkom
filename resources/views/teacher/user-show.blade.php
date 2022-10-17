@@ -3,6 +3,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card shadow mb-4 py-3">
+                    <!-- <div class="card-header">
+                        <h6 class="card-title font-weight-bold text-primary">Detail Data Sekolah</h6>
+                    </div> -->
                     <div class="card-body">
                         <form action="">
                             <!-- Header -->
@@ -312,7 +315,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 my-3">
-                                <a href="{{ route('verifikator.teachers') }}" class="btn btn-secondary mr-2">Kembali</a>
+                                <a href="{{ route('teacher.index') }}" class="btn btn-secondary mr-2">Kembali</a>
                             </div>
                         </form>
                     </div>

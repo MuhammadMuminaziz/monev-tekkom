@@ -17,7 +17,6 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('periode');
             $table->timestamps();
         });
     }

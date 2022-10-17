@@ -87,6 +87,12 @@
                 <i class="fas fa-school"></i>
                 <span>Data Sekolah</span></a>
         </li>
+        
+        <li class="nav-item {{ request()->is('teacher*') ? 'active' : '' }}">
+            <a class="nav-link pb-0" href="{{ route('teacher.index') }}">
+                <i class="fas fa-user"></i>
+                <span>Data Guru</span></a>
+        </li>
 
         <li class="nav-item {{ request()->is('periode*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('periode.index') }}">

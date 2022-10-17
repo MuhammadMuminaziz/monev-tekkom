@@ -26,21 +26,21 @@
                         <table class="table " id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th width="5%">ID</th>
+                                    <th width="5%">No</th>
                                     <th>Name</th>
                                     <th>Role</th>
                                     <th>Email</th>
-                                    <th width="15%">Action</th>
+                                    <th width="15%" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($users as $index => $user)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{  $user->role->name}}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline">
                                             @method('delete')

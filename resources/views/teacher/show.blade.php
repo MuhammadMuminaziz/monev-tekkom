@@ -93,7 +93,7 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Asal Sekolah</th>
                                                         <td>:</td>
-                                                        <td>{{ $teacher->School_Origin }}</td>
+                                                        <td>{{ $teacher->school->name }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Desa / Kecamatan</th>

@@ -138,6 +138,9 @@
     <script src="{{ asset('sb-admin-2/js/demo/datatables-demo.js') }}"></script>
     <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
 
+    {{-- sweetalert --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     
@@ -307,6 +310,11 @@
                 }
             })
         })
+
+        // swwet alert
+        if($('#message').data('message') != ''){
+            console.log('pk');
+        }
     </script>
 
     @livewireScripts

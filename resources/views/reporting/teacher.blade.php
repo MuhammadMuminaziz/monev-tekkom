@@ -80,7 +80,7 @@
                                         <td>{{ $teacher->certification_status }}</td>
                                         <td>
                                             <a href="{{ route('reporting.school.teacher.show', [ $school, $teacher ]) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
-                                            <a href="" class="btn btn-sm btn-primary"><i class="fas fa-print"></i>Print</a>
+                                            <a href="{{ route('reporting.teacher.print', $teacher) }}" target="_black" class="btn btn-sm btn-primary"><i class="fas fa-print"></i> Print</a>
                                         </td>
                                     </tr>
                                     @endforeach

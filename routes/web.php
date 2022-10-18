@@ -72,7 +72,9 @@ Route::middleware(['auth', 'owner'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::get('/reporting', [ReportingController::class, 'index'])->name('reporting.index');
     Route::get('/reporting/{school}', [ReportingController::class, 'schoolShow'])->name('reporting.school.show');
+    Route::get('/reporting/download/data-sekolah/{school}', [ReportingController::class, 'schoolPrint'])->name('reporting.school.print');
     Route::get('/reporting/{school}/teacher', [ReportingController::class, 'teacher'])->name('reporting.school.teacher');
+    Route::get('/reporting/download/data-guru/{teacher}', [ReportingController::class, 'teacherPrint'])->name('reporting.teacher.print');
     Route::get('/reporting/{school}/{teacher}', [ReportingController::class, 'teacherShow'])->name('reporting.school.teacher.show');
 
     // filter

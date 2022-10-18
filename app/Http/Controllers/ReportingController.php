@@ -8,6 +8,7 @@ use App\Models\Periode;
 use App\Models\School;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReportingController extends Controller
 {
@@ -31,6 +32,14 @@ class ReportingController extends Controller
         return view('reporting.school-show', compact('school'));
     }
 
+    public function schoolPrint(School $school)
+    {
+        $pdf = Pdf::loadView('print.school.index', [
+            'school' => $school
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream('example.pdf');
+    }
+
     public function teacher(School $school)
     {
         $periode    = Periode::first();
@@ -42,6 +51,14 @@ class ReportingController extends Controller
     public function teacherShow(School $school, Teacher $teacher)
     {
         return view('reporting.teacher-show', compact('school', 'teacher'));
+    }
+
+    public function teacherPrint(Teacher $teacher)
+    {
+        $pdf = Pdf::loadView('print.teacher.index', [
+            'teacher' => $teacher
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream('example.pdf');
     }
 
     // Filter

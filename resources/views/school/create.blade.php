@@ -593,8 +593,8 @@
                                     </div>
                                     <div class="col-sm-12 my-5">
                                         <button type="submit" class="btn btn-primary float-right">Simpan Data</button>
-                                        <button type="button"
-                                            class="btn btn-secondary float-right mr-2">Kembali</button>
+                                        <a href="{{ route('schools.index') }}"
+                                            class="btn btn-secondary float-right mr-2">Kembali</a>
                                     </div>
                                     <br><br><br><hr>
                                     <div class="form-group row">
@@ -604,9 +604,6 @@
                                         1.Kota Ambon, 2.Kota Tual, 3.Maluku tengah, 4.SBB, 5.SBT, 6.Butu, 7.Buru Selatan, 8.Maluku Tenggara, 9.Maluku Barat, 10.Maluku Barat Daya, 11.Kep.Aru
                                         </small>
                                     </div>
-
-
-
                                 </div>
                             </div>
 

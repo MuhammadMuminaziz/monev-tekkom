@@ -579,8 +579,8 @@
                                     </div>
                                     <div class="col-sm-12 my-5">
                                         <button type="submit" class="btn btn-primary float-right">Simpan Data</button>
-                                        <button type="button"
-                                            class="btn btn-secondary float-right mr-2">Kembali</button>
+                                        <a href="{{ route('teachers.index') }}"
+                                            class="btn btn-secondary float-right mr-2">Kembali</a>
                                     </div>
                                     <br><br><br><hr>
                                     <div class="form-group row">

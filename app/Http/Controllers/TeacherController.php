@@ -123,34 +123,32 @@ class TeacherController extends Controller
         }
         $data['certification_year'] = $request->involvement_unbk_tahun;
 
-        // dd($request);
-
         Teacher::create($data);
 
         $teacher = Teacher::latest()->first();
 
-        // Update Training
-        ProgramTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->program == array()) {
-            foreach ($request->program as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['program'][$item],
-                ];
-                ProgramTeacher::create($data);
+        // store Training
+        $program    = $request->program;
+        if ($program[0] != null) {
+            for ($i = 0; $i < count($program); $i++) {
+                $programTeacher = new ProgramTeacher();
+                $programTeacher->teacher_id = $teacher->id;
+                $programTeacher->name       = $program[$i];
+                $programTeacher->save();
             }
         }
 
-        CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->competencies_taught) {
-            foreach ($request->competencies_taught as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['competencies_taught'][$item],
-                ];
-                CompetensiTeacher::create($data);
+        // store competency
+        $kompetensi = $request->competencies_taught;
+        if ($kompetensi != null) {
+            for ($i = 0; $i < count($kompetensi); $i++) {
+                $kompetensiTeacher  = new CompetensiTeacher();
+                $kompetensiTeacher->teacher_id  = $teacher->id;
+                $kompetensiTeacher->name        = $kompetensi[$i];
+                $kompetensiTeacher->save();
             }
         }
+
         if ($request->competencies_taught_n) {
             CompetensiTeacher::create([
                 'teacher_id'    => $teacher->id,
@@ -158,28 +156,28 @@ class TeacherController extends Controller
             ]);
         }
 
-        Training::where('teacher_id', $teacher->id)->delete();
-        if ($request->name_of_training == array()) {
-            foreach ($request->name_of_training as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['name_of_training'][$item],
-                    'level' => $request['level'][$item],
-                    'lesson_hours' => $request['jampel'][$item],
-                ];
-                Training::create($data);
+        $trainingName   = $request->name_of_training;
+        $trainingLevel  = $request->name_of_training;
+        $trainingHour   = $request->name_of_training;
+        if ($trainingName[0] != null) {
+            for ($i = 0; $i < count($trainingName); $i++) {
+                $trainingTeacher                = new Training();
+                $trainingTeacher->teacher_id    = $teacher->id;
+                $trainingTeacher->name          = $trainingName[$i];
+                $trainingTeacher->level         = $trainingLevel[$i];
+                $trainingTeacher->lesson_hours  = $trainingHour[$i];
+                $trainingTeacher->save();
             }
         }
 
-        // Update Training Needed
-        TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
-        if ($request->training_needs_now == array()) {
-            foreach ($request->training_needs_now as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['training_needs_now'][$item]
-                ];
-                TrainingNeedNow::create($data);
+        // store training need now
+        $trainingNeed   = $request->training_needs_now;
+        if ($trainingNeed[0] != null) {
+            for ($i = 0; $i < count($trainingNeed); $i++) {
+                $trainingNeedTeacher                = new TrainingNeedNow();
+                $trainingNeedTeacher->teacher_id    = $teacher->id;
+                $trainingNeedTeacher->name          = $trainingNeed[$i];
+                $trainingNeedTeacher->save();
             }
         }
 
@@ -308,24 +306,24 @@ class TeacherController extends Controller
 
         // Update Training
         ProgramTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->program) {
-            foreach ($request->program as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['program'][$item],
-                ];
-                ProgramTeacher::create($data);
+        $program    = $request->program;
+        if ($program[0] != null) {
+            for ($i = 0; $i < count($program); $i++) {
+                $programTeacher = new ProgramTeacher();
+                $programTeacher->teacher_id = $teacher->id;
+                $programTeacher->name       = $program[$i];
+                $programTeacher->save();
             }
         }
 
         CompetensiTeacher::where('teacher_id', $teacher->id)->delete();
-        if ($request->competencies_taught) {
-            foreach ($request->competencies_taught as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['competencies_taught'][$item],
-                ];
-                CompetensiTeacher::create($data);
+        $kompetensi = $request->competencies_taught;
+        if ($kompetensi != null) {
+            for ($i = 0; $i < count($kompetensi); $i++) {
+                $kompetensiTeacher  = new CompetensiTeacher();
+                $kompetensiTeacher->teacher_id  = $teacher->id;
+                $kompetensiTeacher->name        = $kompetensi[$i];
+                $kompetensiTeacher->save();
             }
         }
 
@@ -337,30 +335,31 @@ class TeacherController extends Controller
         }
 
         Training::where('teacher_id', $teacher->id)->delete();
-        if ($request->name_of_training) {
-            foreach ($request->name_of_training as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['name_of_training'][$item],
-                    'level' => $request['level'][$item],
-                    'lesson_hours' => $request['jampel'][$item],
-                ];
-                Training::create($data);
+        $trainingName   = $request->name_of_training;
+        $trainingLevel  = $request->name_of_training;
+        $trainingHour   = $request->name_of_training;
+        if ($trainingName[0] != null) {
+            for ($i = 0; $i < count($trainingName); $i++) {
+                $trainingTeacher                = new Training();
+                $trainingTeacher->teacher_id    = $teacher->id;
+                $trainingTeacher->name          = $trainingName[$i];
+                $trainingTeacher->level         = $trainingLevel[$i];
+                $trainingTeacher->lesson_hours  = $trainingHour[$i];
+                $trainingTeacher->save();
             }
         }
 
         // Update Training Needed
         TrainingNeedNow::where('teacher_id', $teacher->id)->delete();
-        if ($request->training_needs_now) {
-            foreach ($request->training_needs_now as $item => $name) {
-                $data = [
-                    'teacher_id' => $teacher->id,
-                    'name' => $request['training_needs_now'][$item]
-                ];
-                TrainingNeedNow::create($data);
+        $trainingNeed   = $request->training_needs_now;
+        if ($trainingNeed[0] != null) {
+            for ($i = 0; $i < count($trainingNeed); $i++) {
+                $trainingNeedTeacher                = new TrainingNeedNow();
+                $trainingNeedTeacher->teacher_id    = $teacher->id;
+                $trainingNeedTeacher->name          = $trainingNeed[$i];
+                $trainingNeedTeacher->save();
             }
         }
-
 
         return redirect()->route('teachers.index')->with('message', 'Data guru berhasil di edit..');
     }

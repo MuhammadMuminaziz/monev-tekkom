@@ -140,18 +140,16 @@ class SchoolController extends Controller
 
         School::create($school);
 
-        $school_id = School::latest()->first();
-
-        if ($request->nama_lembaga != array('')) {
-            foreach ($request->nama_lembaga as $items => $name) {
-                $lembaga = [
-                    'school_id' => $school_id->id,
-                    'name' => $request['nama_lembaga'][$items]
-                ];
-                LembagaBantuan::create($lembaga);
+        $school_id  = School::latest()->first();
+        $lembaga    = $request->nama_lembaga;
+        if ($lembaga[0] != null) {
+            for ($i = 0; $i < count($lembaga); $i++) {
+                $lembagaSchool  = new LembagaBantuan();
+                $lembagaSchool->school_id   = $school_id->id;
+                $lembagaSchool->name        = $lembaga[0];
+                $lembagaSchool->save();
             }
         }
-
 
         return redirect()->route('schools.index');
     }
@@ -274,15 +272,14 @@ class SchoolController extends Controller
             'isActive'                  => 0
         ];
 
+        $lembaga    = $request->nama_lembaga;
         LembagaBantuan::where('school_id', $school->id)->delete();
-        if ($request->nama_lembaga != array('')) {
-            foreach ($request->nama_lembaga as $item => $lembaga) {
-                $data2 = [
-                    'school_id'     => $school->id,
-                    'name'          => $request['nama_lembaga'][$item]
-                ];
-
-                LembagaBantuan::create($data2);
+        if ($lembaga[0] != null) {
+            for ($i = 0; $i < count($lembaga); $i++) {
+                $lembagaSchool  = new LembagaBantuan();
+                $lembagaSchool->school_id   = $school->id;
+                $lembagaSchool->name        = $lembaga[0];
+                $lembagaSchool->save();
             }
         }
 

@@ -62,7 +62,6 @@
                                         <th>Nama Guru</th>
                                         <th>NUPTK</th>
                                         <th>Status Ketenagaan</th>
-                                        <th>Jenis Kelamin</th>
                                         <th>Pendidikan Terakhir</th>
                                         <th>Status Sertifikasi</th>
                                         <th>Action</th>
@@ -75,7 +74,6 @@
                                         <td>{{ $teacher->teacher_name }}</td>
                                         <td>{{ $teacher->nuptk }}</td>
                                         <td>{{ $teacher->employment_status }}</td>
-                                        <td>{{ $teacher->gender }}</td>
                                         <td>{{ $teacher->last_education }}</td>
                                         <td>{{ $teacher->certification_status }}</td>
                                         <td>

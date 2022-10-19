@@ -94,8 +94,7 @@
                                                 <span class="badge badge-success">Acitived</span>
                                             </td>
                                             <td class="d-flex justify-content-center">
-                                                <a href="{{ route('verifikator.teacher.show', $teacher) }}"
-                                                    class="btn btn-sm btn-primary">Lihat</a>
+                                                <a href="{{ route('verifikator.teacher.show', $teacher) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach

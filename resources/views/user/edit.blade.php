@@ -48,7 +48,8 @@
                         {{-- form district --}}
                         @if($user->role->name == 'Verifikator')
                         <div class="form-group verifykator">
-                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                            <label for="">Nama Kecamatan</label>
+                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" >
                                 @foreach($user->districts as $district)
                                 <option selected value="{{ $district->id }}">{{ $district->name }}</option>
                                 @endforeach
@@ -59,7 +60,8 @@
                         </div>
                         @endif
                         <div class="form-group d-none form-city">
-                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                            
+                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id">
                                 @foreach($user->districts as $district)
                                 <option selected value="{{ $district->id }}">{{ $district->name }}</option>
                                 @endforeach

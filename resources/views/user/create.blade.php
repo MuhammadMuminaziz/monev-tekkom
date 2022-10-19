@@ -39,7 +39,8 @@
                             </select>
                         </div>
                         <div class="form-group d-none form-city">
-                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                            <label for="">Nama Kecamatan</label>
+                            <select name="districts[]" class="form-control" style="width: 100%;" id="city_id" >
                                 @foreach($districts as $district)
                                 <option value="{{ $district->id }}">{{ $district->name }}</option>
                                 @endforeach

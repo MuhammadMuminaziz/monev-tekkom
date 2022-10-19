@@ -34,7 +34,7 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <!-- Belum Verifikasi Data Sekolah -->
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTableCheckBox" width="100%" cellspacing="0">
                                     <thead>
                                         <th width="5%">No</th>
                                         <th>Nama Sekolah</th>
@@ -91,8 +91,8 @@
                                             <span class="badge badge-success">Acitived</span>
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('verifikator.show', $school) }}"
-                                                class="btn btn-sm btn-primary">Lihat</a>
+                                            <a href="{{ route('verifikator.show', $school) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
+                                            
                                         </td>
                                         @endforeach
                                     </tbody>

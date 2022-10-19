@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row p-3">
                             <div class="col-md-3">
-                                <div class="input-group mb-3">
+                                <!-- <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="btn btn-primary" for="filterDistrict" id="btn-filter">Filter</label>
                                     </div>
@@ -19,7 +19,19 @@
                                         <option value="{{ $district->id }}">{{ $district->name }}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> -->
+
+                                <div class="input-group mb-3">
+                                        <select class="custom-select" id="filterDistrict">
+                                            <option selected disabled>- Pilih Kecamatan -</option>
+                                            @foreach($districts as $district)
+                                            <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="input-group-append">
+                                            <label class="btn btn-primary" for="filterDistrict" id="btn-filter">Filter</label>
+                                        </div>
+                                    </div>
 
                             </div>
                             <a href="{{ route('reporting.index') }}" class="">

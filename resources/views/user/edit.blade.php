@@ -34,14 +34,11 @@
                         </div>
                         <div class="form-group">
                             <label>Role Name</label>
-                            <select name="role_id" class="form-control" id="role_id" required onchange="getCity()">
-                                @foreach($roles as $role)
-                                @if($user->role->name == $role->name)
-                                <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
-                                @else
-                                <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                @endif
-                                @endforeach
+                            <select name="role_id" class="form-control " id="role_id" required onchange="getCity()">
+                                <option value="1">Operator</option>
+                                <option value="2" {{ $districts->count() == 0 ? 'disabled' : '' }}>Verifikator</option>
+                                <option value="3">Super Admin</option>
+                                <option value="4">Owner</option>
                             </select>
                         </div>
 

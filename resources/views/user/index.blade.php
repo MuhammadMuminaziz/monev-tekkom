@@ -2,16 +2,6 @@
 <div class="container-fluid">
     <div class="row">
 
-        {{-- Message --}}
-        @if(session()->has('message'))
-        <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">
-            {{ session('message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @endif
-
         <div class="col">
             <div class="card shadow border-bottom-primary">
                 <div class="card-header py-3">
@@ -45,8 +35,8 @@
                                         <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline">
                                             @method('delete')
                                             @csrf
-                                            <button type="submit"
-                                                class="btn btn-sm btn-danger rounded "><i class="fas fa-trash"></i></button>
+                                            <button type="submit" class="d-none"></button>
+                                                    <a href="" class="btn btn-sm btn-danger btn-rounded not-link confirm-delete"><i class="fas fa-trash"></i></a>
                                         </form>
                                     </td>
                                 </tr>

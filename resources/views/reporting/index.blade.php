@@ -8,7 +8,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row p-3">
-                            <div class="col-md-3">
+                            <div class="col-md-6 d-flex">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="btn btn-primary" for="filterDistrict" id="btn-filter">Filter</label>
@@ -20,11 +20,15 @@
                                         @endforeach
                                     </select>
                                 </div>
-
+                                <a href="{{ route('reporting.index') }}" class="ml-3">
+                                    <button class="btn btn-danger mb-3" type="button">Reset</button>
+                                </a>
                             </div>
-                            <a href="{{ route('reporting.index') }}" class="">
-                                <button class="btn btn-danger float-right mb-3" type="button">Reset</button>
-                            </a>
+                            <div class="col-md-6 d-flex justify-content-end">
+                                <a href="" class="d-none" id="schools-data">
+                                    <button class="btn btn-primary"><i class="fas fa-print"></i> Print semua data</button>
+                                </a>
+                            </div>
                         </div>
 
                         <div class="row p-2">

@@ -27,6 +27,7 @@
     {{-- checkbox datatable --}}
     <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
 
     @livewireStyles
 
@@ -137,17 +138,47 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('sb-admin-2/js/demo/datatables-demo.js') }}"></script>
     <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+    
+    <script src=""></script>
 
-    {{-- sweetalert --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/izitoast/js/iziToast.min.js"></script>
 
     
 
     <script>
         var table;
         $(document).ready(function(){
+
+            // Message
+            @if(Session::has('message'))
+            iziToast.success({
+                title: 'Yeay!',
+                message: "{{ session('message') }}",
+                position: 'topRight'
+            });
+            @endif
+
+            // Confirm delete
+            $('.not-link').click(function(e){
+                e.preventDefault();
+            });
+            $(document).on('click', '.confirm-delete', function(){
+                Swal.fire({
+                    title: '',
+                    title: 'Yakin ingin menghapus?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus'
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        $(this).prev().trigger('click');
+                    }
+                })
+            })
+            
             $('.select2').select2({
                 placeholder: "- pilih kecamatan -"
             });
@@ -297,24 +328,18 @@
 
         // filter bt district
         $('#btn-filter').on('click', function(){
-            let id = $('#filterDistrict').val()
+            let id = $('#filterDistrict').val();
             $.ajax({
                 url : "{{ url('/filter-by-district') }}",
                 type: "get",
                 data: {id},
                 success:function(data){
-                    $('#page-school').html(data)
-                },
-                error:function(e){
-                    console.log(e);
+                    $('#page-school').html(data);
+                    $('#schools-data').removeClass('d-none');
+                    $('#schools-data').attr('href', '/reporting/download/semua-data-sekolah/' + id );
                 }
             })
         })
-
-        // swwet alert
-        if($('#message').data('message') != ''){
-            console.log('pk');
-        }
     </script>
 
     @livewireScripts

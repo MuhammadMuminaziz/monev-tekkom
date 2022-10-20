@@ -9,6 +9,7 @@ use App\Models\School;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class ReportingController extends Controller
 {
@@ -38,6 +39,28 @@ class ReportingController extends Controller
             'school' => $school
         ])->setPaper('a4', 'landscape');
         return $pdf->stream('example.pdf');
+    }
+
+    public function schoolsPrint($id)
+    {
+        $schools = School::where('district_id', $id)->where('isActive', 1)->get();
+        foreach ($schools as $id) {
+            $school = School::where('id', $id->id)->get();
+            $pdf = Pdf::loadView('print.school.index', [
+                'school' => $school
+            ])->setPaper('a4', 'landscape');
+            $output = $pdf->download('example.pdf');
+            file_put_contents("pdf/$id->id.pdf", $output);
+
+            $files = Storage::files("public");
+            $pdfFiles = array();
+            foreach ($files as $key => $val) {
+                dd($val);
+                $val = str_replace("public/pdf", "", $val);
+                array_push($pdfFiles, $val);
+            }
+        }
+        return back();
     }
 
     public function teacher(School $school)

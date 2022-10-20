@@ -6,22 +6,13 @@
                     <div class="card-header  py-3">
                           <h6 class="m-0 font-weight-bold text-primary">Data Kecamatan</h6>
                     </div>
-
-                    {{-- Message --}}
-                    @if(session()->has('message'))
-                    <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">
-                        {{ session('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @endif
       
                     <div class="card-body">
                         <div class="table-responsive">
-                              <div class="d-flex justify-content-between mb-4 ">
-                                  <button type="button" class="btn btn-sm px-3 pt-2 mb-2 btn-primary rounded-pill" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus-square"></i> Tambah Data</button>
-                              </div>
+                                <div class="d-flex justify-content-between mb-4 ">
+                                    <button type="button" class="btn btn-sm px-3 pt-2 mb-2 btn-primary rounded-pill" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus-square"></i> Tambah Data</button>
+                                </div>
+
                               <!-- Modal Tambah Data -->
                               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
@@ -76,8 +67,8 @@
                                             <form action="{{ route('district.destroy', $district) }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm btn-danger btn-rounded">
-                                                    <i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="d-none"></button>
+                                                    <a href="" class="btn btn-sm btn-danger btn-rounded not-link confirm-delete"><i class="fas fa-trash"></i></a>
                                             </form>
                                         </td>
                                     </tr>

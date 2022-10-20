@@ -146,7 +146,7 @@ class SchoolController extends Controller
             for ($i = 0; $i < count($lembaga); $i++) {
                 $lembagaSchool  = new LembagaBantuan();
                 $lembagaSchool->school_id   = $school_id->id;
-                $lembagaSchool->name        = $lembaga[0];
+                $lembagaSchool->name        = $lembaga[$i];
                 $lembagaSchool->save();
             }
         }
@@ -278,7 +278,7 @@ class SchoolController extends Controller
             for ($i = 0; $i < count($lembaga); $i++) {
                 $lembagaSchool  = new LembagaBantuan();
                 $lembagaSchool->school_id   = $school->id;
-                $lembagaSchool->name        = $lembaga[0];
+                $lembagaSchool->name        = $lembaga[$i];
                 $lembagaSchool->save();
             }
         }

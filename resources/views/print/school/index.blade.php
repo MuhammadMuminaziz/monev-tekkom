@@ -51,7 +51,5 @@
             </td>
         </tr>
     </table>
-
-    <h1>{{ $school->name }}</h1>
 </body>
 </html>

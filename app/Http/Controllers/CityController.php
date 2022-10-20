@@ -99,7 +99,7 @@ class CityController extends Controller
     public function destroy(City $city)
     {
         $city->delete();
-        // District::where('city_id', $city->id)->delete();
+        District::where('city_id', $city->id)->delete();
         return redirect()->back()->with('message', 'Data Kota berhasil dihapus..');
     }
 

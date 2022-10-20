@@ -6,17 +6,6 @@
                     <div class="card-header py-3">
                           <h6 class="m-0 font-weight-bold text-primary">Data Kota</h6>
                     </div>
-
-                    {{-- Message --}}
-                    @if(session()->has('message'))
-                    {{-- <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="z-index: 99; top: 80px; right: 10px;">
-                        {{ session('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div> --}}
-                    <div id="message" data-message="{{ session('message') }}"></div>
-                    @endif
       
                     <div class="card-body">
                         <div class="table-responsive">
@@ -38,7 +27,7 @@
                                           <div class="modal-body">
                                               <div class="form-group">
                                                   <label for="message-text" class="col-form-label">Nama Kota</label>
-                                                  <input type="text" name="name" class="form-control" id="name" placeholder="" required>
+                                                  <input type="text" name="name" class="form-control" id="name" placeholder="masukan nama kota" required>
                                               </div>
                                           </div>
                                           <div class="modal-footer">
@@ -69,11 +58,11 @@
                                         <td>{{ $city->name }}</td>
                                         <td>
                                             <a href="#" class="btn btn-sm btn-warning btn-rounded edit-city" id="{{ $city->id }}"><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal2"></i></a>
-                                            <form action="{{ route('cities.destroy', $city) }}" method="post" class="d-inline">
+                                            <form action="{{ route('cities.destroy', $city) }}" method="post" class="d-inline" id="confirm-delete">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm btn-danger btn-rounded">
-                                                    <i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="d-none"></button>
+                                                    <a href="" class="btn btn-sm btn-danger btn-rounded not-link confirm-delete"><i class="fas fa-trash"></i></a>
                                             </form>
                                         </td>
                                     </tr>

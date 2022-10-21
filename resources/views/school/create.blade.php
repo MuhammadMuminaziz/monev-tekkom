@@ -423,8 +423,8 @@
                                             <div class="col-sm-8">
                                                 <select class="custom-select @error('kesesuaian_kuota') is-invalid @enderror" id="kesesuaian_kuota" name="kesesuaian_kuota">
                                                     <option selected disabled value="">Pilih</option>
-                                                    <option {{ old('kesesuaian_kuota') == 'Ada' ? 'selected' : '' }}>Ada</option>
-                                                    <option {{ old('kesesuaian_kuota') == 'Tidak Ada' ? 'selected' : '' }}>Tidak Ada</option>
+                                                    <option {{ old('kesesuaian_kuota') == 'Sesuai' ? 'selected' : '' }}>Sesuai</option>
+                                                    <option {{ old('kesesuaian_kuota') == 'Tidak Sesuai' ? 'selected' : '' }}>Tidak Sesuai</option>
                                                 </select>
                                                 @error('kesesuaian_kuota')
                                                 <div class="invalid-feedback">

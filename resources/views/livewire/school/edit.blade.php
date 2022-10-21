@@ -24,35 +24,39 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <!-- Belum Verifikasi Data Sekolah -->
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTableCheckBox" width="100%" cellspacing="0">
                                     <thead>
-                                        <th width="5%">No</th>
-                                        <th>Nama Sekolah</th>
-                                        <th>NPSN</th>
-                                        <th>Kecamatan</th>
-                                        <th>Kota</th>
-                                        <th class="text-center">Status Verifikasi</th>
-                                        <th class="text-center">Action</th>
+                                        <tr>
+                                            <th width="5%">No</th>
+                                            <th>Nama Sekolah</th>
+                                            <th>NPSN</th>
+                                            <th>Kecamatan</th>
+                                            <th>Kota</th>
+                                            <th class="text-center">Status Verifikasi</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($schoolsVerify as $school)
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $school->name }}</td>
-                                        <td>{{ $school->npsn }}</td>
-                                        <td>{{ $school->district->name }}</td>
-                                        <td>{{ $school->city->name }}</td>
-                                        <td class="text-center">
-                                            <span class="badge badge-danger">Not Acitived</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{ route('verifikator.schools.verify', $school) }}"
-                                                class="btn btn-sm btn-success">Verifikasi</a>
-                                            <a href="{{ route('verifikator.schools.reject', $school) }}"
-                                                class="btn btn-sm btn-danger">Tolak</a>
-                                            <a href="{{ route('verifikator.show', $school) }}"
-                                                class="btn btn-sm btn-primary">Lihat</a>
-                                        </td>
-                                        @endforeach
+                                        <tr>
+                                            @foreach($schoolsVerify as $school)
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $school->name }}</td>
+                                            <td>{{ $school->npsn }}</td>
+                                            <td>{{ $school->district->name }}</td>
+                                            <td>{{ $school->city->name }}</td>
+                                            <td class="text-center">
+                                                <span class="badge badge-danger">Not Acitived</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="{{ route('verifikator.schools.verify', $school) }}"
+                                                    class="btn btn-sm btn-success">Verifikasi</a>
+                                                <a href="{{ route('verifikator.schools.reject', $school) }}"
+                                                    class="btn btn-sm btn-danger">Tolak</a>
+                                                <a href="{{ route('verifikator.show', $school) }}"
+                                                    class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                                            </td>
+                                            @endforeach
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -62,28 +66,32 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <th width="5%">No</th>
-                                        <th>Nama Sekolah</th>
-                                        <th>NPSN</th>
-                                        <th>Kecamatan</th>
-                                        <th>Kota</th>
-                                        <th class="text-center">Status Verifikasi</th>
-                                        <th class="text-center">Action</th>
+                                        <tr>
+                                            <th width="5%">No</th>
+                                            <th>Nama Sekolah</th>
+                                            <th>NPSN</th>
+                                            <th>Kecamatan</th>
+                                            <th>Kota</th>
+                                            <th class="text-center">Status Verifikasi</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($schoolsActived as $school)
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $school->name }}</td>
-                                        <td>{{ $school->npsn }}</td>
-                                        <td>{{ $school->district->name }}</td>
-                                        <td>{{ $school->city->name }}</td>
-                                        <td class="text-center">
-                                            <span class="badge badge-success">Acitived</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{ route('verifikator.show', $school) }}"
-                                                class="btn btn-sm btn-primary">Lihat</a>
-                                        </td>
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $school->name }}</td>
+                                            <td>{{ $school->npsn }}</td>
+                                            <td>{{ $school->district->name }}</td>
+                                            <td>{{ $school->city->name }}</td>
+                                            <td class="text-center">
+                                                <span class="badge badge-success">Acitived</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="{{ route('verifikator.show', $school) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
+                                                
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\CompetensiTeacher;
 use App\Models\District;
 use App\Models\Periode;
+use App\Models\ProgramTeacher;
 use App\Models\School;
 use App\Models\Teacher;
+use App\Models\Training;
+use App\Models\TrainingNeedNow;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class ReportingController extends Controller
@@ -38,27 +43,23 @@ class ReportingController extends Controller
         $pdf = Pdf::loadView('print.school.index', [
             'school' => $school
         ])->setPaper('a4', 'landscape');
-        return $pdf->stream('example.pdf');
+        return $pdf->download('data-sekolah-' . $school->slug . '.pdf');
     }
 
     public function schoolsPrint($id)
     {
         $schools = School::where('district_id', $id)->where('isActive', 1)->get();
-        foreach ($schools as $id) {
-            $school = School::where('id', $id->id)->get();
+        foreach ($schools as $school) {
             $pdf = Pdf::loadView('print.school.index', [
                 'school' => $school
             ])->setPaper('a4', 'landscape');
-            $output = $pdf->download('example.pdf');
-            file_put_contents("pdf/$id->id.pdf", $output);
+            $pdf->render();
+            $output = $pdf->output();
+            file_put_contents("pdf/$school->id.pdf", $output);
 
-            $files = Storage::files("public");
-            $pdfFiles = array();
-            foreach ($files as $key => $val) {
-                dd($val);
-                $val = str_replace("public/pdf", "", $val);
-                array_push($pdfFiles, $val);
-            }
+            $file = public_path() . "/pdf/$school->id.pdf";
+            $headers = array('Content-Type: application/pdf',);
+            return Response::download($file,  $school->id . '.pdf', $headers);
         }
         return back();
     }
@@ -79,9 +80,13 @@ class ReportingController extends Controller
     public function teacherPrint(Teacher $teacher)
     {
         $pdf = Pdf::loadView('print.teacher.index', [
-            'teacher' => $teacher
+            'teacher'       => $teacher,
+            'trainings'     => Training::where('teacher_id', $teacher->id)->get(),
+            'trainingNeeds' => TrainingNeedNow::where('teacher_id', $teacher->id)->get(),
+            'programs'      => ProgramTeacher::where('teacher_id', $teacher->id)->get(),
+            'kompetensis'   => CompetensiTeacher::where('teacher_id', $teacher->id)->get()
         ])->setPaper('a4', 'landscape');
-        return $pdf->stream('example.pdf');
+        return $pdf->download('data-guru-' . $teacher->username . '.pdf');
     }
 
     // Filter

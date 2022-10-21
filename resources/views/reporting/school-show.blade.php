@@ -26,181 +26,151 @@
                                             <table class="table table-sm table-borderless">
                                                 <tbody>
                                                     <tr>
-                                                        <th scope="row" class="my-5 font-weight-bold text-primary">
+                                                        <th
+                                                            class="my-5 font-weight-bold text-primary bg-light border-bottom p-2">
                                                             <h6><strong> A. Data Umum</strong></h6>
                                                         </th>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5"></th>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <th scope="row" class="col-md-5">Nama Sekolah</th>
+                                                        <td class="col-md-7">: {{ $school->name }}</td>
+                                                    <tr>
+                                                        <th scope="row" class="col-md-5">NPSN</th>
+                                                        <td class="col-md-7">: {{ $school->npsn }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5">Nama Sekolah
-                                                        </th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->name }}</td>
-                                                    <tr>
-                                                        <th scope="row" class="col-md-5">Nomor Pokok Sekolah Nasional (NPSN)</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->npsn }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row" class="col-md-5">Jumlah Siswa</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->jumlah_siswa }}</td>
+                                                        <th scope="row" class="col-md-4">Jumlah Siswa</th>
+                                                        <td class="col-md-5">: <strong> Laki-Laki :</strong>
+                                                            {{$school->siswa_lak}} ,<strong> Perempuan :</strong>
+                                                            {{ $school->siswa_per}} <br>
+                                                            <strong> Total : </strong> {{$school->jumlah_siswa }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">UNBK</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->unbk . ', Tahun ' . $school->unbk_tahun }}</td>
+                                                        <td class="col-md-7">: {{ $school->unbk }} , <strong>Tahun :
+                                                            </strong> {{ $school->unbk_tahun }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Desa/Kecamatan</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->district->name }}</td>
+                                                        <td class="col-md-7">: {{ $school->district->name }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kabupaten/Kota</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->city->name }}</td>
+                                                        <td class="col-md-7">: {{ $school->city->name }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Provinsi</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->provinsi }}</td>
+                                                        <td class="col-md-7">: {{ $school->provinsi }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Akses Transportasi</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->transportasi }}</td>
+                                                        <td class="col-md-7">: {{ $school->transportasi }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kondisi Geografis</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->geografis }}</td>
+                                                        <td class="col-md-7">: {{ $school->geografis }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kondisi Sosekbud</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->sosekbud }}</td>
+                                                        <td class="col-md-7">: {{ $school->sosekbud }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5">Fasilitas Komunikasi Saat Ini</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->internet }}</td>
+                                                        <th scope="row" class="col-md-5">Fasilitas Komunikasi Saat Ini
+                                                        </th>
+                                                        <td class="col-md-7">: {{ $school->internet }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5">Pernah Mendapat Bantuan Terkait Teknologi Informasi dan Komunikasi</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->bantuan_teknologi }}</td>
+                                                        <th scope="row" class="col-md-5">Pernah Mendapat Bantuan Terkait
+                                                            Teknologi Informasi dan Komunikasi</th>
+                                                        <td class="col-md-7">: {{ $school->bantuan_teknologi }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Lembaga Pemberi Bantuan</th>
-                                                        <td>:</td>
-                                                        <td>
-                                                        @foreach($school->lembaga_bantuan as $data)
-                                                        {{ $data->name }}, 
-                                                         @endforeach
+                                                        <td class="col-md-7">:
+                                                            @foreach($school->lembaga_bantuan as $data)
+                                                            {{ $data->name }},
+                                                            @endforeach
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Listrik</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->listrik }}</td>
+                                                        <td class="col-md-7">: {{ $school->listrik }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">SumberDaya Listrik</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->power_suplay }}</td>
+                                                        <td class="col-md-7">: {{ $school->power_suplay }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Durasi Listrik</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->durasi_listrik }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row" class="col-md-5"></th>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td class="col-md-7">: {{ $school->durasi_listrik}} ( Jam )</td>
                                                     </tr>
                                                     <!-- B. Data Sekolah Yang Memiliki Akses Internet -->
                                                     <tr>
-                                                        <th scope="row" class="my-5 font-weight-bold text-primary">
-                                                            <h6><strong> B. Data Sekolah Yang Memiliki Akses Internet</strong></h6>
+                                                        <th colspan="2"
+                                                            class="my-5 font-weight-bold text-primary bg-light border-bottom p-2">
+                                                            <h6><strong> B. Data Sekolah Yang Memiliki Akses
+                                                                    Internet</strong></h6>
                                                         </th>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5"></th>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
                                                         <th scope="row" class="col-md-5">Laboratorium</th>
-                                                        <td>:</td>
-                                                        <td>Komputer {{ $school->laboratorium_komputer }}, Multimedia {{ $school->laboratorium_multimedia }}</td>
+                                                        <td class="col-md-7">: <strong> Komputer :
+                                                            </strong>{{ $school->laboratorium_komputer }}, <strong>
+                                                                Multimedia : </strong>
+                                                            {{ $school->laboratorium_multimedia }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5">Jenis Program / Kegiatan yang  Diterima</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->jenis_program }}</td>
+                                                        <th scope="row" class="col-md-5">Jenis Program / Kegiatan yang
+                                                            Diterima</th>
+                                                        <td class="col-md-7">: {{ $school->jenis_program }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Tahun Menerima Bantuan</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->tahun_bantuan }}</td>
+                                                        <td class="col-md-7">: {{ $school->tahun_bantuan }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5">Perangkat Internet yang Ada</th>
+                                                        <th scope="row" class="col-md-5">Perangkat Internet yang Ada
+                                                        </th>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">A. LAN/Wireless LAN</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->lan }}</td>
-                                                        <td>Jumlah Unit</td>
-                                                        <td>:</td>
-                                                        <td>{{ $school->lan_unit }}</td>
+                                                        <td class="col-md-7">: {{ $school->lan }} , <strong> Jumlah Unit
+                                                                :</strong> {{ $school->lan_unit }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">B. Router</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->router }}</td>
-                                                        <td>Jumlah Unit</td>
-                                                        <td>:</td>
-                                                        <td>{{ $school->router_unit }}</td>
+                                                        <td class="col-md-7">: {{ $school->router }} , <strong> Jumlah
+                                                                Unit :</strong> {{ $school->router_unit }} </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">C. Komputer</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->komputer }}</td>
-                                                        <td>Jumlah Unit</td>
-                                                        <td>:</td>
-                                                        <td>{{ $school->komputer_unit }}</td>
+                                                        <td class="col-md-7">: {{ $school->komputer }} , <strong> Jumlah
+                                                                Unit :</strong>{{ $school->komputer_unit }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">D. Kuota Banwidth Saat Ini</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->kuota_bandwidth }}</td>
+                                                        <td class="col-md-7">: {{ $school->kuota_bandwidth }}
+                                                            {{ $school->internet_speed}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="col-md-5">E. Kesesuaian Kuota Dengan Kebutuhan </th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->kesesuaian_kuota }}</td>
+                                                        <th scope="row" class="col-md-5">E. Kesesuaian Kuota Dengan
+                                                            Kebutuhan </th>
+
+                                                        <td class="col-md-7">: {{ $school->kesesuaian_kuota }} </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">F. Alasan Penambahan Kuota</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->alasan_tambah_kuota }}</td>
+                                                        <td class="col-md-7">: {{ $school->alasan_tambah_kuota }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row" class="my-5 font-weight-bold text-primary">
+                                                        <th
+                                                            class="my-5 font-weight-bold text-primary bg-light border-bottom p-2">
                                                             <h6><strong> C. Saran</strong></h6>
                                                         </th>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Saran</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->saran }}</td>
+                                                        <td class="col-md-7">: {{ $school->saran }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -211,83 +181,93 @@
                                 <!-- Kuisioner -->
                                 <div class="col-md-4 border mt-3">
                                     <!-- <div class="container my-3"> -->
-                                        <div class="table-responsive my-5">
-                                            <table class="table-sm table-borderless">
-                                                <tbody>
-                                                    <tr>
-                                                        <th class="col-md-6">Kode Kuisioner</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->kode_kuisioner }}</td>
-                                                    <tr>
-                                                    <tr>
-                                                        <th class="col-md-6">Tingkatan Sekolah</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->tingkat_sekolah }}</td>
-                                                    <tr>
-                                                    <tr>
-                                                        <th class="col-md-6">Nama Petugas Pendataan</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->nama_petugas }}</td>
-                                                    <tr>
-                                                    <tr>
-                                                        <th class="col-md-6">NIP</th>
-                                                        <td>:</td>
-                                                        <td>{{ $school->nip }}</td>
-                                                    <tr>
-                                                    <tr>
-                                                        <th class="align-top">Range Waktu Pendataan</th>
-                                                        <td class="align-top">:</td>
-                                                        <td class="align-top">{{ $school->range_waktu_dari . ' s/d ' . $school->range_waktu_sampai }}</td>
-                                                    <tr>
-                                                    <tr>
-                                                        <th colspan="3">Analisa Petugas Pendataan</th>
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="30">{{ $school->analisis }}</textarea>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <div class="table-responsive">
-                                                            <table class="table  table-bordered">
-                                                                <tr>
-                                                                    <td colspan="2" class="col-sm-6">
-                                                                        <table class="table table-sm table-borderless">
-                                                                            <tr>
-                                                                                <td><small> Responden</small></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>tgl</td>
-                                                                                <td>:</td>
-                                                                                <td></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>xxx</td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </td>
-                                                                    <td colspan="2" class="col-sm-6 m-0">
-                                                                        <table class="table table-sm table-borderless">
-                                                                            <tr>
-                                                                                <td><small>Petugas Pengumpul Data</small> 
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>tgl</td>
-                                                                                <td>:</td>
-                                                                                <td></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>xxx</td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <div class="table-responsive my-5">
+                                        <table class="table-sm table-borderless">
+                                            <tbody>
+                                                <tr>
+                                                    <th class="col-md-5"><small>Kode Kuisioner</small></th>
+                                                    <td class="col-md-7"><small>:
+                                                            {{ $school->kode_kuisioner . '/B. TEKKOM/' . $school->tekkom . '/KR/2016' }}</small>
+                                                    </td>
+                                                <tr>
+                                                <tr>
+                                                    <th class="col-md-5"><small>Tingkatan Sekolah</small></th>
+                                                    <td class="col-md-7"><small>: {{ $school->tingkat_sekolah }}</small>
+                                                    </td>
+                                                <tr>
+                                                <tr>
+                                                    <th class="col-md-5"><small>Nama Petugas Pendataan</small></th>
+                                                    <td class="col-md-7"><small>: {{ $school->nama_petugas }}</small>
+                                                    </td>
+                                                <tr>
+                                                <tr>
+                                                    <th class="col-md-5"><small>NIP</small></th>
+                                                    <td class="col-md-7"><small>: {{ $school->nip }}</small></td>
+                                                <tr>
+                                                <tr>
+                                                    <th class="col-md-5"><small>Range Waktu Pendataan</small></th>
+                                                    <td class="col-md-7"><small>: {{ $school->range_waktu_dari }}
+                                                            <strong>s/d </strong>
+                                                            {{ $school->range_waktu_sampai }}</small></td>
+                                                <tr>
+                                                <tr class="text-center">
+                                                    <th colspan="3"><small>Analisa Petugas Pendataan</small></th>
+                                                <tr>
+                                                    <td colspan="3"><small>
+                                                            <textarea class="form-control"
+                                                                id="exampleFormControlTextarea1"
+                                                                rows="30">{{ $school->analisis }}</textarea></small>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tr>
+                                                                <td colspan="2" class="col-sm-6">
+                                                                    <table class="table table-sm table-borderless">
+                                                                        <tr>
+                                                                            <td class="col-md-12 text-center">
+                                                                                <small>Responden</small></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="col-md-12 text-center"><small>
+                                                                                    tgl : {{ $school->date_responden }}
+                                                                                </small></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="col-md-12 text-center"><small>(
+                                                                                    {{ $school->nama_responden }}
+                                                                                    )</small></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td colspan="2" class="col-sm-6 m-0">
+                                                                    <table class="table table-sm table-borderless">
+                                                                        <tr>
+                                                                            <td class="col-md-12 text-center">
+                                                                                <small>Petugas Pengumpul Data</small>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="col-md-12 text-center"><small>tgl
+                                                                                    :
+                                                                                    {{ $school->date_responden }}</small>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="col-md-12 text-center"><small>(
+                                                                                    {{ $school->nama_petugas }}
+                                                                                    )</small></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <!-- </div> -->
                                 </div>
                             </div>

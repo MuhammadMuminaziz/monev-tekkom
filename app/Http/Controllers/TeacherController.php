@@ -157,8 +157,8 @@ class TeacherController extends Controller
         }
 
         $trainingName   = $request->name_of_training;
-        $trainingLevel  = $request->name_of_training;
-        $trainingHour   = $request->name_of_training;
+        $trainingLevel  = $request->level;
+        $trainingHour   = $request->jampel;
         if ($trainingName[0] != null) {
             for ($i = 0; $i < count($trainingName); $i++) {
                 $trainingTeacher                = new Training();

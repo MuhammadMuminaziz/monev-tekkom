@@ -53,6 +53,7 @@ class VerifikatorController extends Controller
             'isActive' => 1,
         ]);
 
+        session()->flash('message', 'Data guru berhasil ditambahkan');
         return response()->json([
             'success' => 'Data guru berhasil di verifikasi',
         ]);
@@ -64,11 +65,10 @@ class VerifikatorController extends Controller
             'isActive' => 2,
         ]);
 
-        return $request->data;
-        // $teacher->update([
-        //     'isActive'      => 2
-        // ]);
-        // return back()->with('message', 'Data guru berhasil di tolak..');
+        session()->flash('message', 'Data guru berhasil ditolak');
+        return response()->json([
+            'success' => 'Data guru berhasil di tolak',
+        ]);
     }
 
     public function teacherCansel(Teacher $teacher)

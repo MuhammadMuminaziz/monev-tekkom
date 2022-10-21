@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label>Role Name</label>
-                            <select name="role_id" class="form-control " id="role_id" required onchange="getCity()">
+                            <select name="role_id" class="form-control " id="role_id" required onchange="getCity()" required>
                                 <option value="1">Operator</option>
                                 <option value="2" {{ $districts->count() == 0 ? 'disabled' : '' }}>Verifikator</option>
                                 <option value="3">Super Admin</option>
@@ -45,7 +45,8 @@
                         {{-- form district --}}
                         @if($user->role->name == 'Verifikator')
                         <div class="form-group verifykator">
-                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                            <label for="">Nama Kecamatan</label>
+                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" required>
                                 @foreach($user->districts as $district)
                                 <option selected value="{{ $district->id }}">{{ $district->name }}</option>
                                 @endforeach
@@ -56,7 +57,8 @@
                         </div>
                         @endif
                         <div class="form-group d-none form-city">
-                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id" multiple>
+                            
+                            <select name="districts[]" class="select2 form-control" style="width: 100%;" id="city_id">
                                 @foreach($user->districts as $district)
                                 <option selected value="{{ $district->id }}">{{ $district->name }}</option>
                                 @endforeach

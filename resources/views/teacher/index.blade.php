@@ -73,7 +73,8 @@
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('teachers.show', $teacher) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
-                                            <a href="{{ route('teachers.edit', $teacher) }}" class="btn btn-sm btn-secondary btn-rounded btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('teachers.edit', $teacher) }}" class="btn btn-sm btn-warning btn-rounded btn-sm"><i class="fas fa-edit"></i></a>
+                                           
                                             <form action="{{ route('teachers.destroy', $teacher) }}" method="post"
                                                 class="d-inline">
                                                 @method('delete')

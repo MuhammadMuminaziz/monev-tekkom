@@ -62,7 +62,6 @@
                                         <th>Nama Guru</th>
                                         <th>NUPTK</th>
                                         <th>Status Ketenagaan</th>
-                                        <th>Jenis Kelamin</th>
                                         <th>Pendidikan Terakhir</th>
                                         <th>Status Sertifikasi</th>
                                         <th>Action</th>
@@ -75,12 +74,11 @@
                                         <td>{{ $teacher->teacher_name }}</td>
                                         <td>{{ $teacher->nuptk }}</td>
                                         <td>{{ $teacher->employment_status }}</td>
-                                        <td>{{ $teacher->gender }}</td>
                                         <td>{{ $teacher->last_education }}</td>
                                         <td>{{ $teacher->certification_status }}</td>
                                         <td>
                                             <a href="{{ route('reporting.school.teacher.show', [ $school, $teacher ]) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
-                                            <a href="{{ route('reporting.teacher.print', $teacher) }}" target="_black" class="btn btn-sm btn-primary"><i class="fas fa-print"></i> Print</a>
+                                            <a href="{{ route('reporting.teacher.print', $teacher) }}" class="btn btn-sm btn-primary"><i class="fas fa-print"></i> Print</a>
                                         </td>
                                     </tr>
                                     @endforeach

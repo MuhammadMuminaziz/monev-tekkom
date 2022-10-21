@@ -41,8 +41,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="nip" class="col-sm-4 col-form-label">NIP <br><span>(Diisi jika
-                                                PNS)</span></label>
+                                        <label for="nip" class="col-sm-4 col-form-label">NIP <br><small>(Diisi jika
+                                                PNS)</small></label>
 
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="{{ old('nip', $teacher->nip) }}" placeholder="">
@@ -147,7 +147,7 @@
                                     <div class="form-group row">
                                         <label for="tmt_pns_tahun" class="col-sm-4 col-form-label">TMT PNS</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control @error('tmt_pns_tahun') is-invalid @enderror" id="tmt_pns_tahun" name="tmt_pns_tahun" value="{{ old('tmt_pns_tahun', $teacher->tmt_pns_tahun) }}" placeholder="">
+                                            <input type="number" class="form-control @error('tmt_pns_tahun') is-invalid @enderror" id="tmt_pns_tahun" name="tmt_pns_tahun" value="{{ old('tmt_pns_tahun', $teacher->tmt_pns_tahun) }}" placeholder="">
                                             @error('tmt_pns_tahun')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -183,7 +183,7 @@
                                     <div class="form-group row">
                                         <label for="tmt_class_tahun" class="col-sm-4 col-form-label">TMT Golongan</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control @error('tmt_class_tahun') is-invalid @enderror" id="tmt_class_tahun" name="tmt_class_tahun" value="{{ old('tmt_class_tahun', $teacher->tmt_class_tahun) }}" placeholder="">
+                                            <input type="number" class="form-control @error('tmt_class_tahun') is-invalid @enderror" id="tmt_class_tahun" name="tmt_class_tahun" value="{{ old('tmt_class_tahun', $teacher->tmt_class_tahun) }}" placeholder="">
                                             @error('tmt_class_tahun')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -315,7 +315,7 @@
                                     <div class="form-group row">
                                         <label for="certification_year" class="col-sm-4 col-form-label">Tahun Sertifikasi</label><br>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="certification_year" name="certification_year" placeholder="" value="{{ old('certification_year', $teacher->certification_year) }}"> <br>
+                                            <input type="number" class="form-control" id="certification_year" name="certification_year" placeholder="" value="{{ old('certification_year', $teacher->certification_year) }}"> <br>
                                         </div>
                                         <div class="col-sm-2">
                                             <small>*(diisi jika sudah sertifikasi)</small>
@@ -398,7 +398,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="#" name="unbk_socialization_activities_tahun" value="{{ old('unbk_socialization_activities_tahun', $teacher->unbk_socialization_activities_tahun) }}" placeholder="Tahun">
+                                            <input type="number" class="form-control" id="#" name="unbk_socialization_activities_tahun" value="{{ old('unbk_socialization_activities_tahun', $teacher->unbk_socialization_activities_tahun) }}" placeholder="Tahun">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -416,7 +416,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="involvement_unbk_tahun" name="involvement_unbk_tahun" value="{{ old('involvement_unbk_tahun', $teacher->involvement_unbk_tahun) }}" placeholder="Tahun">
+                                            <input type="number" class="form-control" id="involvement_unbk_tahun" name="involvement_unbk_tahun" value="{{ old('involvement_unbk_tahun', $teacher->involvement_unbk_tahun) }}" placeholder="Tahun">
                                         </div>
                                     </div>
                                     <div class="form-group row">

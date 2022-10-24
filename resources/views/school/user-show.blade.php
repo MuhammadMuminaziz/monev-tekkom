@@ -14,7 +14,7 @@
                                     <div class="text-center">
                                         <h4><strong> BALAI TEKNOLOGI KOMUNIKASI PENDIDIKAN PROVINSI MALUKU </strong>
                                         </h4>
-                                        <h5>FORMAT PENDATAAN PENDIDIKAN BERBASIS TIK (DATA KETENAGAAN)</h5>
+                                        <h5>FORMAT PENDATAAN PENDIDIKAN BERBASIS TIK (DATA SEKOLAH)</h5>
                                         <hr>
                                     </div>
                                 </div>

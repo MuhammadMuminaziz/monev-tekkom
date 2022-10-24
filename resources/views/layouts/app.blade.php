@@ -133,8 +133,8 @@
     <script src="{{ asset('sb-admin-2/js/demo/chart-pie-demo.js') }}"></script>
     <script src="{{ asset('sb-admin-2/js/demo/chart-bar-demo.js') }}"></script>
 
-     <!-- Page level plugins -->
-     <script src="{{ asset('sb-admin-2/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <!-- Page level plugins -->
+    <script src="{{ asset('sb-admin-2/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
@@ -145,6 +145,8 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://demo.getstisla.com/assets/modules/izitoast/js/iziToast.min.js"></script>
+
+    @yield('script')
 
     
 
@@ -275,6 +277,7 @@
             })
         })
     </script>
+    
 
     <script>
         function getCity(){
@@ -382,6 +385,8 @@
             })
         })
     </script>
+
+    
 
     @livewireScripts
 </body>

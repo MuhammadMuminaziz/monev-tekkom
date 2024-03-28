@@ -58,12 +58,12 @@
                                         <td>{{ $city->name }}</td>
                                         <td>
                                             <a href="#" class="btn btn-sm btn-warning btn-rounded edit-city" id="{{ $city->id }}"><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal2"></i></a>
-                                            <form action="{{ route('cities.destroy', $city) }}" method="post" class="d-inline" id="confirm-delete">
+                                            {{-- <form action="{{ route('cities.destroy', $city) }}" method="post" class="d-inline" id="confirm-delete">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="d-none"></button>
                                                     <a href="" class="btn btn-sm btn-danger btn-rounded not-link confirm-delete"><i class="fas fa-trash"></i></a>
-                                            </form>
+                                            </form> --}}
                                         </td>
                                     </tr>
                                   @endforeach

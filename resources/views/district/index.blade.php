@@ -64,12 +64,12 @@
                                         <td>{{ $district->name }}</td>
                                         <td>
                                             <a href="" class="btn btn-sm btn-warning btn-rounded edit-district" id="{{ $district->id }}" data-toggle="modal" data-target="#exampleModal2"><i class="fas fa-edit"></i></a>
-                                            <form action="{{ route('district.destroy', $district) }}" method="post" class="d-inline">
+                                            {{-- <form action="{{ route('district.destroy', $district) }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="d-none"></button>
                                                     <a href="" class="btn btn-sm btn-danger btn-rounded not-link confirm-delete"><i class="fas fa-trash"></i></a>
-                                            </form>
+                                            </form> --}}
                                         </td>
                                     </tr>
                                   @endforeach

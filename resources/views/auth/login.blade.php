@@ -60,7 +60,7 @@
             </div>
             <div class="col-md-4 bg-white py-5 px-5">
                 <div class="text-center mb-5 pt-5">
-                    <img src="/img/logo pemprov.png" alt="" height="100" width="100">
+                    <img src="{{ asset('/img/logo-pemprov.png') }}" alt="" height="100" width="100">
                 </div>
                 @error('email')
                 <div data-message="{{ $message }}" id="missLog"></div>

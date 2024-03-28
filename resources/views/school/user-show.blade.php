@@ -48,11 +48,11 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Desa/Kecamatan</th>
-                                                         <td class="col-md-7">: {{ $school->district->name }}</td>
+                                                         <td class="col-md-7">: {{ $school->district->name ?? '' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kabupaten/Kota</th>
-                                                         <td class="col-md-7">: {{ $school->city->name }}</td>
+                                                         <td class="col-md-7">: {{ $school->city->name ?? '' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Provinsi</th>

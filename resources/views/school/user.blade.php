@@ -27,8 +27,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $school->name }}</td>
                                         <td>{{ $school->npsn }}</td>
-                                        <td>{{ $school->district->name }}</td>
-                                        <td>{{ $school->city->name }}</td>
+                                        <td>{{ $school->district->name  ?? '' }}</td>
+                                        <td>{{ $school->city->name  ?? '' }}</td>
                                         <td>{{ $school->periode }}</td>
                                         <td>
                                             <a href="{{ route('school.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i

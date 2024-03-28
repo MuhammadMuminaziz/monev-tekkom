@@ -46,8 +46,8 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $teacher->teacher_name }}</td>
                                             <td>{{ $teacher->school->name }}</td>
-                                            <td>{{ $teacher->district->name }}</td>
-                                            <td>{{ $teacher->city->name }}</td>
+                                            <td>{{ $teacher->district->name ?? '' }}</td>
+                                            <td>{{ $teacher->city->name ?? '' }}</td>
                                             <td class="text-center">
                                                 <span class="badge badge-danger">Not Actived</span>
                                             </td>

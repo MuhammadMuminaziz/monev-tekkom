@@ -42,8 +42,8 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $school->name }}</td>
                                             <td>{{ $school->npsn }}</td>
-                                            <td>{{ $school->district->name }}</td>
-                                            <td>{{ $school->city->name }}</td>
+                                            <td>{{ $school->district->name ?? '' }}</td>
+                                            <td>{{ $school->city->name ?? '' }}</td>
                                             <td class="text-center">
                                                 <span class="badge badge-danger">Not Acitived</span>
                                             </td>
@@ -82,8 +82,8 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $school->name }}</td>
                                             <td>{{ $school->npsn }}</td>
-                                            <td>{{ $school->district->name }}</td>
-                                            <td>{{ $school->city->name }}</td>
+                                            <td>{{ $school->district->name ?? '' }}</td>
+                                            <td>{{ $school->city->name ?? '' }}</td>
                                             <td class="text-center">
                                                 <span class="badge badge-success">Acitived</span>
                                             </td>

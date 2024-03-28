@@ -62,8 +62,8 @@
                                         <td>{{ $teacher->teacher_name }}</td>
                                         <td>{{ $teacher->nuptk }}</td>
                                         <td>{{ $teacher->school->name }}</td>
-                                        <td>{{ $teacher->district->name }}</td>
-                                        <td>{{ $teacher->city->name }}</td>
+                                        <td>{{ $teacher->district->name ?? '' }}</td>
+                                        <td>{{ $teacher->city->name ?? '' }}</td>
                                         <td class="text-center">
                                             @if($teacher->isActive == 0)
                                             <span class="badge badge-secondary">Not Acitived</span>

@@ -36,8 +36,8 @@
                               <td>1</td>
                               <td>{{ $school->name }}</td>
                               <td>{{ $school->npsn }}</td>
-                              <td>{{ $school->district->name }}</td>
-                              <td>{{ $school->city->name }}</td>
+                              <td>{{ $school->district->name ?? '' }}</td>
+                              <td>{{ $school->city->name ?? '' }}</td>
                               <td class="text-center">
                                 <a href="{{ route('schools.show', $school) }}" class="btn btn-sm btn-info btn-rounded"><i class="fas fa-eye"></i></a>
                               </td>

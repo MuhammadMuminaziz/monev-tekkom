@@ -52,8 +52,8 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $school->name }}</td>
                                                 <td>{{ $school->npsn }}</td>
-                                                <td>{{ $school->district->name }}</td>
-                                                <td>{{ $school->city->name }}</td>
+                                                <td>{{ $school->district->name ?? '' }}</td>
+                                                <td>{{ $school->city->name ?? '' }}</td>
                                                 <td>
                                                     <a href="{{ route('reporting.school.teacher', $school) }}" class="btn btn-sm btn-success">Data guru</a>
                                                 </td>

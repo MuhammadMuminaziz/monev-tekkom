@@ -65,7 +65,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-sm-5">
                                                     <label for="siswa_lak">Laki-Laki</label>
-                                                    <input type="text" class="form-control @error('siswa_lak') is-invalid @enderror" id="siswa_lak" name="siswa_lak" value="{{ old('siswa_lak', $school->siswa_lak) }}">
+                                                    <input type="number" class="form-control @error('siswa_lak') is-invalid @enderror" id="siswa_lak" name="siswa_lak" value="{{ old('siswa_lak', $school->siswa_lak) }}">
                                                     @error('siswa_lak')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -74,7 +74,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-5">
                                                     <label for="siswa_per">Perempuan</label>
-                                                    <input type="text" class="form-control @error('siswa_per') is-invalid @enderror" id="siswa_per" name="siswa_per" value="{{ old('siswa_per', $school->siswa_per) }}">
+                                                    <input type="number" class="form-control @error('siswa_per') is-invalid @enderror" id="siswa_per" name="siswa_per" value="{{ old('siswa_per', $school->siswa_per) }}">
                                                     @error('siswa_per')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -110,7 +110,7 @@
                                                 </div>
                                                 @enderror
                                                 <div class="form-group col-sm-2">
-                                                    <input type="text" class="form-control" id="inputCity" name="unbk_tahun" placeholder="Tahun" value="{{ old('unbk_tahun', $school->unbk_tahun) }}">
+                                                    <input type="number" class="form-control" id="inputCity" name="unbk_tahun" placeholder="Tahun" value="{{ old('unbk_tahun', $school->unbk_tahun) }}">
                                                 </div>
                                                 <small>(diisi jika sudah melaksanakan UNBK)</small>
                                             </div>
@@ -273,7 +273,7 @@
                                     <div class="form-group row">
                                         <label for="durasi_listrik" class="col-sm-4 col-form-label">Durasi Listrik</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control @error('durasi_listrik') is-invalid @enderror" id="durasi_listrik" name="durasi_listrik" placeholder="" value="{{ old('durasi_listrik', $school->durasi_listrik) }}">
+                                            <input type="number" class="form-control @error('durasi_listrik') is-invalid @enderror" id="durasi_listrik" name="durasi_listrik" placeholder="" value="{{ old('durasi_listrik', $school->durasi_listrik) }}">
                                             @error('durasi_listrik')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -300,7 +300,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-sm-6">
                                                     <label for="laboratorium_komputer">1. Komputer</label>
-                                                    <input type="text" class="form-control @error('laboratorium_komputer') is-invalid @enderror" id="laboratorium_komputer" name="laboratorium_komputer"
+                                                    <input type="number" class="form-control @error('laboratorium_komputer') is-invalid @enderror" id="laboratorium_komputer" name="laboratorium_komputer"
                                                         placeholder="(...Unit)" value="{{ old('laboratorium_komputer', $school->laboratorium_komputer) }}">
                                                         @error('laboratorium_komputer')
                                                             <div class="invalid-feedback">
@@ -310,7 +310,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-6">
                                                     <label for="laboratorium_multimedia">2. Multimedia</label>
-                                                    <input type="text" class="form-control @error('laboratorium_multimedia') is-invalid @enderror" id="laboratorium_multimedia" name="laboratorium_multimedia"
+                                                    <input type="number" class="form-control @error('laboratorium_multimedia') is-invalid @enderror" id="laboratorium_multimedia" name="laboratorium_multimedia"
                                                         placeholder="(...Unit)" value="{{ old('laboratorium_multimedia', $school->laboratorium_multimedia) }}">
                                                         @error('laboratorium_multimedia')
                                                             <div class="invalid-feedback">
@@ -338,7 +338,7 @@
                                         <label for="tahun_bantuan" class="col-sm-4 col-form-label">Tahun Menerima
                                             Bantuan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control  @error('tahun_bantuan') is-invalid @enderror" id="tahun_bantuan" value="{{ old('tahun_bantuan', $school->tahun_bantuan) }}" name="tahun_bantuan" placeholder="">
+                                            <input type="number" class="form-control  @error('tahun_bantuan') is-invalid @enderror" id="tahun_bantuan" value="{{ old('tahun_bantuan', $school->tahun_bantuan) }}" name="tahun_bantuan" placeholder="">
                                             @error('tahun_bantuan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -409,7 +409,7 @@
                                         <label for="kuota_bandwidth" class="col-sm-4 col-form-label">D. Kuota Banwidth Saat
                                             Ini</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control @error('kuota_bandwidth') is-invalid @enderror" id="kuota_bandwidth" name="kuota_bandwidth" value="{{ old('kuota_bandwidth', $school->kuota_bandwidth) }}" placeholder="">
+                                            <input type="number" class="form-control @error('kuota_bandwidth') is-invalid @enderror" id="kuota_bandwidth" name="kuota_bandwidth" value="{{ old('kuota_bandwidth', $school->kuota_bandwidth) }}" placeholder="">
                                             @error('kuota_bandwidth')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -492,7 +492,7 @@
                                     <div class="form-group row">
                                         <label for="kode_kuisioner @error('kode_kuisioner') is-invalid @enderror" class="col-sm-4 col-form-label">Kode Kuisioner</label>
                                         <div class="col-sm-1">
-                                            <input type="text" class="form-control" id="kode_kuisioner" name="kode_kuisioner" value="{{ old('kode_kuisioner', $school->kode_kuisioner) }}" placeholder="">
+                                            <input type="number" class="form-control" id="kode_kuisioner" name="kode_kuisioner" value="{{ old('kode_kuisioner', $school->kode_kuisioner) }}" placeholder="">
                                             @error('kode_kuisioner')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

@@ -66,9 +66,13 @@
                                         <td>{{ $teacher->city->name }}</td>
                                         <td class="text-center">
                                             @if($teacher->isActive == 0)
-                                            <span class="badge badge-danger">Not Acitived</span>
-                                            @else
+                                            <span class="badge badge-secondary">Not Acitived</span>
+                                            @endif
+                                            @if($teacher->isActive == 1)
                                             <span class="badge badge-success">Acitived</span>
+                                            @endif
+                                            @if($teacher->isActive == 2)
+                                            <span class="badge badge-danger">Rejected</span>
                                             @endif
                                         </td>
                                         <td class="text-center">

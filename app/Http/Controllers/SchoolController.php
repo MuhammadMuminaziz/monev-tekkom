@@ -115,7 +115,7 @@ class SchoolController extends Controller
         $school['slug'] = $this->uniqueSlug($request->name);
         $school['user_id'] = auth()->user()->id;
         $school['periode'] = $periode->year;
-        $school['jumlah_siswa'] = $request->siswa_lak + $request->siswa_per;
+        $school['jumlah_siswa'] = (int) $request->siswa_lak + (int) $request->siswa_per;
 
         if ($request->unbk == 'Belum') {
             $school['unbk_tahun'] = '';

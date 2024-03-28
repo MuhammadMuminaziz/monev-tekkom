@@ -64,7 +64,7 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-sm-6">
                                                         <label for="siswa_lak">Laki-Laki</label>
-                                                        <input type="text" class="form-control @error('siswa_lak') is-invalid @enderror" id="siswa_lak" name="siswa_lak" value="{{ old('siswa_lak') }}">
+                                                        <input type="number" class="form-control @error('siswa_lak') is-invalid @enderror" id="siswa_lak" name="siswa_lak" value="{{ old('siswa_lak') }}">
                                                         @error('siswa_lak')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -73,7 +73,7 @@
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="siswa_per">Perempuan</label>
-                                                        <input type="text" class="form-control @error('siswa_per') is-invalid @enderror" id="siswa_per" name="siswa_per" value="{{ old('siswa_per') }}">
+                                                        <input type="number" class="form-control @error('siswa_per') is-invalid @enderror" id="siswa_per" name="siswa_per" value="{{ old('siswa_per') }}">
                                                         @error('siswa_per')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -101,7 +101,7 @@
                                                     </div>
                                                     @enderror
                                                     <div class="form-group col-sm-2">
-                                                        <input type="text" class="form-control" id="inputCity" name="unbk_tahun" placeholder="Tahun" value="{{ old('unbk_tahun') }}">
+                                                        <input type="number" class="form-control" id="inputCity" name="unbk_tahun" placeholder="Tahun" value="{{ old('unbk_tahun') }}">
                                                     </div>
                                                     <small>(diisi jika sudah melaksanakan UNBK)</small>
                                                 </div>
@@ -259,7 +259,7 @@
                                         <div class="form-group row">
                                             <label for="durasi_listrik" class="col-sm-4 col-form-label">Durasi Listrik</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control @error('durasi_listrik') is-invalid @enderror" id="durasi_listrik" name="durasi_listrik" placeholder="" value="{{ old('durasi_listrik') }}">
+                                                <input type="number" class="form-control @error('durasi_listrik') is-invalid @enderror" id="durasi_listrik" name="durasi_listrik" placeholder="" value="{{ old('durasi_listrik') }}">
                                                 @error('durasi_listrik')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -323,7 +323,7 @@
                                             <label for="tahun_bantuan" class="col-sm-4 col-form-label">Tahun Menerima
                                                 Bantuan</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control @error('tahun_bantuan') is-invalid @enderror" id="tahun_bantuan" name="tahun_bantuan" placeholder="" value="{{ old('tahun_bantuan') }}">
+                                                <input type="number" class="form-control @error('tahun_bantuan') is-invalid @enderror" id="tahun_bantuan" name="tahun_bantuan" placeholder="" value="{{ old('tahun_bantuan') }}">
                                                 @error('tahun_bantuan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -351,7 +351,7 @@
                                                 @enderror
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="#" name="lan_unit"
+                                                <input type="number" class="form-control" id="#" name="lan_unit"
                                                     placeholder="Jumlah Unit" value="{{ old('lan_unit') }}">
                                             </div>
                                         </div>
@@ -370,7 +370,7 @@
                                                 @enderror
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="#" name="router_unit"
+                                                <input type="number" class="form-control" id="#" name="router_unit"
                                                     placeholder="Jumlah Unit" value="{{ old('router_unit') }}">
                                             </div>
                                         </div>
@@ -389,7 +389,7 @@
                                                 @enderror
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="#" name="komputer_unit"
+                                                <input type="number" class="form-control" id="#" name="komputer_unit"
                                                     placeholder="Jumlah Unit" value="{{ old('komputer_unit') }}">
                                             </div>
                                         </div>
@@ -397,7 +397,7 @@
                                             <label for="kuota_bandwidth" class="col-sm-4 col-form-label">D. Kuota Banwidth Saat
                                                 Ini</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control @error('kuota_bandwidth') is-invalid @enderror" id="kuota_bandwidth" name="kuota_bandwidth" placeholder="" value="{{ old('kuota_bandwidth') }}">
+                                                <input type="number" class="form-control @error('kuota_bandwidth') is-invalid @enderror" id="kuota_bandwidth" name="kuota_bandwidth" placeholder="" value="{{ old('kuota_bandwidth') }}">
                                                 @error('kuota_bandwidth')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -470,7 +470,7 @@
                                     <div class="form-group row">
                                         <label for="kode_kuisioner" class="col-sm-4 col-form-label">Kode Kuisioner</label>
                                         <div class="col-sm-1">
-                                            <input type="text" class="form-control @error('kode_kuisioner') is-invalid @enderror" id="kode_kuisioner" name="kode_kuisioner" placeholder="" value="{{ old('kode_kuisioner') }}">
+                                            <input type="number" class="form-control @error('kode_kuisioner') is-invalid @enderror" id="kode_kuisioner" name="kode_kuisioner" placeholder="" value="{{ old('kode_kuisioner') }}">
                                             @error('kode_kuisioner')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

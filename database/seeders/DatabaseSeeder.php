@@ -47,18 +47,10 @@ class DatabaseSeeder extends Seeder
 
         // City::factory(10)->create();
 
-        $this->call(UsersTableSeeder::class);
+        $this->call([
+            UsersTableSeeder::class,
+            YearSeeder::class,
+        ]);
         // District::factory(20)->create();
-
-        Periode::create([
-            'year' => 2022
-        ]);
-
-        Tahun::create([
-            'name' => 2021
-        ]);
-        Tahun::create([
-            'name' => 2022
-        ]);
     }
 }

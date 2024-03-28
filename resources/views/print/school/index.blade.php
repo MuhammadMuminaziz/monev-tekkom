@@ -64,14 +64,18 @@
         <table width="100%" class="header">
             <tr style="">
                 <td rowspan="2" width="100px">
-                    <img src="{{ asset('img/logo-pemprov.png') }}" alt="pemprov maluku" height="50" class="mx-auto text-center">
+                    <div class="flex justify-center text-center">
+                        <img src="{{ asset('img/logo-pemprov.png') }}" alt="pemprov maluku" height="50" class="mx-auto text-center">
+                    </div>
                 </td>
                 <td style="background-color: gray; padding: 7px; ">
                     <h3 style="margin: 0; text-align: center; color: white;">BALAI TEKNOLOGI DAN KOMUNIKASI PENDIDIKAN
                         PROVINSI MALUKU</h3>
                 </td>
                 <td rowspan="2" width="100px">
-                    <img src="{{ asset('img/tutwuri-handayani.png') }}" alt="tutwuri handayani" height="50" class="mx-auto text-center">
+                    <div class="flex justify-center text-center">
+                        <img src="{{ asset('img/tutwuri-handayani.png') }}" alt="tutwuri handayani" height="50" class="mx-auto text-center">
+                    </div>
                 </td>
             </tr>
             <tr style="">

@@ -214,7 +214,7 @@
                                     <div class="form-group row">
                                         <label for="district_id" class="col-sm-4 col-form-label">Desa / Kecamatan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="district_id" class="form-control" id="district_id" value="{{ $school->district->name }}" readonly>
+                                            <input type="text" name="district_id" class="form-control" id="district_id" value="{{ $school->district->name ?? '' }}" readonly>
                                             {{-- <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 @foreach($districts as $district)
                                                 @if($district->id == old('district->id', $teacher->district->id))
@@ -234,7 +234,7 @@
                                     <div class="form-group row">
                                         <label for="city_id" class="col-sm-4 col-form-label">Kabupaten / Kota</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="city_id" class="form-control" id="city_id" value="{{ $school->city->name }}" readonly>
+                                            <input type="text" name="city_id" class="form-control" id="city_id" value="{{ $school->city->name ?? '' }}" readonly>
                                             {{-- <select name="city_id" id="city_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 @foreach($cities as $city)
                                                 @if($city->id == old('city->id', $teacher->city->id))

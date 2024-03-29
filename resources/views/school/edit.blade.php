@@ -121,11 +121,11 @@
                                         <div class="col-sm-8">
                                         <select name="district_id" id="district_id" class="custom-select @error('district_id') is-invalid @enderror">
                                                 @foreach($districts as $district)
-                                                @if( old('district_id', $school->district->id) == $district->id)
-                                                <option selected value="{{ $district->id }}">{{ $district->name }}</option>
-                                                @else
-                                                <option value="{{ $district->id }}">{{ $district->name }}</option>
-                                                @endif
+                                                    @if( old('district_id', $school->district->id ?? '') == $district->id)
+                                                    <option selected value="{{ $district->id }}">{{ $district->name }}</option>
+                                                    @else
+                                                    <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                             @error('district_id')
@@ -140,11 +140,11 @@
                                         <div class="col-sm-8">
                                         <select name="city_id" id="city_id" class="custom-select @error('city_id') is-invalid @enderror">
                                                 @foreach($cities as $city)
-                                                @if( old('city_id', $school->city->id) == $city->id)
-                                                <option selected value="{{ $city->id }}">{{ $city->name }}</option>
-                                                @else
-                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                                @endif
+                                                    @if( old('city_id', $school->city->id ?? '') == $city->id)
+                                                    <option selected value="{{ $city->id }}">{{ $city->name }}</option>
+                                                    @else
+                                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                             @error('city_id')

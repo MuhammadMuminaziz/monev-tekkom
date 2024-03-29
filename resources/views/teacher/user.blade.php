@@ -27,8 +27,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $teacher->teacher_name }}</td>
                                         <td>{{ $teacher->school->name }}</td>
-                                        <td>{{ $teacher->district->name }}</td>
-                                        <td>{{ $teacher->city->name }}</td>
+                                        <td>{{ $teacher->district->name ?? '' }}</td>
+                                        <td>{{ $teacher->city->name ?? '' }}</td>
                                         <td>{{ $teacher->periode }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('teacher.show', $teacher) }}" class="btn btn-sm btn-info btn-rounded"><i

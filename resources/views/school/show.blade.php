@@ -58,12 +58,12 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Desa/Kecamatan</th>
                                                         <td>:</td>
-                                                        <td>{{ $school->district->name }}</td>
+                                                        <td>{{ $school->district->name ?? '' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kabupaten/Kota</th>
                                                         <td>:</td>
-                                                        <td>{{ $school->city->name }}</td>
+                                                        <td>{{ $school->city->name ?? '' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Provinsi</th>

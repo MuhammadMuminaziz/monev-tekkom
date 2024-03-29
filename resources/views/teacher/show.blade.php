@@ -99,12 +99,12 @@
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Desa / Kecamatan</th>
 
-                                                        <td class="col-md-7">: {{ $teacher->district->name }}</td>
+                                                        <td class="col-md-7">: {{ $teacher->district->name ?? '' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Kabupaten / Kota</th>
 
-                                                        <td class="col-md-7">: {{ $teacher->city->name }}</td>
+                                                        <td class="col-md-7">: {{ $teacher->city->name ?? '' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row" class="col-md-5">Provinsi</th>

@@ -76,6 +76,13 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
+                                            {{-- when not activated --}}
+                                            @if ($teacher->isActive == 0)
+                                            <a href="{{ route('teachers.show', $teacher) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
+                                            @endif
+
+                                            {{-- when activated --}}
+                                            @if ($teacher->isActive == 1)
                                             <a href="{{ route('teachers.show', $teacher) }}" class="btn btn-sm btn-info btn-rounded btn-sm"><i class="fas fa-eye"></i></a>
                                             <a href="{{ route('teachers.edit', $teacher) }}" class="btn btn-sm btn-warning btn-rounded btn-sm"><i class="fas fa-edit"></i></a>
                                            
@@ -86,6 +93,12 @@
                                                 <button type="submit" class="d-none"></button>
                                                     <a href="" class="btn btn-sm btn-danger btn-rounded not-link confirm-delete"><i class="fas fa-trash"></i></a>
                                             </form>
+                                            @endif
+
+                                            {{-- when rejected --}}
+                                            @if ($teacher->isActive == 2)
+                                            <a href="{{ route('teachers.edit', $teacher) }}" class="btn btn-sm btn-warning btn-rounded btn-sm"><i class="fas fa-edit"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

@@ -228,8 +228,6 @@ class TeacherController extends Controller
     public function update(Request $request, Teacher $teacher)
     {
         $request->validate([
-            // 'district_id'                       => 'required',
-            // 'city_id'                           => 'required',
             'teacher_name'                      => 'required|min:3',
             'employment_status'                 => 'required',
             'nip'                               => 'required',
@@ -277,8 +275,6 @@ class TeacherController extends Controller
             'class'                         => $request->class,
             'tmt_class_tahun'               => $request->tmt_class_tahun,
             'tmt_class_bulan'               => $request->tmt_class_bulan,
-            // 'district_id'                   => $request->district_id,
-            // 'city_id'                       => $request->city_id,
             'phone'                         => $request->phone,
             'subjects_taught'               => $request->subjects_taught,
             'certification_status'          => $request->certification_status,
@@ -300,7 +296,9 @@ class TeacherController extends Controller
             'date_responden'                => $request->date_responden,
         ];
 
-        // dd($request);
+        if ($teacher->isActive == 2) {
+            $data['isActive'] = 0;
+        }
 
         $teacher->update($data);
 
